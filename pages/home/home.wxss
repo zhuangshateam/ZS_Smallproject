@@ -1,0 +1,111 @@
+.personal_info {
+	padding: 20px 0;
+	background-color: #FFF;
+}
+.photo_wrap {
+	text-align: left ;
+  margin-left:1rem;
+}
+.photo {
+	width: 50px;
+	height: 50px;
+	border-radius: 90px;
+}
+.nickname {
+	position: absolute;
+	text-align: left;
+  margin-top: -3rem;
+  left:5rem;
+	color: #696969;
+}
+.Grade .lb_txt{
+	position: absolute;
+	text-align: left;
+  margin-top: -1.2rem;
+  left:6.2rem;
+  font-size: 0.8rem;
+}
+.Grade .carImg{
+  position: absolute;
+  text-align: left;
+  margin-top: -1.2rem;
+  left:5rem;
+  width: 1rem;
+  height: 1rem;
+}
+.wode_menu{
+padding: 20px 0;
+margin-top: 10px;
+background-color: #FFF;
+}
+.wode_menu .view_menu_info{
+  height: 4.5rem;
+}
+.wode_menu .menuImg{
+ width: 2.5rem;
+ height: 2.5rem;
+ margin-left: 2rem;
+}
+.wode_menu .wode_menu_fatie{
+	text-align: left;
+  margin-left: 1.9rem;
+  font-size: 0.8rem;
+
+}
+
+/* 回帖 */
+.wode_menu .wode_huitie_img{
+
+  margin-top: -4.49rem;
+  margin-left: 8rem;
+}
+.wode_menu .wode_menu_Replies{
+  margin-top: -0.05rem;
+  margin-left: 9.8rem;
+  font-size: 0.8rem;
+}
+/* 收藏夹 */
+.wode_menu .wode_shoucangImg{
+  margin-top: -4.6rem;
+  margin-left: 15.5rem;
+}
+.wode_menu .wode_Grade_Collection{
+margin-top: 0rem;
+margin-left: 17.4rem;
+  font-size: 0.8rem;
+
+}
+
+.wode_item_wrap {
+	background-color: #FFF;
+	font-size: 14px;
+	margin-top: 10px;
+	border-top: 1px solid #E5E5E5;
+}
+.wode_item {
+    height: 45px;
+	border-bottom: 1px solid #E5E5E5;
+	padding: 0 10px;
+	line-height: 45px;
+	position: relative;
+}
+.arrow_wrap {
+    position: absolute;
+    width: 50px;
+    height: 45px;
+    right: 0;
+    top: 0;
+    background-image: url(../../image/icon-arrow.png);
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: 17px 14px;
+}
+.wode_out {
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	background-color: #FFF;
+	margin-top: 10px;
+	border-bottom: 1px solid #E5E5E5;
+	border-top: 1px solid #E5E5E5;
+}

@@ -1,0 +1,42 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/comments/comments",
+    "pages/home/home",
+    "pages/search/search",
+    "pages/login/login"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#EA2000",
+    "navigationBarTitleText": "青眼",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#9DACB7F",
+    "selectedColor": "#EA2000",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabBar/tabBar_button1_gray.png",
+        "selectedIconPath": "images/tabBar/tabBar_button1.png"
+      },
+      {
+        "pagePath": "pages/comments/comments",
+        "text": "点评",
+        "iconPath": "images/tabBar/tabBar_button3_gray.png",
+        "selectedIconPath": "images/tabBar/tabBar_button3.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "我的",
+        "iconPath": "images/tabBar/tabBar_button2_gray.png",
+        "selectedIconPath": "images/tabBar/tabBar_button2.png"
+      }
+    ]
+  }
+}
