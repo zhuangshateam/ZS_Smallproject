@@ -1,0 +1,247 @@
+/* pages/mine/mine.wxss */
+page{
+    background: #F4F4F4;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   background: linear-gradient(115deg, #f78196, #c23af0);
+}
+.account-bg {
+  width: 100%;
+  height: 150rpx;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -50rpx;
+  margin-left: 50rpx;
+}
+.v_age{
+  display: flex;
+  width: 100rpx;
+  font-size: 26rpx;
+  color: #fff;
+  text-align: right;
+}
+.v_age image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.v_sex image{
+    width: 30rpx;
+  height: 30rpx;
+}
+.v_sex{
+  display: flex;
+  width: 120rpx;
+  font-size: 26rpx;
+  color: #fff;
+  margin-left: 50rpx;
+}
+.txt_brief{
+    width: 98%;
+  height: 100rpx;
+  flex-direction: row;
+  display: flex;
+    margin-top: -30rpx;
+}
+.beif{
+   font-size: 26rpx;
+  color: #fff;
+  margin-left: 20rpx;
+}
+.txt_contentBeif{
+  font-size: 26rpx;
+  color: #fff;
+  width: 80%;
+}
+.txt_contentBeif text{
+  display: -webkit-box;      
+word-break: break-all;
+text-overflow: ellipsis;
+
+overflow: hidden;        
+-webkit-box-orient: vertical;   
+-webkit-line-clamp: 2;   
+
+}
+/* 个人m名片 */
+/* .Business{
+  position: absolute;
+ right: 10rpx;
+ top: 2%;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-content:left;
+
+ 
+}
+.btn1 {
+
+  height: 50rpx;
+  background-color: #D8497C;
+  color: white;
+font-size: 24rpx;
+
+} */
+
+
+.btn1::after {
+  border-radius: 98rpx;
+   border: 0; 
+}
+.userinfo-avatar {
+  width: 108rpx;
+  height: 108rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #fff;
+}
+/* 已发布多少篇 */
+.center_list{
+  padding-top: 20rpx;
+}
+.list_ul {
+  display: flex;
+  background: #fff;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.nav_list_center {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+.piece_li {
+  display: flex;
+  font-size: 30rpx;
+  align-items: center;
+  justify-content: center;  
+  color: #fff;
+  background-color: #D8497C;
+  width: 120rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  margin-top: 15rpx;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+}
+.piece_li1{
+   display: flex;
+  margin: 5rpx;
+  font-size: 30rpx;
+  text-align: center;
+  color: #D8497C;
+    margin-bottom: 20rpx;
+}
+.piece_li2{
+  display: flex;
+  margin: 5rpx;
+  font-size: 30rpx;
+  text-align: center;
+  color: #9D9D9D;
+    margin-bottom: 20rpx;
+}
+.itemName_li {
+  display: flex;
+  font-family: '微软雅黑';
+  font-size: 30rpx;
+  color: #000;
+  font-weight: 550;
+  padding-bottom: 10rpx;
+  padding-top: 20rpx;
+  letter-spacing:3rpx;
+}
+.person-line {
+
+  height: 2rpx;
+  margin: 15rpx;
+  background: lightgray;
+  /* margin-left: 160rpx; */
+}
+/* 订单 */
+
+
+.navs {
+  display: flex;
+}
+.nav-item {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20rpx;
+}
+.txt_piece {
+  width: 80rpx;
+  height: 40rpx;
+  margin: 5rpx;
+  font-size: 30rpx;
+  text-align: center;
+  color: #D8497C;
+}
+.txt_itemName {
+  margin-top: 20rpx;
+  font-size: 25rpx;
+  color: gray;
+}
+/* 列表 */
+.person-list {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+.list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 80rpx;
+  width: 100%;
+}
+.item-image {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 20rpx;
+}
+.item-Name{
+  color: gray;
+  font-size: 25rpx;
+  margin-left: 20rpx;
+  width: 20%;
+}
+.item-text {
+  color: #000000;
+  font-size: 25rpx;
+
+  width: 80%;
+}
+.list-itemBeif {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 80rpx;
+  width: 100%;
+
+}
+.item-textBeif{
+  /* display: -webkit-box;      
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;        
+ 
+  -webkit-line-clamp: ;  */
+    font-size: 25rpx;  
+    width: 80%;
+    height: 200rpx;
+    line-height: 40rpx;
+    margin-top: 70rpx;
+    padding-top: 100rpx;
+    padding-right: 20rpx;
+}

@@ -1,0 +1,56 @@
+<import src="../wxParse/wxParse.wxml" />
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+<form bindsubmit='formSubmit' report-submit='true'>
+<view class="container container-gray">
+	<view class="group">
+  <!-- <view class="group-header">编辑</view> -->
+		<view class="group-body">
+			<view class="input-list">
+        <!-- 永远显示 -->
+				<view class="input-item">
+					<text class="input-item-label">类型：</text>
+          <radio-group class="radio-group" bindchange="radioChange" name="radio_name" >
+            <label class="radio" wx:for="{{items}}">
+                <radio value="{{item.value}}"  checked="{{item.checked}}" disabled="true"/>{{item.name}}
+            </label>
+          </radio-group>
+				</view>
+
+        <!-- 日记 -->
+				<view class="input-item" wx:if="{{showView==true}}">
+					<text class="input-item-label">标题：</text>
+					<view class="input-item-content">
+						<input name="title" type="text" placeholder="请输入标题名称" bindblur="titleBlurFocus" value='{{reviewTitle}}'></input>
+					</view>
+				</view>
+
+        <!-- BA日记才显示 -->
+        <view class="group-body body_txt" wx:if="{{showView==true}}">
+            <textarea name="textarea" class='BA_groud_body' value='{{reviewcontent}}' placeholder="请输入内容，可输入5000字" minlength="{{min}}" maxlength="{{max}}" bindinput="txt_inputs" ></textarea>
+            <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+        </view>
+
+			</view>
+		</view>
+  </view>
+  <view class="group-header">上传图片</view>
+		<view class="group-body">
+				<view class="img-upload">
+					<view class="img-add" bindtap="chooseImage"></view>
+					<view class="img-item" bindlongtap="editImage" wx:for="{{uploadimgs}}" wx:key="{{index}}">
+						<icon type="clear" size="20" color="red" style="display:{{editable?'block':'none'}}" bindtap="deleteImg" data-index="{{index}}"/>
+						<image src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="handleImagePreview"></image>
+				</view>
+		</view>
+	</view>
+	<view class="btn-submit">
+		<button formType="submit" class="btn-block btn-red">确 认 修 改</button>
+	</view>
+</view>
+</form>
+<loading hidden="{{submitHidden}}">
+  正在提交...
+</loading>

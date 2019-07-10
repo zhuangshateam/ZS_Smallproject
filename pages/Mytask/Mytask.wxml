@@ -1,0 +1,95 @@
+ <view wx:if='{{isshare==0}}'>
+    <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+      <view slot="backText" bindtap='binReturn'>返回</view>
+      <view slot="content">妆啥</view>
+    </cu-custom>
+</view>
+<view wx:elif='{{isshare==1}}'>
+  <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText" catchtap='backHome'>返回</view>
+    <view slot="content">妆啥</view>
+  </cu-custom>
+</view>
+<view class="appointment">
+  <!-- 新人任务 -->
+  <view class='news-list' wx:for='{{newsUserList}}' wx:key="newsUserList" wx:for-index="idx" wx:for-item="items">
+      <view class='txt_nickname'>
+        <image src="https://www.izhuangsha.com/api/images/BA_crd/headPic.jpg" class='news_img' mode='aspectFill'></image>
+      </view>
+            <view class="news-list-right">
+        <text class="news-title">新用户专享</text>
+        <view class='news_grou'>积分:
+          <text style='color:#FF2727; font-size: 26rpx;'>100</text>
+        </view>
+        <view class='flex-wrp-row item'>
+          <view class='item-left flex-wrp-row'>
+            <view wx:if='{{items.examine==0}}'>
+              <text class='txt_commentCount' style='color:red;font-size: 22rpx;'>待完成</text>
+            </view>
+            <view class='flex-wrp-row' wx:elif='{{items.examine==1}}'>
+              <text class='txt_commentCount' style='color:red;font-size: 22rpx;'>审核中</text>
+            </view>
+            <view class='flex-wrp-row' wx:elif='{{items.examine==2}}'>
+              <text class='txt_commentCount' style='color:red;font-size: 22rpx;'>未通过</text>
+            </view>
+            <view class='flex-wrp-row' wx:else='{{items.examine==3}}'>
+              <text class='txt_commentCount' style='color:red;font-size: 22rpx;'>已完成</text>
+            </view>
+          </view>
+          <view class='item-right flex-wrp-row' wx:if='{{items.examine==0}}'>
+            <view class='task_btn' bindtap="completeBtn">去完成</view>
+          </view>
+        </view>
+      </view>
+  </view>
+  <!-- 佣金任务 -->
+  <view class="app-moduler" wx:for="{{myList}}" wx:key="trialList" wx:for-index="idx" wx:for-item="item">
+    <!-- <navigator url="/pages/exchange_details/exchange_details?id={{item.id}}" class="mod-item"> -->
+      <view class="news-list" bindtap='ecDetails' data-eid='{{item.commId}}' data-id='{{item.id}}'>
+          <view class='txt_nickname'>
+                <image src="{{imgUrl}}{{item.imagesUrl}}" class='news_img' mode='aspectFill'></image> 
+                <!-- <text class='txt_nickname_title'>{{item.Product_Name}}</text> -->
+              </view>
+              <view class="news-list-right">
+                  <text class="news-title">{{item.Product_Name}}</text>
+                  <view class='news_grou'>佣金:<text style='color:#FF2727; font-size: 26rpx;'>{{item.taskCommisNum}}</text></view>
+                  <view class='flex-wrp-row item'>
+                   <view class='item-left flex-wrp-row'>
+                    <view wx:if='{{item.Toexamine==0}}'>
+                        <!-- <view class='flex-wrp-row' wx:if='{{item.isgoods==0}}'> -->
+                          <text class='txt_commentCount' style='color:red;font-size: 22rpx;'>审核中</text>
+                        <!-- </view> -->
+                    </view>
+                        <view class='flex-wrp-row' wx:elif='{{item.Toexamine==1}}'>
+                          <!-- <text class='txt_commentCount' style='color:red;font-size: 22rpx;'>任务进行中</text> -->
+                            <view class='flex-wrp-row' wx:if='{{item.isgoods==0}}'>
+                              <text class='txt_commentCount' style='color:red;font-size: 22rpx;'>待发货</text>
+                            </view>
+                            <view class='news_comment' wx:elif='{{item.isgoods==1}}'>
+                              <text class='txt_commentCount' style='color:red;font-size: 22rpx;'>已发货，请注意查收</text>
+                            </view>
+                            <view class='news_comment' wx:elif='{{item.isgoods==2}}'>
+                              <text class='txt_commentCount' style='color:red;font-size: 22rpx;'>已收货，请按规则完成任务，等待审核</text>
+                            </view>
+                        </view>
+                        <view class='flex-wrp-row' wx:elif='{{item.Toexamine==2}}'>
+                          <text class='txt_commentCount' style='color:red;font-size: 22rpx;'>任务已完成</text>
+                        </view>
+                        <view class='flex-wrp-row' wx:else='{{item.Toexamine==2}}'>
+                          <text class='txt_commentCount' style='color:red;font-size: 22rpx;'>任务失败</text>
+                        </view>
+                    </view>
+                    <view class='item-right flex-wrp-row'>
+                      <view class='task_btn'>查看详情</view>
+                    </view>
+                  </view>
+              </view>
+       </view>
+    <!-- </navigator> -->
+
+   </view>
+</view>
+<view class='empty_img' wx:if="{{isCont==0&&newCont==0}}">
+      <image src='/images/empty.png'></image>
+      <text>空空如也~</text>
+</view>

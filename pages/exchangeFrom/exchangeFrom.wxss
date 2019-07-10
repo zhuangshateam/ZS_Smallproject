@@ -1,0 +1,197 @@
+
+@import '../template/loading.wxss';
+@import '/colorui/icon.wxss';
+@import '/colorui/main.wxss';
+.ul_Delivery_list{
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 15rpx;
+  margin: 20rpx;
+  border-bottom: 2rpx solid #F8F8F8;
+  padding: 20rpx;
+}
+.ul_city_name{
+  display: flex;
+  font-size: 28rpx;
+  margin-bottom: 15rpx;
+}
+.ul_item_list{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  font-size: 28rpx;
+}
+.img_ui{
+  display: flex;
+}
+.img_ui image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 16rpx;
+}
+.city_tit{
+  display: flex;
+  font-size: 26rpx;
+  color: #BFBFBF;
+}
+.address_tit{
+  display: flex;
+  margin-left: 5rpx;
+  font-size: 26rpx;
+  color: #BFBFBF;
+}
+.address_details{
+  display: flex;
+   margin-left: 5rpx;
+     font-size: 26rpx;
+  color: #BFBFBF;
+}
+.arrow_wrap {
+    position: absolute;
+    right: 30rpx;
+    top: 80rpx;
+margin-top: 12rpx;
+
+}
+.arrow_wrap image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.city_list_warp{
+  display: flex;
+  flex-direction: column;
+}
+.warp_titleName{
+  font-size: 28rpx;
+}
+.warp_context{
+  display: flex;
+  flex-direction: row;
+    font-size: 28rpx;
+}
+.btn_bottom{
+    position: relative;
+	color: #fff;
+	font-size: 24rpx;
+
+  text-align: center;
+  background:#D8497C;
+  border-radius:40rpx;
+  width: 250rpx;
+  letter-spacing:1rpx;
+  margin: 0 auto; 
+  height: 48rpx;
+  margin-top: 25rpx;
+	padding: 10rpx;
+}
+
+
+.details_List{
+  display: flex;
+  background-color: #fff;
+  margin: 25rpx;
+
+  border-radius: 15rpx;
+  flex-direction: column;
+}
+.Image_txtList{
+  display: flex;
+  flex-direction: row;
+margin: 20rpx;
+margin-top: 50rpx;
+  margin-bottom: 60rpx;
+}
+.Image_txtList image{
+  width: 130rpx;
+  height: 130rpx;
+
+}
+.row_item{
+  display: flex;
+  flex-direction: column;
+  margin-left: 25rpx;
+}
+ .titName{
+  font-size: 36rpx;
+  font-weight:  500;
+}
+.detailsNames{
+  font-size: 26rpx;
+  margin-top: 15rpx;
+  }
+  .detailsNames image{
+    width: 35rpx;
+    height: 35rpx;
+  }
+  .ul_li_infred{
+    margin-left: 15rpx;
+    padding-bottom: 15rpx;
+     font-size: 26rpx;
+  }
+  .ul_li_infred text{
+    font-size: 26rpx;
+    color: #D8497C;
+  }
+  .ul_btn_SettlementList{
+    display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+    right: 30rpx;
+    margin-top: 30rpx;
+  padding-bottom: 30rpx;
+
+  }
+  .btn_left {
+  font-family: "黑体";
+  color: #000;
+  font-size: 32rpx;
+  margin-left: 15rpx;
+}
+.btn_left .btn_left_payNum{
+  color: #D8497C;
+  font-size: 32rpx;
+  margin-right: 5rpx;
+}
+.btn_left_integral{
+  font-size: 26rpx;
+  color: #BFBFBF;
+}
+.btn_Surplus{
+  margin-top: 8rpx;
+  font-size: 26rpx;
+  color: #BFBFBF;
+}
+.btn_Surplus text{
+   color: #D8497C;
+}
+
+.btn_right {
+  /* font-family: "楷体"; */
+padding: 20rpx;
+
+}
+.btn-block{
+	  font-family: "黑体";
+  color: #fff;
+  font-size: 32rpx;
+
+   text-align: center;
+  background:#D8497C;
+  border-radius:5rpx;
+  width: 250rpx;
+  letter-spacing:1rpx;
+
+  height: 68rpx;
+}
+.btn-red{
+  background: #D8497C;
+	/* background: #EA2000; */
+	color: #fff;
+}
+.btn-red2{
+  background: #D8497C;
+	/* background: #EA2000; */
+	color: #5555;
+}

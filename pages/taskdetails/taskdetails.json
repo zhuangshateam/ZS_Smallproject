@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "佣金任务",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

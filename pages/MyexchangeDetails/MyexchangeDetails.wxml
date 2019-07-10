@@ -1,0 +1,47 @@
+  <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+<view wx:for="{{ecdList}}" wx:key="{{item.id}}">
+    <view class='duihuan'>
+       <view class='news_comment' wx:if='{{item.isState==0}}'>
+        <text class='txt_commentCount'>兑换成功，等待发货中</text>
+      </view>
+      <view class='news_comment' wx:elif='{{item.isState==1}}'>
+        <text class='txt_commentCount'>已发货，注意收货！</text>
+      </view>
+      <view class='news_comment' wx:else='{{item.isState==2}}'>
+        <text class='txt_commentCount' style='color:red;font-size: 22rpx;'>已完成</text>
+      </view>
+    </view>
+</view>
+
+
+
+
+  <view class='details_List' wx:for="{{ecdList}}" wx:key="{{item.id}}">
+
+    <view class='address_list'>
+      <view class='address_item_ui'>
+        <view class='userName'><text>{{item.userName}}</text></view>
+        <view class='phonetemp'><text>{{item.telephone}}</text></view>
+      </view>
+      <view class='address_detail_ui'>
+        <view class='ressTxt'>{{item.city}} {{item.province}} {{item.addressText}}</view>
+      </view>
+    </view>
+    <view class='Image_txtList'>
+      <image src='{{imageurl}}{{item.imagesUrl}}' class='news_img' mode='aspectFill'></image>
+      <view class='row_item'>
+        <view class='titName'> {{item.exchange_Name}}</view>
+        <view class='detailsNames'>
+          <image src='https://www.izhuangsha.com/api/images/integral1.png'></image>
+          <text style='  color: #D8497C'> {{item.IntegralNum}}</text>积分
+        </view>
+      </view>
+    </view>
+    <view class='tips_btn'>
+      <view class='warp_btn_ok'><view class='tips_btnConfirm' bindtap='determine' hidden='{{item.isState==2?true:fasle}}'>确认收货</view></view>
+      <view class='warp_btn'><view class='tips_btnUpdate' bindtap='addressUpdate'> 更多兑换</view></view>
+    </view>
+  </view>

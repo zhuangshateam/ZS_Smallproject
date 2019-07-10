@@ -1,42 +1,123 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
+    "pages/login/login",
     "pages/logs/logs",
-    "pages/comments/comments",
     "pages/home/home",
     "pages/search/search",
-    "pages/login/login"
+    "pages/newsinfo/newsinfo",
+    "pages/makeupInfo/makeupInfo",
+    "pages/myPosting/myPosting",
+    "pages/myReplies/myReplies",
+    "pages/myFavorites/myFavorites",
+    "pages/myfeedback/myfeedback",
+    "pages/mySign/mySign",
+    "pages/IntegralRanking/IntegralRanking",
+    "pages/Integral_rule/Integral_rule",
+    "pages/newsUpdate/newsUpdate",
+    "pages/compositionUpdate/compositionUpdate",
+    "pages/Partners/Partners",
+    "pages/welfare/welfare",
+    "pages/welfareDetail/welfareDetail",
+    "pages/Ontrial/Ontrial",
+    "pages/PersonHome/PersonHome",
+    "pages/UserPsHome/UserPsHome",
+    "pages/OthersPosting/OthersPosting",
+    "pages/OthersZWPosting/OthersZWPosting",
+    "pages/ToExamine/ToExamine",
+    "pages/addProducts/addProducts",
+    "pages/Myproduct/Myproduct",
+    "pages/MyTrial/MyTrial",
+    "pages/Myexchange/Myexchange",
+    "pages/MyexchangeDetails/MyexchangeDetails",
+    "pages/exchange_details/exchange_details",
+    "pages/preview/preview",
+    "pages/BargainIn/BargainIn",
+    "pages/exchangeFrom/exchangeFrom",
+    "pages/TipsBox/TipsBox",
+    "pages/AddressModify/AddressModify",
+    "pages/curriculum/curriculum",
+    "pages/curriDetails/curriDetails",
+    "pages/withdraw/withdraw",
+    "pages/taskdetails/taskdetails",
+    "pages/OntrialTask/OntrialTask",
+    "pages/Mytask/Mytask",
+    "pages/MytaskDetails/MytaskDetails",
+    "pages/Integral_record/Integral_record",
+    "pages/cropper/cropper",
+    "pages/Detailed/Detailed",
+    "pages/circleFriends/circleFriends",
+    "pages/experiencePoster/experiencePoster",
+    "pages/experienceAdd/experienceAdd",
+    "pages/forumAdd/forumAdd",
+    "pages/empiricalAdd/empiricalAdd",
+    "pages/anonymousDetails/anonymousDetails",
+    "pages/cardBA/cardBA",
+    "pages/cardPoster/cardPoster",
+    "pages/newUserTask/newUserTask",
+    "pages/friendRanking/friendRanking",
+    "pages/help/help",
+    "pages/out/out",
+    "pages/partnersApply/partnersApply"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#EA2000",
-    "navigationBarTitleText": "青眼",
-    "navigationBarTextStyle":"black",
-    "enablePullDownRefresh": true
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
   },
   "tabBar": {
     "color": "#9DACB7F",
-    "selectedColor": "#EA2000",
-    "borderStyle": "white",
+    "selectedColor": "#D8497C",
+    "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "images/tabBar/tabBar_button1_gray.png",
-        "selectedIconPath": "images/tabBar/tabBar_button1.png"
+        "iconPath": "tabbarComponent/icon/icon_index.png",
+        "selectedIconPath": "tabbarComponent/icon/icon_index_red.png",
+        "text": "首页"
       },
       {
-        "pagePath": "pages/comments/comments",
-        "text": "点评",
-        "iconPath": "images/tabBar/tabBar_button3_gray.png",
-        "selectedIconPath": "images/tabBar/tabBar_button3.png"
+        "pagePath": "pages/curriculum/curriculum",
+        "text": "课程",
+        "iconPath": "tabbarComponent/icon/curriculum.png",
+        "selectedIconPath": "tabbarComponent/icon/curriculum_red.png"
+      },
+      {
+        "pagePath": "pages/welfare/welfare",
+        "text": "福利",
+        "iconPath": "tabbarComponent/icon/welfare.png",
+        "selectedIconPath": "tabbarComponent/icon/welfare_red.png"
       },
       {
         "pagePath": "pages/home/home",
-        "text": "我的",
-        "iconPath": "images/tabBar/tabBar_button2_gray.png",
-        "selectedIconPath": "images/tabBar/tabBar_button2.png"
+        "iconPath": "tabbarComponent/icon/icon_home.png",
+        "selectedIconPath": "tabbarComponent/icon/icon_home_red.png",
+        "text": "我的"
       }
     ]
-  }
+  },
+  "plugins": {
+    "jdkefu-plugin": {
+      "version": "1.0.2",
+      "provider": "wx7ade172099e1c6f9"
+    },
+    "richeditor": {
+      "version": "1.0.0",
+      "provider": "wxe65a0c242998f59f"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxddd057056961255f"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "requiredBackgroundModes": [
+    "audio",
+    "backgroundAudioManager"
+  ],
+  "sitemapLocation": "sitemap.json"
 }

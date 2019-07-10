@@ -1,0 +1,15 @@
+/* pages/help/help.wxss */
+@import "../../wxParse/wxParse.wxss";
+page {
+  height: 100%;
+}
+
+.wx_content_help {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+  margin-right: 10rpx;
+  margin-left: 30rpx;
+  text-align: center;
+  line-height: 2;
+}

@@ -1,0 +1,200 @@
+/* pages/cardBA/cardBA.wxss */
+
+.card_wrap, .friend_wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card_inner {
+  width: 96vw;
+  height: 618rpx;
+  background-image: url('https://www.izhuangsha.com/api/images/BA_crd/card_bj1.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-radius: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 用户头像 */
+
+.container {
+  position: absolute;
+  top: -4rpx;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx 20rpx 10rpx;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+/* 文案 */
+
+.text1 {
+  margin-top: 150rpx;
+  font-size: 36rpx;
+  background: linear-gradient(to right, #f78196, #c23af0);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.text2 {
+  font-size: 65rpx;
+  font-weight: bold;
+  letter-spacing: 12rpx;
+}
+
+.text3 {
+  letter-spacing: 6rpx;
+  padding: 10rpx 20rpx;
+  color: #fff;
+  background: linear-gradient(to right, #f78196, #c23af0);
+  border-radius: 40rpx;
+  margin-top: 20rpx;
+}
+
+.user_code {
+  width: 250rpx;
+  height: 250rpx;
+  margin-top: 8rpx;
+  background-color: #eee;
+}
+
+.user_code image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 好友列表 */
+
+.friend_list {
+  margin-top: 12rpx;
+  width: 96vw;
+  height: 374rpx;
+  padding: 20rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.list_head {
+  padding-bottom: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  color: #666;
+}
+
+.friend_num {
+  color: #d8497c;
+}
+
+.none_bj {
+  text-align: center;
+}
+
+.none_bj image {
+  width: 280rpx;
+  height: 280rpx;
+}
+
+.friend_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10rpx 0;
+  border-bottom: 1px solid #eee;
+}
+
+.friend_item:last-child {
+  border-bottom: 0;
+}
+
+.friend_Info image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.friend_Info text {
+  padding-left: 20rpx;
+  line-height: 80rpx;
+}
+
+.task text {
+  line-height: 80rpx;
+}
+
+.readText {
+  color: #d8497c;
+}
+
+.grayText {
+  color: #999;
+}
+
+/* 按钮组 */
+
+.button_group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 20rpx;
+}
+
+.leftBtn {
+  width: 45%;
+}
+
+.leftBtn button {
+  font-size: 36rpx;
+  background-color: #d8497c;
+  border: none;
+  color: #fff;
+}
+
+.reightBtn {
+  color: #fff;
+  background-color: #d8497c;
+  width: 45%;
+  border: none;
+  text-align: center;
+  font-size: 36rpx;
+  line-height: 88rpx;
+  border-radius: 10rpx;
+}
+
+
+/* 排行榜图标 */
+.ranking_icon{
+  position: absolute;
+  bottom:44rpx;
+  right: 0;
+}
+.ranking_icon image{
+  width: 68rpx;
+  height: 194rpx;
+}

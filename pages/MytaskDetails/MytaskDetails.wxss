@@ -1,0 +1,192 @@
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #F0F4F7;
+}
+.details_List{
+  display: flex;
+  background-color: #fff;
+  margin: 25rpx;
+
+  border-radius: 15rpx;
+  flex-direction: column;
+}
+.duihuan{
+  display: flex;
+  margin: 20rpx 20rpx 0 20rpx;
+}
+.news_img{
+  display: flex;
+  margin-left: 10rpx;
+}
+.txt_commentCount{
+  font-size: 32rpx;
+margin-left: 10rpx;
+color:red;
+}
+.address_list{
+  display: flex;
+  flex-direction: column;
+  margin: 25rpx;
+}
+.address_item_ui{
+  display: flex;
+flex-direction: row;
+margin-bottom: 12rpx;
+}
+.userName text{
+  font-size: 28rpx;
+}
+.phonetemp text{
+  font-size: 28rpx;
+}
+.address_item_ui text{
+font-size: 34rpx;
+}
+.address_detail_ui{
+  display: flex;
+}
+.ressTxt{
+  font-size: 34rpx;
+}
+.Image_txtList{
+  display: flex;
+  flex-direction: row;
+margin: 20rpx;
+margin-top: 10rpx;
+  margin-bottom: 60rpx;
+}
+.Image_txtList image{
+  width: 180rpx;
+  height: 130rpx;
+
+}
+.row_item{
+  display: flex;
+  flex-direction: column;
+  margin-left: 25rpx;
+}
+ .titName{
+  font-size: 36rpx;
+  font-weight:  500;
+}
+.detailsNames{
+  font-size: 26rpx;
+  margin-top: 15rpx;
+  }
+  .detailsNames image{
+    width: 35rpx;
+    height: 35rpx;
+  }
+  /*要求*/
+.task_Requirement{
+ display: flex;
+  background-color: #fff;
+  margin: 25rpx; 
+  border-radius: 15rpx;
+ 
+}
+.taskItems{
+   display: flex;
+  flex-direction: column;
+  margin-top: 10rpx;
+  padding-top: 15rpx;
+   padding-bottom: 25rpx;
+}
+.task_titleName{
+ display: flex;
+    margin-left: 30rpx;
+    margin-bottom: 10rpx;
+    font-size: 30rpx;
+    color: #ACACAC;
+
+}
+.task_mycontent{
+  margin-left: 30rpx;
+font-size: 30rpx;
+}
+/**步骤**/
+.task_list_ul{
+    display: flex;
+  background-color: #fff;
+  margin: 25rpx;
+  justify-content: center;  
+  border-radius: 15rpx;
+  margin-bottom: 30rpx;
+}
+
+
+.taskContext{
+  display: flex;
+  flex-direction: column;
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+}
+.Effect_task{
+  display: flex;        
+  margin-top: 20rpx;
+    margin-left: 30rpx;
+    margin-bottom: 10rpx;
+    font-size: 34rpx;
+    color: #ACACAC;
+}
+.ui_list_task_one,.ui_list_task_two1,.ui_list_task_Three1{
+	color: #4ABDCF;
+	font-size: 24rpx;
+	padding: 15rpx;
+  text-align: center;
+  background:#fff;
+  border-radius:40rpx;
+  margin-bottom: 40rpx;
+  width: 320rpx;
+  letter-spacing:1rpx;
+  border:1rpx solid #4ABDCF;
+  margin: 15rpx auto;
+}
+ui_list_task_one1{
+    color: #ACACAC;
+  	font-size: 24rpx;
+	padding: 15rpx;
+  text-align: center;
+  background:#fff;
+  border-radius:40rpx;
+  margin-bottom: 40rpx;
+  width: 320rpx;
+  letter-spacing:1rpx;
+  border:1rpx solid #ACACAC;
+  margin: 15rpx auto;
+}
+.ui_list_task_two{
+  color: #ACACAC;
+  	font-size: 24rpx;
+	padding: 15rpx;
+  text-align: center;
+  background:#fff;
+  border-radius:40rpx;
+  margin-bottom: 40rpx;
+  width: 320rpx;
+  letter-spacing:1rpx;
+  border:1rpx solid #ACACAC;
+  margin: 15rpx auto;
+}
+ .ui_list_task_Three{
+color: #ACACAC;
+  	font-size: 24rpx;
+	padding: 15rpx;
+  text-align: center;
+  background:#fff;
+  border-radius:40rpx;
+  margin-bottom: 40rpx;
+  width: 320rpx;
+  letter-spacing:1rpx;
+  border:1rpx solid #ACACAC;
+  margin: 15rpx auto;
+ }
+.imagesize{
+ display:flex;                   
+ justify-content: center;        
+}
+.taskContext image{
+  width:45rpx;
+  height:45rpx;
+}

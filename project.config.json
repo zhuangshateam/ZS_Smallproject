@@ -6,18 +6,32 @@
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"nodeModules": false,
+		"autoAudits": false,
+		"uglifyFileName": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.0",
+	"libVersion": "2.7.3",
 	"appid": "wxddd057056961255f",
 	"projectname": "Qy_Smallproject",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -36,7 +50,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 19,
 			"list": [
 				{
 					"id": -1,
@@ -47,7 +61,131 @@
 				{
 					"id": -1,
 					"name": "用户登录",
-					"pathName": "pages/login/login"
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "发布",
+					"pathName": "pages/comments/comments",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "newsinfo",
+					"pathName": "pages/newsinfo/newsinfo",
+					"query": "id=1&isshare=1",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "makeupInfo",
+					"pathName": "pages/makeupInfo/makeupInfo",
+					"query": "id=6&isshare=1",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "22",
+					"pathName": "pages/BargainIn/BargainIn",
+					"query": "id=1034&openid=oyqXT5MN8Tr-64mrGX8649C0nL3s&nickname=辉&headimgurl=https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTI4SPlRQpLmRYwLbeV0vWS54ssaBnQj6zjU17q6gBFq2F6qxRspswqcX1nPpftDKlsyDvItkXhUXQ/132&imgurl=http://www.izhuangsha.com/Upload/image/20190314/20190314094955_4833.png",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "mywxparse",
+					"pathName": "pages/TipsBox/TipsBox",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "out",
+					"pathName": "pages/out/out",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "BargainIn",
+					"pathName": "pages/BargainIn/BargainIn",
+					"query": "scene=1034,1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "huabu",
+					"pathName": "pages/circleFriends/circleFriends",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "mywxparse",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": 1011
+				},
+				{
+					"id": 12,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": "opid=oyqXT5MN8Tr-64mrGX8649C0nL3s",
+					"scene": 1047
+				},
+				{
+					"id": 13,
+					"name": "newUserTask",
+					"pathName": "pages/newUserTask/newUserTask",
+					"query": "opid= oyqXT5MN8Tr-64mrGX8649C0nL3s&opid= oyqXT5MN8Tr-64mrGX8649C0nL3s",
+					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "TipsBox",
+					"pathName": "pages/TipsBox/TipsBox",
+					"query": "openid= oyqXT5MN8Tr-64mrGX8649C0nL3s",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "preview",
+					"pathName": "pages/welfareUpdate/welfareUpdate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "排行榜",
+					"pathName": "pages/friendRanking/friendRanking",
+					"query": "openid= oyqXT5MN8Tr-64mrGX8649C0nL3s",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "品牌合作",
+					"pathName": "pages/Partners/Partners",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "品牌合作",
+					"pathName": "pages/Partners/Partners",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预览",
+					"pathName": "pages/preview/preview",
+					"scene": null
 				}
 			]
 		}

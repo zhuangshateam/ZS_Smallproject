@@ -1,0 +1,28 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+<!--pages/Integral_rule/Integral_rule.wxml-->
+<view class='main'>
+  <view class='main_txt_one'><text>一、积分能为我带来什么？
+  1）免费兑换产品；
+  2）成为意见领袖；
+  3）获得平台颁发的相关荣誉；
+  4）优先获得相关的试用、学习、培训机会。</text></view>
+<view class='main_txt_two'><text>温馨提示：妆啥将不定期更新时下热销品作为平台福利。</text></view>
+ <view class='main_txt_Three'><text>
+二、如何获取积分？
+1）写日记和作文，将工作经验和试用体验写下来，与全国的BA共同分享成长；
+2）签到，记录自己的成长之路；
+3）积极参加妆啥话题互动，赚取奖励积分。</text></view>
+ <view class='main_txt_Four'><text>
+三、积分方式：
+1）每签到一次，积分+5分；
+2）每月累计签到达20天，积分+100分；
+3）每发布一篇BA经验，积分+30分；
+4）每发布一篇BA体验，积分+30分；
+5）积分有效期：当年度的12月31日；
+ 
+四、妆啥鼓励真实有价值的原创内容，如存在灌水或虚假抄袭等情况，我们有权不予发放积分或收缴已发放积分。
+ </text></view>
+</view>

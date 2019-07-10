@@ -1,0 +1,29 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+<view class="container">
+  <view class="tixian-bg">
+    <!-- <image class="tixian-img" src="https://www.izhuangsha.com/api/images/home/bjhome.jpg"></image> -->
+    <view class="tixian-name">
+      当前余额
+      <text class="money">¥{{balance}}</text>
+      <text class="tips">余额提现后将直接转入微信零钱</text>
+    </view>
+  </view>
+  <form bindsubmit="bindSave">
+    <view class="form-box">
+      <view class="row-wrap">
+        <view class="label">提现金额</view>
+        <view class="label-right">
+          <text class="lable-amount">¥</text>
+          <input name="amount" class="input" type="number" maxlength="4" value="{{telIpuNum}}" bindinput="getAmount"/>
+        </view>
+        <view class="lable-text">提现金额<text style='color:#D8497C'>100</text>元起，将在<text style='color:#000'>24小时内</text>到账</view>
+      </view>
+    </view> 
+    <button class="save-btn" formType="submit"  disabled="{{buttonClicked}}">确认提现</button>
+    <button type="default" class="cancel-btn" bindtap="bindDetailed">收支明细</button>
+    <button type="default" class="cancel-btn" bindtap="bindCancel">取消</button>
+  </form>
+</view>

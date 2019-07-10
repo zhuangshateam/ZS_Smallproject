@@ -1,0 +1,75 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText" bindtap='binReturn'>返回</view>
+  <view slot="content">妆啥</view>
+</cu-custom>
+<view class='myPosting_main'>
+<!-- BA经验 -->
+  <view class="cu-bar bg-white solid-bottom" wx:if='{{_FavoritesList.length > 0}}'>
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text>BA经验
+    </view>
+  </view>
+  
+  <view class="cu-list menu-avatar margin-bottom-sm" wx:if='{{_FavoritesList.length > 0}}'>
+    <block wx:for='{{_FavoritesList}}' wx:key="FavoritesList" wx:for-index="idx" wx:for-item="item">
+      <view class="cu-item">
+        <navigator url="/pages/newsinfo/newsinfo?id={{item.id1}}&currentTab=0" hover-class="none">
+          <view class="cu-avatar round lg marginL" style="background-image:url({{item.headimgurl}});"></view>
+          <view class="content news-list-right">
+            <view class="text-pink">
+              <text class="text-cut">{{item.nickname}}</text>
+            </view>
+            <view class="text-gray text-sm news-list-right">
+              <text class="text-cut">{{item.ReviewTitle}}</text>
+            </view>
+          </view>
+        </navigator>
+      </view>
+
+    </block>
+  </view>
+ 
+ <!-- BA体验 -->
+  <view class="cu-bar bg-white solid-bottom" wx:if='{{_FavoritesmakeupList.length > 0}}'>
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text>BA体验
+    </view>
+  </view>
+  <view class="cu-list menu-avatar"  wx:if='{{_FavoritesmakeupList.length > 0}}'>
+    <block wx:for="{{_FavoritesmakeupList}}" wx:key="FavoritesmakeupList" wx:for-index="idx" wx:for-item="items">
+      <view class="cu-item">
+        <navigator url="/pages/makeupInfo/makeupInfo?id={{items.id1}}&&currentTab=1" hover-class="none">
+          <view class="cu-avatar round lg marginL" style="background-image:url({{items.headimgurl}});"></view>
+          <view class="content news-list-right">
+            <view class="text-pink">
+              <text class="text-cut">{{items.productName}}</text>
+            </view>
+            <view class="text-gray text-sm news-list-right">
+              <text class="text-cut">{{items.nickname}}</text>
+            </view>
+            <!-- 星星 -->
+            <view class='score_txtName'>
+              <text class='score_index'>推荐指数：</text>
+           
+              <view class="makeup_score">
+                <block wx:for="{{items.score}}">
+                  <text style="padding-right: .2em;" class="zan-c-red">★</text>
+                </block>
+                <block wx:for="{{5-items.score}}">
+                  <text style="padding-right: .2em" class="zan-c-gray-dark">☆</text>
+                </block>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+
+    </block>
+  </view>
+
+
+  <view class='commentInfo_img' wx:if="{{isFavoritesCount==false}}">
+    <image src='https://www.izhuangsha.com/api/images/nodata.png'></image>
+    <text>暂无收藏</text>
+  </view>
+</view>

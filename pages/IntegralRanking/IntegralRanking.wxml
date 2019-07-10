@@ -1,0 +1,39 @@
+
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">积分排行</view>
+</cu-custom>
+<view class='banner'>
+  <image src='https://www.izhuangsha.com/api/images/jifen/integral_ranking_bj.jpg'></image>
+</view>
+<!-- 我的排名 -->
+<view class='myranking' wx:for="{{myRanking}}" wx:key='item'>
+  <view class='items'>
+    <view class='index'><image src="https://www.izhuangsha.com/api/images/jifen/Stars.png"></image></view>
+    <image class='headPic mypic' src='{{item.headimgurl}}'></image>
+    <view class='myInfo'>
+      <view class='username myname'>{{item.nickname}}</view>
+      <view class='rankNumber'>第<text>{{item.indexs}}</text>名</view>
+    </view>
+  </view>
+  <view class='pNumber pNum'>
+    <text>{{item.UserCredits}}</text>
+  </view>
+</view>
+<!-- 总排行 -->
+<view class='rank_list'>
+  <block wx:for='{{integrallist}}' wx:key="item">
+    <view class='list_items'>
+      <view class='item_left'>
+        <view class='index ranking' > {{item.indexs}}</view>
+        <image class='headPic' mode="widthFix" src='{{item.headimgurl}}' catchtap='headport' data-jopenid='{{item.openid}}' data-headurl="{{item.headimgurl}}" data-nickname="{{item.nickname}}" data-city="{{item.city}}"></image>
+        <view class='myInfo'>
+          <view class='username'>{{item.nickname}}</view>
+        </view>
+      </view>
+      <view class='pNumber'>
+        <text>{{item.UserCredits}}</text>
+      </view>
+    </view>
+  </block>
+</view>

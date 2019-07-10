@@ -1,0 +1,12 @@
+ <import src="../../wxParse/wxParse.wxml"/>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">使用手册</view>
+</cu-custom>
+<view class='main'>
+  <view class='wx_content_help'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+      <!-- <rich-text nodes="{{nodes}}" bindtap="tap"></rich-text> -->
+      <!-- <text class='txt_detailsContext'>{{items.Details_introduce}}</text> -->
+  </view>
+</view>

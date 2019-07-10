@@ -1,0 +1,27 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+<view class='myPosting_main'>
+<block wx:for="{{postingList}}" wx:key="newsList" wx:for-index="idx" wx:for-item="item" >
+        <navigator url="/pages/newsinfo/newsinfo?id={{item.id}}&currentTab=0" hover-class="none">
+                   <view class="news-list">
+              <view class="news-list-right">
+                  <view class="news-title">{{item.ReviewTitle}}</view>
+              </view>
+              <!-- 编辑 -->
+              <view class='delete_item item_my'>
+                  <view class='news_dateTime delete_item'><view class='reviewtime_time'> {{item.Reviewtime}}</view></view>
+                  <view class='Mark delete_item'>
+                    <view class='color_Mark'>经验</view>
+                  </view>
+                  
+              </view>
+          </view>
+      </navigator>
+</block>
+<view class='commentInfo_img' wx:if="{{idshow}}">
+    <image src='https://www.izhuangsha.com/api/images/nodata.png'></image>
+    <text>暂无数据</text>
+</view>
+</view> 

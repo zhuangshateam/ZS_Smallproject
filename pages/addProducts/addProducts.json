@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "cropper": "../../cropper/cropper1/index"
+  }
+}

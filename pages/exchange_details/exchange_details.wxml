@@ -1,0 +1,146 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view wx:if='{{isshare==0}}'>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText" bindtap='binReturn'>返回</view>
+  <view slot="content">积分兑换</view>
+</cu-custom>
+</view>
+<view wx:elif='{{isshare==1}}'>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+<view slot="backText" catchtap='backHome'>返回</view>
+<view slot="content">佣金任务</view>
+</cu-custom>
+</view>
+<view class="main">
+  <view wx:for="{{ehList}}" wx:key="{{index}}">
+    <image class="slide-image" src="{{imageurl}}{{item.imagesUrl}}" lazy-load='true'></image>
+    <view class='titleList'>
+      <view class="goods-title">{{item.exchange_Name}}</view>
+      <view class='goods_lists'>
+        <view class="goods-stock">
+          <image src='https://www.izhuangsha.com/api/images/icon/money.png'></image>
+          <text class='font_price'>{{item.Integra_Price}}</text>
+          <view class='font_ment'>元</view>
+        </view>
+        <view class="goods-integral">
+          <image src='https://www.izhuangsha.com/api/images/integral1.png'></image>
+          <text class='font_IntegralNum'>{{item.IntegralNum}}</text>
+          <view class='font_ment'>积分</view>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="goods-price">剩余{{item.Surplus_quantity}}份</view> -->
+  </view>
+  <view class='section_item'>
+    <view class='Effect_rules'>积分规则</view>
+    <view class='Effect_content'>
+      <text>{{ruleText}}</text>
+    </view>
+  </view>
+  <view class="goods-tab-box">
+    <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">砍积分</view>
+    <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">商品详情</view>
+    <!-- <view class="goods-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">商品详情</view> -->
+    <view class="goods-content">
+      <view wx:if="{{curIndex === 0}}">
+        <view class='goodIntegra_list'>
+          <view class='Integra_Bargain'>已有{{userCount}}位好友帮我砍掉
+            <text style='color:#D8497C'>{{integralNumCount}}</text>积分</view>
+          <view class='btn_Bargain' catchtap='showModalbtn'>邀请好友帮我砍积分</view>
+        </view>
+        <view wx:for="{{userList}}" wx:for-item="items" hidden='{{userCount==0?true:false}}'>
+          <view class='us_bargain'>
+            <!-- <view class='us_Userinfo_good'> -->
+            <view class='flex-wrp-row item_usin'>
+              <image src='{{items.headimgurl}}'></image>
+
+              <!-- 昵称与时间 -->
+              <view class='Double_goods flex-wrp-row'>
+                <view class='goods_Usernickname'>
+                  <view>{{items.nickname}} </view>
+                  <view class='crit_img_list' wx:if='{{items.isCrit=="true"}}'>
+                    <view class='goods_Crit'>新人暴击</view>
+                    <image src='https://www.izhuangsha.com/api/images/Crit.png'></image>
+                  </view>
+                </view>
+                <view class='datetime_good'>{{items.CreateTime}}</view>
+              </view>
+              <!-- 砍掉多少分 -->
+              <view class='eh_BargainNum flex-wrp-row'>砍
+                <text style='color: #D7497A;'>{{items.Bargain_price}}</text>积分</view>
+            </view>
+            <!-- </view> -->
+
+          </view>
+        </view>
+        <view class='Load_more' wx:if="{{loading==true}}" hidden='{{isshow}}'>
+          <view class='load_name' catchtap='loadmore'>{{loadText}}</view>
+          <image src='https://www.izhuangsha.com/api/images/bot_bottom1.png' hidden='{{imgHIden}}'></image>
+        </view>
+        <view class='Load_more' wx:else="{{loading==false}}">
+          <image src='https://www.izhuangsha.com/api/images/loading6.gif'></image>
+        </view>
+      </view>
+      <view wx:if="{{curIndex === 1}}">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+
+        <!-- <view>{{details_introduce}}</view> -->
+
+      </view>
+    </view>
+  </view>
+  <!-- 固定按钮 -->
+  <view class='btn_fixed'>
+    <view class='home_btn' catchtap='goHome'>
+      <image src='https://www.izhuangsha.com/api/images/index_btn1.png'></image>
+      <text class='txt_home'>更多福利</text>
+    </view>
+    <view class='btn_CutInteg' catchtap='showModalbtn'>
+      <image src='https://www.izhuangsha.com/api/images/share_btn1.png'></image>
+      <text class='txt_CutInteg'>砍积分</text>
+    </view>
+    <view class='btn_exchange' bindtap='paymentBtn'>支付{{integralNum-integralNumCount}}积分兑换</view>
+    <view class="modals">
+      <view class="content_1 bottom-pos" animation="{{animationData}}">
+        <view class='shareBtn_pos_List'>
+          <view class='shareBtn_pos1'>
+            <button class="zanbtn shared" open-type="share" hover-class="none">
+            </button>
+
+            <image src='https://www.izhuangsha.com/api/images/WeChat.png'></image>
+            <text>分享给好友和群</text>
+          </view>
+          <view class='shareBtn_pos2' catchtap='getSharePoster'>
+            <image src='https://www.izhuangsha.com/api/images/wxCircle.png'></image>
+            <text>生成你的专属海报</text>
+          </view>
+        </view>
+        <view class='Popup_tops'>邀请新用户将砍更多积分</view>
+        <view class='cancel' bindtap='hideModalbtn'>取消</view>
+
+      </view>
+    </view>
+  </view>
+  <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class='content'>温馨提示</view>
+        <view class='action' bindtap='hideModal'>
+          <text class='cuIcon-close text-red'></text>
+        </view>
+      </view>
+      <view class='padding-xl'>
+        您的积分不足，快去赚取更多积分吧！
+      </view>
+    </view>
+  </view>
+  <!-- <view class="ruleZhezhao {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
+        <view class='ruleZhezhaoContent'>
+            <view class='ruleZhezhaoText'>
+               <view class='rule_integ'>积分不足</view> 
+            </view>
+            <image src='https://www.izhuangsha.com/api/images/colos.png' class='ruleHide' bindtap='hideRule'></image>
+        </view>
+    </view> -->
+  <my-poster id="getPoster" bindmyevent="myEventListener" avater="{{imageurl}}{{imgUrls}}" codeimg="{{imageurl}}{{codeImg}}" price1="BA免费领" price="{{nickName}}正在兑换这件礼品" productname="{{title}}" catchtouchmove="preventTouchMove" ></my-poster>
+</view>

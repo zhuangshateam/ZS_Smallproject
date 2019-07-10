@@ -1,0 +1,272 @@
+@import "../../wxParse/wxParse.wxss";
+
+page {
+  background: #fff;
+  height: 100%;
+  display: block;
+}
+
+.slide-image {
+  width: 100%;
+  height: 400rpx;
+}
+
+.main_swiper {
+  display: flex;
+  height: 380rpx;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.i-img {
+  width: 100%;
+  border-radius: 20rpx;
+}
+
+.titleList {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30rpx;
+}
+
+.titleNmae {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30rpx;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+  text-align: center;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 32rpx;
+}
+
+.retail_content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+}
+
+.Number_visitors {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30rpx;
+}
+
+.txt_Number {
+  color: #e72410;
+}
+
+.txt_ClicksCountNum {
+  margin-left: 15rpx;
+  font-size: 30rpx;
+  color: #c0c0c0;
+}
+
+.txtContent_view {
+  color: #c0c0c0;
+  font-size: 30rpx;
+}
+
+.Number_visitors image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.parameter_app_rules {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10rpx;
+}
+
+.Effect_rules {
+  display: flex;
+  margin-left: 30rpx;
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+  color: #acacac;
+}
+
+/* 中部参数 */
+
+.section_item {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 20rpx solid #f4f4f4;
+  border-top: 20rpx solid #f4f4f4;
+  width: 100%;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+
+.section_item_rules {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 20rpx solid #f4f4f4;
+  width: 100%;
+  padding-bottom: 40rpx;
+}
+
+.parameter_classification_one {
+  display: flex;
+  flex-direction: row;
+}
+
+.parameter_classification_two {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10rpx;
+}
+
+.parameter_classification_Three {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10rpx;
+}
+
+.classification {
+  display: flex;
+  margin-left: 30rpx;
+  font-size: 32rpx;
+  color: #acacac;
+  /* font-weight:300; */
+}
+
+.classification_content {
+  margin-left: 30rpx;
+  font-size: 32rpx;
+}
+
+.Specifications {
+  display: flex;
+  margin-left: 30rpx;
+  font-size: 28rpx;
+  color: #acacac;
+  line-height: 50rpx;
+}
+
+.Specifications_content {
+  margin-left: 30rpx;
+  font-size: 28rpx;
+}
+
+.section_item1 {
+  display: flex;
+  flex-direction: column;
+  border-top: 20rpx solid #f4f4f4;
+  width: 100%;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.Specifications_content1 {
+  margin-left: 30rpx;
+  font-size: 32rpx;
+  color: #d8497c;
+  line-height: 50rpx;
+
+}
+
+.Effect {
+  display: flex;
+  width: 100rpx;
+  margin-left: 30rpx;
+  font-size: 28rpx;
+  color: #acacac;
+}
+
+.Effect_content {
+  margin-left: 30rpx;
+  font-size: 28rpx;
+}
+
+/* 底部产品详情 */
+
+.bottomDetails_List {
+  display: flex;
+  padding-top: 35rpx;
+  /* margin-left: 30rpx; */
+  flex-direction: column;
+  padding-bottom: 100rpx;
+}
+
+.bd_li {
+  border-bottom: 35rpx solid #f4f4f4;
+}
+
+.Details_Names {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30rpx;
+}
+
+.bolck_comm {
+  margin-top: 5rpx;
+  background-color: #e72410;
+  width: 5rpx;
+  height: 38rpx;
+  margin-right: 20rpx;
+}
+
+.DetailsTitle text {
+  font-size: 28rpx;
+  font-weight: bold;
+  line-height: 46rpx;
+}
+
+.Details_content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+  margin-right: 10rpx;
+  margin-left: 30rpx;
+}
+
+/* .txt_detailsContext {
+  text-indent: 2em;
+  font-size: 32rpx;
+} */
+
+.Details_ImgArray {
+  display: flex;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+  margin-bottom: 30rpx;
+  margin-left: 30rpx;
+}
+
+.Details_ImgArray image {
+  width: 100%;
+}
+
+.add_btn {
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
+}
+
+.btn {
+  border-radius: 0rpx;
+  width: 100%;
+  background: #d8497c;
+  color: #fff;
+}
+
+.btn_end {
+  border-radius: 0rpx;
+  width: 100%;
+  background: #bfbfbf;
+  color: #fff;
+}

@@ -1,0 +1,137 @@
+page {
+  width: 100%;
+  height: 100%;
+  background-color: #f0f4f7;
+}
+
+.details_List {
+  display: flex;
+  background-color: #fff;
+  margin: 25rpx;
+  border-radius: 15rpx;
+  flex-direction: column;
+}
+
+.duihuan {
+  display: flex;
+  padding: 20rpx;
+  background-color: #fff;
+}
+
+.news_img {
+  display: flex;
+  margin-left: 10rpx;
+}
+
+.txt_commentCount {
+  font-size: 32rpx;
+  margin-left: 10rpx;
+  color: red;
+}
+
+.address_list {
+  display: flex;
+  flex-direction: column;
+  margin: 25rpx;
+}
+
+.address_item_ui {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 12rpx;
+}
+
+.address_item_ui text {
+  font-size: 30rpx;
+}
+
+.address_detail_ui {
+  display: flex;
+}
+
+.ressTxt {
+  font-size: 30rpx;
+}
+
+.Image_txtList {
+  display: flex;
+  flex-direction: row;
+  margin: 10rpx 20rpx 30rpx;
+}
+
+.Image_txtList image {
+  width: 180rpx;
+  height: 130rpx;
+}
+
+.row_item {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25rpx;
+}
+
+.titName {
+  font-size: 36rpx;
+  font-weight: 500;
+}
+
+.detailsNames {
+  font-size: 30rpx;
+  margin-top: 15rpx;
+}
+
+.detailsNames image {
+  vertical-align: top;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.tips_btn {
+  display: flex;
+  flex-direction: row;
+  margin-left: 15rpx;
+}
+
+.tips_btnUpdate {
+  color: #d8497c;
+  font-size: 24rpx;
+  padding: 15rpx;
+  text-align: center;
+  background: #fff;
+  border-radius: 40rpx;
+  margin-bottom: 40rpx;
+  width: 250rpx;
+  letter-spacing: 1rpx;
+  border: 1rpx solid #d8497c;
+  margin: 0 auto;
+}
+
+.warp_btn, .warp_btn_ok {
+  width: 320px;
+  height: 50px;
+  font-size: 34rpx;
+  text-align: right;
+}
+
+.tips_btnConfirm {
+  color: #d8497c;
+  font-size: 24rpx;
+  padding: 15rpx;
+  text-align: center;
+  background: #fff;
+  border-radius: 40rpx;
+  margin-bottom: 40rpx;
+  width: 250rpx;
+  letter-spacing: 1rpx;
+  border: 1rpx solid #d8497c;
+  margin: 0 auto;
+}
+
+.userName {
+  line-height: 40rpx;
+}
+
+.phonetemp {
+  padding-left: 20rpx;
+  line-height: 40rpx;
+}

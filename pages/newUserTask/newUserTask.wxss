@@ -1,0 +1,105 @@
+/* pages/newUserTask/newUserTask.wxss */
+
+.headpic {
+  width: 100vw;
+  height: 400rpx;
+}
+.innerText{
+  background-color:#fff; 
+  padding:20rpx;
+}
+.title {
+  border-left: 10rpx solid #d8497c;
+  font-size: 28rpx;
+  font-weight: bold;
+  padding-left: 10rpx;
+}
+
+
+.btn-block{
+	width: 100%;
+	line-height: 88rpx;
+}
+.btn-red{
+  background: #D8497C;
+	/* background: #EA2000; */
+	color: #fff;
+}
+
+/* 图片上传 */
+.group-body{
+  position: relative;
+	background: #fff;
+	border-top: 1rpx solid #ddd;
+	border-bottom: 1rpx solid #ddd;
+}
+.group-body .input-list{
+	margin: 0;
+	border: none;
+}
+.img-upload{
+	padding: 20rpx;
+	font-size: 0;
+	overflow: hidden;
+}
+.img-upload .img-item,
+.img-upload .img-add{
+	width: 100rpx;
+	height: 100rpx;
+	float: left;
+	margin: 10rpx;
+	border: 1rpx solid transparent;
+}
+.img-upload .img-add{
+	border: 1rpx dashed #ddd;
+	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABcUlEQVR4Xu1a0U3DQAy1kwEIGxD5BigTwAasUDaASWADGKEjMEIG8MligpYBcocigahQRZDSyInu9b995+fni99LmQr/cOH1EwiAAgpnACNQuABwCbqNgJk1fd+/EFFT1/Vj27adhxrdCFDVHTPffRV9EJHLogiIMe6H7n8XLSIuzXABHYqOMebjjoMAKAAj4DKOLqC4A3AJ4imAxyD2ACxC2ASxCsMLHDEAMwQzBDPk4ktcQGGG1mSGzOw2pfRERBuP0HICZldV1f1Y2jw6Ar/DywkH8vhqJyLXfwH/h4ADEV14nP4MmO8icjWJAFXdMvPzCkn4yDlvQwi7SQScoQsnfwJ2GHYYdhh2GHYYdviHAeQByAOQB4yu5XMsZS6gyAPWlAfMITsoAArA63G8HkcegDwAeUDZeYCqvjHzTbH/FTazTUppSGybnPNDCOF1rqVrkamwR7GnMN3MEAhYCANQwEIa4XYMKMCN+oUAF6+AT/Qb2EFxicEnAAAAAElFTkSuQmCC') no-repeat 50% 50% / 70% auto;
+}
+.img-upload .img-item image{
+	width: 100rpx;
+	height: 100rpx;
+}
+.img-upload .img-item{
+	position: relative;
+}
+.img-upload .img-item icon{
+	position: absolute;
+	right: -12rpx;
+	top: -12rpx;
+  z-index: 10;
+}
+ 
+ /* 任务详情 */
+.inner_content {
+margin-top: 20rpx;
+border-top: 1px solid #eee;
+display: flex;
+flex-direction: column;
+}
+
+.content text {
+padding-bottom: 10rpx;
+}
+
+.img_1 {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+
+.img_1 image {
+width: 46vw;
+height: 346rpx;
+}
+
+.img_2 {
+width: 100vw;
+height: 252rpx;
+}
+
+.main_line_bottom {
+background: #f2f2f2;
+width: 100%;
+height: 10rpx;
+_overflow: hidden;
+vertical-align: middle;
+}

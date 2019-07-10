@@ -1,0 +1,185 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText" bindtap='binReturn'>返回</view>
+  <view slot="content">发布试用</view>
+</cu-custom>
+<form bindsubmit='formSubmit' report-submit='true'>
+  <view class="container container-gray">
+
+    <view class="cu-form-group">
+      <view class="title">产品名称</view>
+      <input name="title" type="text" placeholder="请输入名称" bindblur="titleBlurFocus" value='{{form_info}}' bindinput="titleBind" ></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">试用数量</view>
+      <input name="trial_quantity" type="number" placeholder="请输入试用数量" bindblur="titleBlurFocus" value='{{form_info}}' bindinput="trial_quantityBind"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">产品规格</view>
+      <input name="specifications" type="text" placeholder="请输入规格" bindblur="titleBlurFocus" value='{{form_info}}' bindinput="specificationsBind"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">零售指导价格</view>
+      <input name="retail_Price" type="text" placeholder="请输入价格" bindblur="titleBlurFocus" value='{{form_info}}' bindinput="priceBind"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">主要功效</view>
+      <input name="main_functions" type="text" placeholder="请介绍功效" bindblur="titleBlurFocus" value='{{form_info}}' bindinput="functionsBind"></input>
+    </view>
+
+    <view class="cu-form-group margin-top">
+      <view class="title">上传海报</view>
+      <text style='color: #808080;  font-size: 26rpx;'>(建议尺寸 1080*576)</text>
+    </view>
+ <view class="group-body">
+            <view class="img-upload">
+              <view class="img-add" bindtap="handleTap"></view>
+              <view class="img-item" bindlongtap="editImage" wx:for="{{uploadimgs}}" wx:key="{{index}}">
+                <icon type="clear" size="20" color="red" style="display:{{editable?'block':'none'}}" bindtap="deleteImg" data-index="{{index}}" />
+                <image src='{{item}}' mode='aspectFill' data-idx='{{index}}' bindtap="handleImagePreview"></image>
+              </view>
+              <cropper imageSrc="{{imageSrc}}" enableScale="{{true}}" isCircleCrop="{{false}}" ratio="{{9/5}}" bind:cropperDone="cropperDone" bind:cropperCancel="cropperCancel" bind:cropperFail="cropperFail"></cropper>
+            </view>
+          </view>
+
+
+
+
+    <view class="cu-form-group">
+      <view class="title">产品详情</view>
+    </view>
+    <view class="cu-form-group">
+      <textarea name="textarea" class='BA_groud_body' value='{{form_info}}' placeholder="请介绍产品详情，可输入300字(非必填)" maxlength="{{max}}" bindinput="txt_inputs" show-confirm-bar='false' bindinput='txtInput'></textarea>
+      <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+    </view>
+
+
+
+
+    <view class="cu-form-group">
+      <view class="title">产品详情图片</view>
+    </view>
+  <view class="group-body">
+      <view class="img-upload">
+        <view class="img-add" bindtap="chooseImage_details"></view>
+        <view class="img-item" bindlongtap="editImage_details" wx:for="{{detail_uploadimg}}" wx:key="{{index}}">
+          <icon type="clear" size="20" color="red" style="display:{{editable_dtl?'block':'none'}}" bindtap="deleteImg_details" data-index="{{index}}" />
+          <image src='{{item}}' mode='aspectFill' data-idx='{{index}}' bindtap="handleImagePreview_dtl"></image>
+        </view>
+      </view>
+    </view>
+
+
+
+    <view class="cu-form-group margin-top">
+      <view class="title">申请规则</view>
+    </view>
+    <view class="cu-form-group">
+      <textarea name="app_rulesTxt" class='BA_groud_body' value='{{app_rules}}' placeholder="请输入规则，可输入300字" maxlength="{{max}}" show-confirm-bar='false' bindinput="rulesInput"></textarea>
+    </view>
+
+
+
+    <!-- <view class="group">
+      <view class="group-body">
+        <view class="input-list">
+          <view class="input-item">
+            <text class="input-item-label">产品名称：</text>
+            <view class="input-item-content">
+              <input name="title" type="text" placeholder="请输入名称" bindblur="titleBlurFocus" value='{{form_info}}' bindinput="titleBind"></input>
+            </view>
+          </view> -->
+    <!-- 试用数量 -->
+    <!-- <view class="input-item">
+            <text class="input-item-label">试用数量：</text>
+            <view class="input-item-content">
+              <input name="trial_quantity" type="number" placeholder="请输入试用数量" bindblur="titleBlurFocus" value='{{form_info}}' bindinput="trial_quantityBind"></input>
+            </view>
+          </view> -->
+    <!-- 宣传海报 -->
+    <!-- <view class="group-header">上传海报
+            <text style='color: #808080;  font-size: 26rpx;'>(建议尺寸920*600)</text>
+          </view>
+          <view class="group-body">
+            <view class="img-upload">
+              <view class="img-add" bindtap="handleTap"></view>
+              <view class="img-item" bindlongtap="editImage" wx:for="{{uploadimgs}}" wx:key="{{index}}">
+                <icon type="clear" size="20" color="red" style="display:{{editable?'block':'none'}}" bindtap="deleteImg" data-index="{{index}}" />
+                <image src='{{item}}' mode='aspectFill' data-idx='{{index}}' bindtap="handleImagePreview"></image>
+              </view>
+              <cropper imageSrc="{{imageSrc}}" enableScale="{{true}}" isCircleCrop="{{false}}" ratio="{{2/1.3}}" bind:cropperDone="cropperDone" bind:cropperCancel="cropperCancel" bind:cropperFail="cropperFail"></cropper>
+            </view>
+          </view> -->
+
+    <!-- 规格 -->
+    <!-- <view class="input-item">
+            <text class="input-item-label" decode="{{true}}">产品规格：</text>
+            <view class="input-item-content">
+              <input name="specifications" type="text" placeholder="请输入规格" bindblur="titleBlurFocus" value='{{form_info}}' bindinput="specificationsBind"></input>
+            </view>
+          </view> -->
+
+    <!-- 零售指导价格 -->
+    <!-- <view class="input-item">
+            <text class="input-item-label ipPrice" decode="{{true}}">零售指导价格：</text>
+            <view class="input-item-content">
+              <input name="retail_Price" type="text" placeholder="请输入价格" bindblur="titleBlurFocus" value='{{form_info}}' bindinput="priceBind"></input>
+            </view>
+          </view> -->
+
+    <!-- 主要功效 -->
+    <!-- <view class="input-item">
+            <text class="input-item-label" decode="{{true}}">主要功效：</text>
+            <view class="input-item-content">
+              <input name="main_functions" type="text" placeholder="请介绍功效" bindblur="titleBlurFocus" value='{{form_info}}' bindinput="functionsBind"></input>
+            </view>
+          </view> -->
+
+    <!-- 申请规则 -->
+    <!-- <view class="group-body body_txt" wx:if="{{show}}" hidden='{{istarea}}'>
+            <text class="input-item-label1 ipPrice" decode="{{true}}">申请规则：</text>
+            <textarea name="app_rulesTxt" class='BA_groud_body' value='{{app_rules}}' placeholder="请输入规则，可输入300字" maxlength="{{max}}" show-confirm-bar='false' bindinput="rulesInput"></textarea>
+          </view>
+
+          <view class="group-body body_txt" wx:if="{{show}}" hidden='{{istarea}}'>
+            <text class="input-item-label1 ipPrice" decode="{{true}}">产品详情：</text>
+            <textarea name="textarea" class='BA_groud_body' value='{{form_info}}' placeholder="请介绍产品详情，可输入300字(非必填)" maxlength="{{max}}" bindinput="txt_inputs" show-confirm-bar='false' bindinput='txtInput'></textarea>
+            <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+          </view>
+
+        </view>
+      </view>
+    </view> -->
+    <!-- <view class="group-header">产品详情图片</view>
+    <view class="group-body">
+      <view class="img-upload">
+        <view class="img-add" bindtap="chooseImage_details"></view>
+        <view class="img-item" bindlongtap="editImage_details" wx:for="{{detail_uploadimg}}" wx:key="{{index}}">
+          <icon type="clear" size="20" color="red" style="display:{{editable_dtl?'block':'none'}}" bindtap="deleteImg_details" data-index="{{index}}" />
+          <image src='{{item}}' mode='aspectFill' data-idx='{{index}}' bindtap="handleImagePreview_dtl"></image>
+        </view>
+      </view>
+    </view> -->
+    
+    <view class="btn-submit">
+      <view class="btn-preview btn-red" bindtap='previewData'>预 览</view>
+      <button formType="submit" class="btn-block btn-red">提 交</button>
+    </view>
+  </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</form>
+<loading hidden="{{submitHidden}}">
+  正在提交...
+</loading>

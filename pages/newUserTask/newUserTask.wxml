@@ -1,0 +1,67 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText" bindtap='binReturn'>返回</view>
+  <view slot="content">BA经验</view>
+</cu-custom>
+
+<image src='https://www.izhuangsha.com/api/images/BA_crd/headPic.jpg' class='headpic'></image>
+<view class="innerText" >
+<text class='title'>任务指南</text>
+<view class='inner_content'>
+<text>
+1.仅限未关注妆啥公众号的新用户
+</text>
+<text>
+2.微信搜索“妆啥”，关注公众号并保存截图
+</text>
+<view class='img_1'>
+<image src='https://www.izhuangsha.com/api/images/BA_crd/text_img1_1.jpg'></image>
+<image src='https://www.izhuangsha.com/api/images/BA_crd/text_img1_2.jpg'></image>
+</view>
+<text>
+3.上传截图
+</text>
+<image class='img_2' src='https://www.izhuangsha.com/api/images/BA_crd/text_img2.jpg'></image>
+</view>
+</view>
+<view class='main_line_bottom'></view>
+<view class="innerText">
+<text class='title'>审核时间</text>
+<view class='inner_content'>
+<text>
+1.审核时间为1-3个工作日
+</text>
+<text>
+2.审核通过后，即可获得100积分
+</text>
+</view>
+</view>
+<view class='main_line_bottom'></view>
+<form bindsubmit='formSubmit' report-submit='true'>
+  <!-- 图片上传 -->
+  <view class="cu-bar bg-white border_top">
+    <view class="action">
+      图片上传
+    </view>
+    <!-- <view class="action">
+      {{uploadimgs.length}}/1
+    </view> -->
+  </view>
+  <view class="group-body">
+    <view class="img-upload">
+      <view class="img-add" wx:if="{{uploadimgs.length<1}}" bindtap="chooseimg"></view>
+      <view class="img-item" bindlongtap="editImage" wx:for="{{uploadimgs}}" wx:key="{{index}}">
+        <icon type="clear" size="20" color="red" style="display:{{editable?'block':'none'}}" bindtap="deleteImg" data-index="{{index}}" />
+        <image src='{{item}}' mode='aspectFill' data-idx='{{index}}' bindtap="handleImagePreview"></image>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="margin-top ">
+    <button formType="submit" loading='{{loading}}' class="btn-block btn-red"  disabled="{{buttonClicked}}">提 交 审 核</button>
+  </view>
+</form>
+
+<loading hidden="{{submitHidden}}">
+  正在提交...
+</loading>

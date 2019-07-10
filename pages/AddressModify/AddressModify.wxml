@@ -1,0 +1,83 @@
+<!--pages/Ontrial/Ontrial.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+<form bindsubmit='formSubmit' report-submit='true'>
+<view class='container'>
+  <view class="group-header"> </view>
+  <view class='HeadSesstion'>
+    <view class='homeImg'>
+      <image src='https://www.izhuangsha.com/api/images/icon/UserName.png'></image>
+      <text class="input-item-label">姓 名：</text>
+      <view class="input-item-content">
+        <input name="userName" type="text" bindblur="titleBlurFocus" value='{{uname}}'></input>
+      </view>
+    </view>
+    <view class='homeCorporate'>
+      <image src='https://www.izhuangsha.com/api/images/icon/HomeName.png'></image>
+      <text class="input-item-label">公 司：</text>
+      <view class="input-item-content">
+        <input name="corporateName" type="text" bindblur="titleBlurFocus" value='{{corporateName}}'></input>
+      </view>
+    </view>
+
+    <view class='homeposition'>
+      <image src='https://www.izhuangsha.com/api/images/icon/position.png'></image>
+      <text class="input-item-label">职 位：</text>
+      <view class="input-item-content">
+        <input name="positionName" type="text" bindblur="titleBlurFocus" value='{{positionName}}'></input>
+      </view>
+    </view>
+
+    <view class='homePhone'>
+      <image src='https://www.izhuangsha.com/api/images/icon/Telephone.png'></image>
+      <text class="input-item-label">电 话：</text>
+      <view class="input-item-content">
+        <input name="phoneNum" type="number" bindblur="titleBlurFocus" value='{{phoneNum}}'></input>
+      </view>
+    </view>
+    <!-- <view class='homeReason'>
+      <view class='img_r'>
+        <image src='https://www.izhuangsha.com/api/images/icon/Reason.png'></image>
+        <text class="input-item-label input_txt">申请理由：</text>
+      </view>
+      <view class="input-item-content">
+        <textarea name="address_txt" class='textarea_address' value='{{address_txt}}' placeholder="请填写申请理由，不少于5个字" minlength="{{min}}"  bindinput="txt_inputs" show-confirm-bar='false' placeholder-class='placeholder'></textarea>
+      </view>
+    </view> -->
+
+  </view>
+  <view class="group-header_center"> </view>
+  <!-- 收货地址 -->
+  <view class='centerSeestion'>
+  <!-- 收货地址 -->
+    <view class='address_Rece'>
+      <text class="input-item-label input_txt">收货地址：</text>
+      <view class="picker_group">  
+         <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class="picker">
+            {{city}} {{province}}
+            
+          </view>
+          
+        </picker>  
+        <image src='https://www.izhuangsha.com/api/images/icon/bottom.png' class='imgPic'></image>       
+      </view>  
+    </view>
+    <!-- 收货地址 -->
+    <view class='Detailed_address'>
+       <textarea name="address_Details" class='textarea_address' value='{{address_Details}}' placeholder="请填写详细地址，不少于5个字" minlength="{{min}}"  bindinput="txt_inputs" show-confirm-bar='false' placeholder-class='placeholder'></textarea>
+    </view>
+  </view>
+</view>
+  <view class="btn-submit">
+		<button formType="submit" loading='{{loading}}' class="btn-block btn-red">确认修改</button>
+	</view>
+</form>
+<loading hidden="{{submitHidden}}">
+  正在提交...
+</loading>
+
+
+

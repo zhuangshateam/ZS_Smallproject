@@ -1,0 +1,177 @@
+/*列表*/
+page{
+  background-color: #F3F0F2;
+}
+.news-list{
+  display:  flex;
+  background-color: #FFFFFF;
+  flex-direction: column;
+  margin: 15rpx;
+  border-radius: 10rpx;
+}
+.news_img{
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  margin-left: 20rpx;
+  border-radius:50%;overflow:hidden;
+}
+
+.news-list-right{
+  /* padding-left:40rpx; */
+  margin: 20rpx;
+}
+
+.news-title{
+  display: block;
+  font-size:30rpx;
+  font-weight:bold;
+  color: #3a3a3a;
+  letter-spacing:3rpx;
+  display: -webkit-box;
+overflow: hidden;
+text-overflow: ellipsis;
+word-wrap: break-word;
+
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+}
+
+/* 日期、标识 */
+.item_my{
+  position: relative;
+
+}
+.delete_item{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15rpx;
+}
+.item_edit{
+  position: relative;
+
+}
+.news_dateTime{
+  margin-left: 20rpx;
+  flex: 1; /* 重要 */
+   align-items:center;
+
+}
+.reviewtime_time{
+  display: flex;
+    width: 130rpx;
+  font-size: 26rpx;
+
+  background-color: #F3F0F2;
+  border-radius: 30rpx;
+  padding: 5rpx;
+  padding-left: 20rpx;
+  margin-right: 15rpx;
+  color: #9F9F9F;
+}
+.delete_edits{
+  display: flex;
+  flex-direction: row;
+  margin-top: 5rpx;
+  margin-left: 250rpx;
+}
+.Mark{
+  display: flex;
+  border: 3rpx solid #D8497C;
+  width: 80rpx;
+  height: 40rpx;
+  border-radius: 25rpx;
+   position: relative;
+  align-items:center;
+  margin-right: 20rpx;
+
+}
+
+.color_Mark{
+  width: 80rpx;
+  font-size: 28rpx;
+color: #D8497C;
+margin-left: 15rpx;
+
+}
+.Mark1{
+  display: flex;
+  background-color:#D8497C;
+  width: 80rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+  border-radius: 25rpx;
+}
+.color_Mark1{
+  font-size: 28rpx;
+color: #FFFFFF;
+margin-left: 15rpx;
+
+}
+/* 删除 */
+.news_delete{
+    display: flex;
+  margin-left: 35rpx;
+}
+.newsDel{
+  display: flex;
+}
+.newsDel image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.txt_praise{
+  margin-top: 2rpx;
+  margin-left: 7rpx;
+  color: #D8497C;
+}
+/* 编辑 */
+.news_edit{
+  display: flex;
+
+  /* margin-top: 5rpx; */
+}
+.news_edit image{
+   width: 40rpx;
+  height: 40rpx;
+}
+
+
+
+
+
+/*控制text行数*/
+.news-list-right text{
+  display: -webkit-box;
+    font-size:28rpx;
+    color:#000000;
+    line-height: 40rpx;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:3;
+    overflow: hidden;
+    text-overflow:ellipsis;
+
+}
+
+
+/* 暂无数据 */
+.commentInfo_img{
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+padding-top: 500rpx;
+}
+.commentInfo_img image{
+  width: 120rpx;
+  height: 120rpx;
+
+}
+.commentInfo_img text{
+  font-size: 28rpx;
+}
+
+  

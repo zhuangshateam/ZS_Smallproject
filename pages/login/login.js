@@ -1,10 +1,29 @@
+var util = require("../../utils/util.js")
+var app = getApp()
+import WxParse from '../../wxParse/wxParse.js';
 Page({
   data: {
     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    url:'',
+    opid:''
   },
-  onLoad: function () {
+  onLoad: function (options) {
     var that = this;
+    // console.log("opidii:" + options.opid)
+    // console.log("path:" + options.url)
+    if (options.url !=undefined){
+      that.setData({
+        url: options.url
+      })
+    }
+    if (options.opid != undefined) {
+      console.log("options.opid:" + options.opid)
+      that.setData({
+        opid: options.opid
+      })
+    }
+
     // 查看是否授权
     wx.getSetting({
       success: function (res) {
@@ -24,32 +43,73 @@ Page({
     })
   },
   bindGetUserInfo: function (e) {
+    //调登录api    
     if (e.detail.userInfo) {
       //用户按了允许授权按钮
       var that = this;
       //插入登录的用户的相关信息到数据库
-      wx.request({
-        url: getApp().globalData.urlPath + 'hstc_interface/insert_user',
-        data: {
-          openid: getApp().globalData.openid,
-          nickName: e.detail.userInfo.nickName,
-          avatarUrl: e.detail.userInfo.avatarUrl,
-          province: e.detail.userInfo.province,
-          city: e.detail.userInfo.city
-        },
-        header: {
-          'content-type': 'application/json'
-        },
+      //获取用户信息
+      wx.login({
         success: function (res) {
-          //从数据库获取用户信息
-          that.queryUsreInfo();
-          console.log("插入小程序登录用户信息成功！");
+          wx.getUserInfo({
+            lang: "zh_CN",
+            success: function (userRes) {
+              //发起网络请求
+              wx.request({
+                url: app.globalData.api,
+                data: {
+                  opt: 'getWxUserInfo',
+                  code: res.code,
+                  encryptedData: userRes.encryptedData,
+                  iv: userRes.iv
+                },
+                header: {
+                  'content-type': 'application/json'
+                },
+                success: function (result) {
+                  var data = result.data.result;
+                  wx.setStorageSync("userInfo", data);
+                  wx.setStorageSync('openId', result.data.openId);
+                  app.globalData.openid = result.data.openId;
+                  app.globalData.userInfo = result.data;
+                  app.globalData.nickName = result.data.nickName;
+                  app.globalData.avatarUrl = result.data.avatarUrl
+                  
+                  // console.log(data)
+                  //userInfo = data;
+                }
+              })
+            }
+          })
         }
-      });
-      //授权成功后，跳转进入小程序首页
-      wx.switchTab({
-        url: ''
       })
+      //授权成功后，跳转进入小程序首页
+      // 回跳
+      var url=that.data.url;
+      if (url == 'index') {
+        if (that.data.opid !='null'){
+          wx.reLaunch({
+            url: '/pages/index/index?opid=' + that.data.opid,
+          })
+        }else{
+          wx.switchTab({
+            url: '/pages/index/index',
+          })
+        }
+       
+      }
+       else if (url == 'pages/home/home') {
+        wx.switchTab({
+          url: '/pages/home/home',
+        })
+      } else {
+        wx.navigateBack();
+      }
+
+      // wx.switchTab({
+      //   url: '/pages/index/index'
+      // })
+      
     } else {
       //用户按了拒绝按钮
       wx.showModal({
@@ -65,21 +125,22 @@ Page({
       })
     }
   },
+  
   //获取用户信息接口
   queryUsreInfo: function () {
     wx.request({
-      url: getApp().globalData.urlPath + 'hstc_interface/queryByOpenid',
+      url: app.globalData.api,
       data: {
-        openid: getApp().globalData.openid
+        opt: 'getWxUsers',
+        openid: app.globalData.openid
       },
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
         console.log(res.data);
-        getApp().globalData.userInfo = res.data;
+        app.globalData.userInfo = res.data;
       }
     })
   },
-
 })

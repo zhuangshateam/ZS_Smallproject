@@ -1,0 +1,14 @@
+.container{
+  margin-top: 20rpx;
+}
+.share-image {
+  width: 600rpx;
+  height: 1848rpx;
+  margin: 0 75rpx;
+  border: 1px solid #fff;
+  border-radius: 20rpx;
+}
+
+button {
+  margin-top: 20rpx;
+}

@@ -1,0 +1,38 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">排行榜</view>
+</cu-custom>
+<view class='banner'>
+  <image src='https://www.izhuangsha.com/api/images/BA_crd/friend_ranking_bj.jpg'></image>
+</view>
+<view class='myranking' wx:for="{{myRanking}}" wx:key='item'>
+  <view class='items'>
+    <view class='index'><image src="https://www.izhuangsha.com/api/images/jifen/Stars.png"></image></view>
+    <image class='headPic mypic' src='{{item.headimgurl}}'></image>
+    <view class='myInfo'>
+      <view class='username myname'>{{item.nickname}}</view>
+      <view class='rankNumber'>第<text>{{item.Row}}</text>名</view>
+    </view>
+  </view>
+  <view class='pNumber'>
+    <text>{{item.conutNewsNumber}}</text>人
+  </view>
+</view>
+<view class='rank_list'>
+<block wx:for='{{friendList}}' wx:key="item">
+  <view class='list_items'>
+    <view class='item_left'>
+      <view class='index ranking'> {{item.Row}}</view>
+      <image class='headPic' src='{{item.headimgurl}}'></image>
+      <view class='myInfo'>
+        <view class='username'>{{item.nickname}}</view>
+      </view>
+    </view>
+    <view class='pNumber'>
+      <text>{{item.conutNewsNumber}}</text>人
+    </view>
+  </view>
+</block>
+
+
+</view>

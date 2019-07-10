@@ -1,0 +1,208 @@
+<!--pages/newsinfo/newsinfo.wxml-->
+<view wx:if='{{isshare==0}}'>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+<view slot="backText" bindtap='binReturn'>返回</view>
+<view slot="content">妆啥</view>
+</cu-custom>
+</view>
+<view wx:elif='{{isshare==1}}'>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+<view slot="backText" catchtap='backHome'>返回</view>
+<view slot="content">妆啥</view>
+</cu-custom>
+</view>
+<view class='container'>
+  <block wx:for="{{newsList}}" wx:key="newsList" wx:for-index="idx" wx:for-item="item">
+    <view class='main'>
+      <view class='main_title'>
+        <text class='main_font'>{{item.ReviewTitle}}</text>
+      </view>
+      <view class='us_userinfo'>
+        <view class='content-text item_i'>
+          <view class='item_left'>
+            <image src="{{item.headimgurl}}" class='details_img' catchtap='toShowModal' data-noid='{{item.openid}}' data-nickname='{{item.nickname}}' data-headurl='{{item.headimgurl}}'></image>
+            <view class='item_userInfo'>
+              <view class='content_txtNmae'>
+                <text class='content_name'>{{item.nickname}}</text>
+              </view>
+              <view class='content_txtTime'>
+                <text class='content_time'>{{item.Reviewtime}}</text>
+              </view>
+            </view>
+          </view>
+          <!-- 点击收藏 -->
+          <!-- <view class='item_right'>
+            <view class='content_Collection'>
+              <image src="{{isClick?'https://www.izhuangsha.com/api/images/Grade_Collection.png':'https://www.izhuangsha.com/api/images/Collection.png'}}" bindtap="haveSave"></image>
+            </view>
+            <view class="round-click" bindtap='onShareAppMessage'>
+              <button class='share' id="shareBtn" open-type="share" style="background-image:url(https://www.izhuangsha.com/api/images/share.png);">
+              </button>
+
+            </view>
+          </view> -->
+        </view>
+      </view>
+      <view class='main_line'></view>
+      <view class='conttext'>
+        <text>{{item.Reviewcontent}}</text>
+      </view>
+      <!-- 图片 -->
+      <view class='picture_list'>
+        <view class="item" wx:for="{{imgList}}" wx:key="{{index}}">
+          <image src='{{item.imagesUrl}}' data-index="{{index}}" bindtap="previewImg" mode="widthFix"></image>
+          <!-- </block> -->
+        </view>
+      </view>
+
+
+
+      <view class='main_line'></view>
+      <view class='interactive_bar'>
+        <!-- 点击搜藏 -->
+        <view class='interactive_item' bindtap="haveSave">
+          <image src="{{isClick?'https://www.izhuangsha.com/images/interactive_bar/Grade_Collection.png':'https://www.izhuangsha.com/images/interactive_bar/Collection.png'}}"></image>
+          <text>收藏</text>
+        </view>
+        <!-- 转发 -->
+        <view class="interactive_item" bindtap='onShareAppMessage'>
+          <button class='share' id="shareBtn" open-type="share" hover-class="none" style="background-image:url(https://www.izhuangsha.com/images/interactive_bar/Grade_share.png);">转发
+          </button>
+        </view>
+        <!-- 生成海报 -->
+        <view class="interactive_item" bindtap='experiencePoster'>
+          <image src='https://www.izhuangsha.com/images/interactive_bar/Grade_Circle_friends.png'></image>
+          <text>海报</text>
+        </view>
+      </view>
+      <view class='main_line_bottom'></view>
+
+
+      <!--评论列表-->
+      <view class="comments" bindtap='blankCilck'>
+        <view class='com_tit'>
+          <view class='bolck_comm'></view>
+          <text class='comment_Name'>最新评论({{comCount}})</text>
+        </view>
+        <view class="comment_item touch-active" wx:for="{{commentList}}" wx:key="" wx:for-item="items">
+          <!-- <block wx:for="{{commentList}}" wx:key="commentList" wx:for-index="idx" wx:for-item="items"> -->
+          <view class="i-left">
+            <image class="c-u-img" src="{{items.wx_user_headimgurl}}"></image>
+          </view>
+          <view class="i-right">
+            <view class="top">
+              <text class="u-name">{{items.wx_user_nickname}}</text>
+              <view class='item_praise' data-comid="{{items.id}}" data-id="{{item.id}}" catchtap='upFabulous'>
+                <image src='{{imgurl}}{{items.Fabulousimg}}'></image>
+                <text class='txt_praise' style='font-size: 25rpx;'> {{items.FabulousNum}}</text>
+              </view>
+
+            </view>
+
+            <!--评论内容-->
+            <view class="content" data-comid="{{items.id}}" data-commentusername="{{items.wx_user_nickname}}" catchtap="bindReply" data-useropenid="{{items.wx_user_id}}" data-fromid="{{items.from_id}}">
+              <view>{{items.reply_msg}}</view>
+              <view class='delete_item'>
+                <text class="time">{{items.create_date}}</text>
+                <view class="text">
+                  <view class="sharebtn" data-comid="{{items.id}}" data-commentusername="{{items.wx_user_nickname}}" catchtap="bindReply" data-useropenid="{{items.wx_user_id}}" data-fromid="{{items.from_id}}">回复</view>
+                </view>
+              </view>
+              <view wx:if="{{items.wx_user_id == openid}}" class="status text">
+                <text class="delete" decode="true" catchtap='deleteComment' data-commentid="{{items.id}}">删除</text>
+              </view>
+            </view>
+            <view>
+              <!-- <view wx:if="{{isFold}}" bindtap="flodFn" data-id='{{items.id}}' class='Open_reply'>
+                      展开回复
+                  </view>
+                  <view wx:else>
+                    <view> -->
+              <!-- 回复内容 -->
+              <view class="comment_item touch-active" wx:for="{{commenReplytList}}" wx:key="" wx:for-item="chile" wx:if="{{items.id == chile.comment_id}}">
+
+
+                <view class="i-left">
+                  <image class="c-u-img" src="{{chile.userPhoto}}"></image>
+                </view>
+                <view class="i-right">
+                  <view class="top">
+                    <text class="u-name">{{chile.reply_nickname}}</text>
+                    <view class='item_praise' data-comid="{{items.id}}" data-nid="{{item.id}}" data-rid="{{chile.id}}" catchtap='replyFabulous'>
+                      <image src='{{imgurl}}{{chile.Fabulousimg}}'></image>
+                      <text class='txt_praise' style='font-size: 25rpx;'> {{chile.FabulousNum}}</text>
+                    </view>
+
+                  </view>
+
+                  <!--回复内容-->
+                  <view class="content">
+                    <view>{{chile.reply_msg}}</view>
+                    <view class='delete_item'>
+                      <text class="time">{{chile.create_date}}</text>
+                      <view wx:if="{{chile.from_user_id == openid}}" class="status text">
+                        <text class="delete" decode="true" catchtap='delReplyComm' data-repid="{{chile.id}}">删除</text>
+                      </view>
+                    </view>
+
+
+                  </view>
+                  <!-- </view> -->
+                  <!-- </view> -->
+                  <!-- <view bindtap="flodFn" class='Close_reply'>收起回复</view> -->
+
+                </view>
+
+              </view>
+
+
+            </view>
+            <view class="person-line"></view>
+          </view>
+        </view>
+      </view>
+      <view class='commentInfo_img' wx:if="{{imgisshow==true}}">
+        <image src='https://www.izhuangsha.com/images/comment_img.png'></image>
+      </view>
+      <!-- 回到首页(分享的时候显示) -->
+      <!-- <image wx:if="{{isshare}}" bindtap='backHome' class='d-back-home' src='https://www.izhuangsha.com/api/images/backHome.png' lazy-load></image> -->
+    </view>
+  </block>
+</view>
+<view class="view_bottom"></view>
+<form bindsubmit="submitForm" report-submit="true">
+  <view class="comment-fixed">
+    <view class="cf-box">
+
+      <input class="cf-content" name='txt_Context' bindfocus="textAreaFocus" maxlength="300" bindblur="textAreaBlur" value="{{content}}" placeholder="{{placeholder}}{{reply_userName}}" placeholder-class='placeholder' fixed="true" cursor-spacing='30px' bindconfirm="send" confirm-type='send' focus='{{istrue}}'></input>
+      <image catchtap="emojiShowHide" src="https://www.izhuangsha.com/api/images/chat/emotion-o.png" class='toggleEmojis' mode='widthFix'></image>
+      <button form-type="submit" class="cf-send touch-active">发送</button>
+    </view>
+
+    <view class="emojis_box" wx:if="{{showEmojis}}">
+      <scroll-view scroll-y="true" bindscroll="emojiScroll" style="height:200px">
+        <block wx:for="{{emojis}}" wx:for-item="e" wx:key="">
+          <view class="emoji-cell">
+            <image class="touch-active" catchtap="emojiChoose" src="http://soupu.oss-cn-shanghai.aliyuncs.com/emoji/{{e.emoji}}.png" data-emoji="{{e.char}}" data-oxf="{{e.emoji}}"></image>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+</form>
+<!-- <form bindsubmit="submitForm" report-submit="true"> -->
+<!-- <view class="talk" bindtap="bindReply">评论</view> -->
+<!-- <view class="release" hidden="{{!releaseFocus}}">
+      <textarea class="text"
+      name='txt_Context'
+      placeholder-class="input_null"
+      fixed="true"
+      maxlength="-1"
+      show-confirm-bar="false"
+      cursor-spacing="15"
+      auto-height="true"
+      focus="{{releaseFocus}}"
+      placeholder="说点什么吧~" value='{{form_info}}'></textarea>
+      <button form-type="submit" class="submit">发送</button>
+    </view>
+</form> -->

@@ -1,0 +1,8 @@
+    <!--start 炫酷展开菜单 -->
+    <view class="drawer_screen" bindtap="showOrHide" wx:if="{{isShow}}" catchtouchmove="myCatchTouch"></view>
+      <view >
+      <!-- <image src="https://www.izhuangsha.com/api/images/Add_btn.png" class="buttom" animation="{{animDelLots}}" bindtap="deleteLots"></image> -->
+      <image src="https://www.izhuangsha.com/api/images/Release_btn.png" class="buttom" hidden='{{ishidden}}' animation="{{animAdd}}" bindtap="add"></image>
+      <image src="https://www.izhuangsha.com/api/images/Add_btn.png" class="buttom" animation="{{animMain}}" bindtap="showOrHide"></image>
+    </view>
+    <!--end 炫酷展开菜单 -->

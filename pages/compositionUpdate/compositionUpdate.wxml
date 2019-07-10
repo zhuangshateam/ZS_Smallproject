@@ -1,0 +1,164 @@
+<!--pages/comments/comments.wxml-->
+ <import src="../wxParse/wxParse.wxml" />
+ <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+
+<form bindsubmit='formSubmit' report-submit='true'>
+<view class="container container-gray">
+	<view class="group">
+  <!-- <view class="group-header">编辑</view> -->
+		<view class="group-body">
+			<view class="input-list">
+        <!-- 永远显示 -->
+				<view class="input-item">
+					<text class="input-item-label">类型：</text>
+          <radio-group class="radio-group" bindchange="radioChange" name="radio_name">
+            <label class="radio" wx:for="{{items}}">
+                <radio value="{{item.value}}"  checked="{{item.checked}}" disabled="true"/>{{item.name}}
+            </label>
+          </radio-group>
+				</view>
+        <!-- 作文 -->
+        <view class="input-item" wx:if="{{showView==true}}">
+					<text class="input-item-label input_txt">产品名称：</text>
+					<view class="input-item-content">
+						<input name="productName" type="text" placeholder="请输入产品名称" bindblur="titleBlurFocus" value='{{productName}}'></input>
+					</view>
+				</view>
+
+        <!-- 推荐指数--作文 -->
+        <view class="input-item" wx:if="{{showView==true}}">
+          <text class="input-item-label input_txt">使用推荐指数：</text>
+            <view class="zan-font-16 my-ib" bindtap="myStarChoose">
+              <block wx:for="{{starMap}}">
+                <text wx:if="{{star>=index+1}}" style="padding-right: .5em" class="zan-c-red" data-star="{{index+1}}">★</text>
+                <text wx:if="{{star<index+1}}" style="padding-right: .5em" class="zan-c-gray-dark" data-star="{{index+1}}">☆</text>
+              </block>
+            </view>
+            <!--★-->
+            <text class="zan-c-gray-dark">{{starMap[star-1]}}</text>
+          <text class='rule' bindtap='showRule'>?</text>
+        </view>
+        <!-- 推荐指数--作文 -->
+        <view class="input-item" wx:if="{{showView==true}}">
+          <text class="input-item-label input_txt">销售推荐指数：</text>
+            <view class="zan-font-16 my-ib" bindtap="myStarChoose1">
+              <block wx:for="{{starMap}}">
+                <text wx:if="{{star1>=index+1}}" style="padding-right: .5em" class="zan-c-red" data-star="{{index+1}}">★</text>
+                <text wx:if="{{star1<index+1}}" style="padding-right: .5em" class="zan-c-gray-dark" data-star="{{index+1}}">☆</text>
+              </block>
+            </view>
+            <!--★-->
+            <text class="zan-c-gray-dark">{{starMap1[star1-1]}}</text>
+          <text class='rule1' bindtap='showRule1'>?</text>
+        </view>
+        <!--  规则提示  -->
+        <view class="ruleZhezhao {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
+            <view class='ruleZhezhaoContent'>
+                <view class='ruleZhezhaoText' >
+                    <text></text>
+                    <text>侧重普通顾客端：是不是好用</text>
+                </view>
+                <image src='https://www.izhuangsha.com/api/images/rule-hide.png' class='ruleHide' bindtap='hideRule'></image>
+            </view>
+        </view>
+        <view class="ruleZhezhao {{isRuleTrue1?'isRuleShow':'isRuleHide'}}">
+            <view class='ruleZhezhaoContent'>
+                <view class='ruleZhezhaoText' >
+                    <text></text>
+                    <text>侧重店老板端：是不是好卖</text>
+                </view>
+                <image src='https://www.izhuangsha.com/api/images/rule-hide.png' class='ruleHide' bindtap='hideRule1'></image>
+            </view>
+        </view>
+        <!--  end  -->
+
+        <!-- 体验时间--作文 -->
+       <view class="input-item" wx:if="{{showView==true}}">
+          <text class="input-item-label input_txt">体验时间段：</text>
+          <view class="picker_group">  
+              <picker mode="date" value="{{date}}"  end="{{date2}}" bindchange="bindDateChange">  
+                <view class="picker">  
+                  {{experienceTime}}  
+                </view>  
+              </picker>  
+              至  
+              <picker mode="date" value="{{date2}}" start="{{date}}" end="2050-01-01" bindchange="bindDateChange2">  
+                <view class="picker">  
+                  {{datetimeEnd}}  
+                </view>  
+              </picker>        
+          </view>  
+        </view>      
+        <!-- 性别 -->
+        <view class="input-item" wx:if="{{showView==true}}">
+          <text class="section_title">性别：</text>
+          <view class="picker_group">  
+              <radio-group name="gender" bindchange="radioSexChange">
+                <label style='margin-right: 15rpx;'>  <radio value='1' checked='{{sex==1?true:false}}'>男</radio></label>
+                <label>  <radio value='0' checked='{{sex==0?true:false}}'>女</radio></label>
+              </radio-group>    
+          </view>  
+        </view>  
+        <!-- 年龄 -->
+        <view class="weui_nianling" wx:if="{{showView==true}}">
+         <view class="weui-cells__title">年龄:</view>
+          <slider name="slider" bindchange="sliderchange"  max="70" show-value  value='{{sliderAge}}'/>
+        </view>
+
+       
+        <!-- 体验者皮肤特征--作文 -->
+        <view class="input-item input-item-full" wx:if="{{showView==true}}">
+					<text class="input-item-label">体验者皮肤特征:</text>
+					<textarea name="txtName_pf" placeholder="皮肤是否敏感，皮肤属于中性/干性/油性/混合性，使用前皮肤是否有呈现特殊状况比如出痘脱皮等" maxlength="1000" value='{{experientialSkin}}'  hidden='{{ishidden}}'></textarea>
+				</view>
+
+
+        <!-- 产品气质--作文 -->
+        <view class="input-item input-item-full" wx:if="{{showView==true}}">
+					<text class="input-item-label">产品气质:</text>
+					<textarea name="txtName_qz" placeholder="1.包装是否醒目，是否适合在门店进行陈列，是否便于销售；2.包装的便捷性和安全性如何；3.包装的设计是否符合目前的潮流趋势；4.是否有需要改进的地方，如果有请具体说明" maxlength="4000" value='{{productMakings}}' hidden='{{ishidden}}'></textarea>
+				</view>
+
+        <!-- 使用体验--作文 -->
+        <view class="input-item input-item-full" wx:if="{{showView==true}}" >
+					<text class="input-item-label">使用体验:</text>
+					<textarea name="txtName_ty" placeholder="1从使用的安全性、便捷性以及产品的质地、清爽程度进行描述；2 对于产品的主要功能以及实际效果进行描述；3 判断产品的使用效果和宣传是否一致；4.产品的主打成分或者技术是什么，是否有效，5.是否有需要改进的地方，如果有请具体说明" maxlength="4000" value='{{usersExperience}}' hidden='{{ishidden}}'></textarea>
+				</view>
+
+        <!-- 产品推广--作文 -->
+        <view class="input-item input-item-full" wx:if="{{showView==true}}">
+					<text class="input-item-label">市场建议:</text>
+					<textarea name="txtName_tg" placeholder="1从使用的安全性、便捷性以及产品的质地、清爽程度进行描述；2 对于产品的主要功能以及实际效果进行描述；3 判断产品的使用效果和宣传是否一致；4.产品的主打成分或者技术是什么，是否有效，5.是否有需要改进的地方，如果有请具体说明" maxlength="4000" value='{{productExtension}}' hidden='{{ishidden}}'></textarea>
+				</view>
+
+        <!-- 消费者--作文 -->
+        <view class="input-item input-item-full" wx:if="{{showView==true}}">
+					<text class="input-item-label">销售话术:</text>
+					<textarea name="txtName_xfz" placeholder="1.该产品适合在什么渠道销售；2.其目标顾客的类型；3.会遇到什么销售阻碍；4.有什么特点是能够促进销售达成？根据上述问题，设定一个销售场景，指定一套针对目标顾客的销售话术" maxlength="4000" value='{{consumer}}' hidden='{{ishidden}}'></textarea>
+				</view>
+
+			</view>
+		</view>
+  </view>
+  <view class="group-header">上传图片</view>
+		<view class="group-body">
+				<view class="img-upload">
+					<view class="img-add" bindtap="handleTap"></view>
+					<view class="img-item" bindlongtap="editImage" wx:for="{{uploadimgs}}" wx:key="{{index}}">
+						<icon type="clear" size="20" color="red" style="display:{{editable?'block':'none'}}" bindtap="deleteImg" data-index="{{index}}"/>
+						<image src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="handleImagePreview"></image>
+				</view>
+        <cropper imageSrc="{{imageSrc}}" enableScale="{{true}}" isCircleCrop="{{false}}" ratio="{{2/1.8}}" bind:cropperDone="cropperDone" bind:cropperCancel="cropperCancel" bind:cropperFail="cropperFail"></cropper>
+		</view>
+	</view>
+	<view class="btn-submit">
+		<button formType="submit" class="btn-block btn-red">确 认 修 改</button>
+	</view>
+</view>
+</form>
+<loading hidden="{{submitHidden}}">
+  正在提交...
+</loading>

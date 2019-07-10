@@ -1,56 +1,297 @@
- <!--搜索框  -->
-<view class="weui-search-bar">
-  <view class="weui-search-bar__form">
-    <!--点击之后，出现input框  -->
-    <view class="weui-search-bar__box">
-      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-      <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
-      <!--输入款字数大于0，则显示清除按钮  -->
-      <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-        <icon type="clear" size="14"></icon>
+<!--引入加载更多模版-->
+<import src="../template/loading.wxml" />
+
+<cu-custom bgColor="bg-gradual-pink">
+  <!-- isBack="{{true}}" -->
+  <!-- <view slot="backText" bindtap='binReturn'>返回</view> -->
+  <view slot="content">妆啥</view>
+</cu-custom>
+<view class='container'>
+<add-tips text="点击添加到小程序" duration="10"/>
+  <!--搜索框  -->
+  <view class="weui-search-bar">
+
+    <view class="weui-search-bar__form">
+      <!--点击之后，出现input框  -->
+      <view class="weui-search-bar__box">
+        <!-- <icon class="weui-icon-search_in-box" type="search" size="14"></icon> -->
+        <text class='cuIcon-search lg text-gray weui-icon-search_in-box'></text>
+        <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" confirm-type='search' bindconfirm="searchBtn" />
+        <!--输入款字数大于0，则显示清除按钮  -->
+        <view class="weui_icon_clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+          <text class='cuIcon-roundclosefill lg text-gray'></text>
+        </view>
       </view>
+      <!--没点击之前，只是一些文字和图标  -->
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+        <!-- <icon class="weui-icon-search" type='search' size="14"></icon> -->
+        <text class='cuIcon-search lg text-gray'></text>
+        <view class="weui-search-bar__text">搜索</view>
+      </label>
     </view>
-    <!--没点击之前，只是一些文字和图标  -->
-    <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
-      <icon class="weui-icon-search" type="search" size="14"></icon>
-      <view class="weui-search-bar__text">搜索</view>
-    </label>
+    <!--动态出现的“取消”键  -->
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">搜索</view>
   </view>
-  <!--动态出现的“取消”键  -->
-  <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
-</view>
-<view class="container">
 
-  <view class="tab">
-    <navigator url="/pages/index/index?parentId=107" open-type="redirect">
-      <view class="tab-list {{parentId==107 ? 'active2' : ''}}"><image src='../../images/composition.png' class='sele_img'/><view>作文</view></view>
-    </navigator>
-    <navigator url="/pages/index/index?parentId=125" open-type="redirect">
-      <view class="tab-list {{parentId==125 ? 'active2' : ''}}"><image src='../../images/diary.png' class='sele_img'/><view>日记</view></view>
-    </navigator>
-  </view>
-   <view style="height:{{scrollHeight}}px;">  
-    <scroll-view scroll-y="true" style="height:{{scrollHeight}}px;" class="list" bindscrolltolower="bindDownLoad">
-    <block wx:for="{{newsList}}" wx:key="newsList" wx:for-index="idx" wx:for-item="item">
-  <navigator url="/pages/newsinfo/newsinfo?id={{item.articleId}}">
-  <view class="news-list">
-    <image src="{{linkUrl}}{{item.photoUrl}}"></image>
-    <view class="news-list-right">
-      <text class="news-title">{{item.title}}</text>
-      <view class="news-text">{{item.intro}}</view>
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" catchtap="tabNav">
+      <image src="{{currentTab==1||currentTab==2? 'https://www.izhuangsha.com/api/images/diary.png': 'https://www.izhuangsha.com/api/images/diary_on.png'}}" class='sele_img' data-current="0" bindtap="tabNav" />
+      <view data-current="0" bindtap="tabNav" style='  margin-bottom: 10rpx;'>BA经验</view>
+    </view>
+
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" catchtap="tabNav">
+      <image src="{{currentTab==0||currentTab==2? 'https://www.izhuangsha.com/api/images/composition.png': 'https://www.izhuangsha.com/api/images/composition_on.png'}}" class='sele_img' data-current="1" bindtap="tabNav" />
+      <view data-current="1" bindtap="tabNav" style='  margin-bottom: 10rpx;'>BA体验</view>
+    </view>
+
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" catchtap="tabNav">
+      <image src="{{currentTab==0||currentTab==1? 'https://www.izhuangsha.com/api/images/discuss.png': 'https://www.izhuangsha.com/api/images/discuss_on.png'}}" class='sele_img' data-current="2" bindtap="tabNav" />
+      <view data-current="2" bindtap="tabNav" style='  margin-bottom: 10rpx;'>匿名区</view>
     </view>
   </view>
-  </navigator>
+
+  <swiper current="{{currentTab}}" duration="1000" style="height:{{len*490}}rpx" bindchange="bindChange">
+    <!-- 日记 -->
+    <swiper-item>
+      <scroll-view scroll-y="true" style="height:90%;" class="list" bindscrolltolower="bindDownLoad">
+        <block wx:for="{{newsList}}" wx:key="newsList" wx:for-index="idx" wx:for-item="item">
+          <navigator url="/pages/newsinfo/newsinfo?id={{item.id}}" hover-class="none">
+            <view class="news-list">
+              <view class="news-list-right">
+                <view class="news-title">
+                  <image src='https://www.izhuangsha.com/api/images/Official.png' class='Official' wx:if="{{item.openid=='oyqXT5DNhpwjnwhZWsuK-vQqqjqY' ||item.openid=='oyqXT5GsJOxjd2xGFt7rACzFPgP8'?true:false}}"></image>
+                  {{item.ReviewTitle}}
+                </view>
+                <view class="news_info">
+                  <text>{{item.Reviewcontent}}</text>
+                </view>
+                <view class='nlist_all'>
+                  <view class='txt_nickname'>
+                    <image src="{{item.headimgurl}}" class='news_img'></image>
+                    <text class='txt_Usernickname'>{{item.nickname}}</text>
+                  </view>
+                  <view class='praise_container'>
+                    <view class='praise' data-id="{{item.id}}" catchtap='favorclick'>
+                      <image src='{{item.FabulousImg}}'></image>
+                      <text class='txt_praise counter'> {{item.FabulousCount}}</text>
+                    </view>
+                    <!-- 评论 -->
+                    <view class='news_comment'>
+                      <image src='https://www.izhuangsha.com/api/images/anonymous/huifu.png'></image>
+                      <text class='txt_commentCount counter'> {{item.com_counts==''?0:item.com_counts}}</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+
+              <!-- 是否加精 -->
+              <view class='isRecommend' wx:if="{{item.Recommend==1}}">
+                <image src='https://www.izhuangsha.com/api/images/Boutique.png'></image>
+              </view>
+            </view>
+          </navigator>
+        </block>
+        <!--加载更多模版-->
+        <block wx:if="{{isLoading}}">
+          <template is="loading" />
+        </block>
+        <block wx:else>
+          <template is="nodata" />
+        </block>
+      </scroll-view>
+    </swiper-item>
+    <!-- BA作文 -->
+    <swiper-item>
+      <scroll-view scroll-y="true" style="height:90%;" class="makeuplist" bindscrolltolower="bindDownLoad_tiyan">
+        <!-- <block wx:for="{{makeupList}}" wx:key="makeupList" wx:for-index="idx" wx:for-item="items"> -->
+        <!-- <navigator url="/pages/makeupInfo/makeupInfo?id={{item.id}}&currentTab={{currentTab}}" hover-class="none"> -->
+        <view class="goods" style="width:100%">
+          <view class="img_item">
+            <view wx:for="{{makeupList}}" wx:key="id" wx:if="{{index%2==0}}" catchtap="catchTapCategory" data-nid="{{item.id}}">
+              <view class="item_info">
+                <image src="{{item.imagesUrl}}" mode="aspectFill" lazy-load='true' style="width:100%;height:380rpx;border-top-left-radius:3%;border-top-right-radius:3%;"></image>
+              </view>
+              <view class='bottom_list'>
+                <view class="product-name">
+                  {{item.productName}}
+                </view>
+                <view class="product-price-wrap">
+                  <view class='makeup_userinfo'>
+                    <image src='{{item.headimgurl}}' mode='widthFix' class='avatar'></image>
+                    <view class="makeup_userinfo_nickname">
+                      <text>{{item.nickname}}</text>
+                    </view>
+                  </view>
+                  <view class='makeup_praise_container'>
+                    <image src='{{item.FabulousImg}}' data-id="{{item.id}}" catchtap='update_zan'></image>
+                    <text class='makeup_txt_praise  ' style='font-size: 24rpx;'> {{item.FabulousCount}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="img_item">
+            <view wx:for="{{makeupList}}" wx:key="id" wx:if="{{index%2==1}}" catchtap="catchTapCategory" data-nid="{{item.id}}">
+              <view class="item_info">
+                <image src="{{item.imagesUrl}}" mode="aspectFill" lazy-load='true' style="width:100%;height:380rpx;border-top-left-radius:3%;border-top-right-radius:3%;"></image>
+              </view>
+              <view class='bottom_list'>
+                <view class="product-name">
+                  {{item.productName}}
+                </view>
+                <view class="product-price-wrap">
+                  <view class='makeup_userinfo'>
+                    <image src='{{item.headimgurl}}' mode='widthFix' class='avatar'></image>
+                    <view class="makeup_userinfo_nickname">
+                      <text>{{item.nickname}}</text>
+                    </view>
+                  </view>
+                  <view class='makeup_praise_container'>
+                    <image src='{{item.FabulousImg}}' data-id="{{item.id}}" catchtap='update_zan'></image>
+                    <text class='makeup_txt_praise' style='font-size: 24rpx;'> {{item.FabulousCount}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- <block wx:if="{{isLoading}}">
+    <template is="loading" />
   </block>
-  </scroll-view>
+  <block wx:else>
+    <template is="nodata" />
+  </block> -->
+      </scroll-view>
+    </swiper-item>
+    <!-- 讨论区 -->
+    <swiper-item>
+      <scroll-view scroll-y="true" style="height:90%;" class="" bindscrolltolower="bindDownLoad3">
+        <block wx:for="{{mousList}}" wx:key="mousList" wx:for-index="idx" wx:for-item="item">
+          <navigator url="/pages/anonymousDetails/anonymousDetails?id={{item.id}}" hover-class="none">
+            <view class="news-list">
+              <view class="news-list-right">
+                <view class="news-title">{{item.anonymous_Title}}
+                </view>
+                 <!-- 发帖人信息 -->
+                <view class='nlist_all'>
+                  <view class='txt_nickname'>
+                    <image src="{{item.imgUrl}}" class='news_img'></image>
+                    <text class='txt_Usernickname'>{{item.anonymous_nickName}}</text>
+                  </view>
+                  <!-- 发帖时间 -->
+                  <!-- <view class='praise_container'>
+                    <text class='crateTime'>{{item.anonymous_time}}</text>
+                  </view> -->
+                </view>
+                <view class="news_info">
+                  <text style='color:#999;'>{{item.Reviewcontent}}</text>
+                </view>
+
+              <!-- 评论区 -->
+                <view class='nlist_all' wx:for="{{commList}}" wx:key="" wx:for-item="comPL" wx:if="{{item.id == comPL.comid}}">
+                  <view class='nimin_header'>
+                    <image src="{{comPL.wx_user_headimgurl}}" class='news_img'></image>
+                  </view>
+                  <view class='nimin_remark' >
+                    <text>{{comPL.reply_msg}}</text>
+                  </view>
+                </view>
+
+                <!-- <view class="slender_line"></view> -->
+
+
+                <view class="slender_line"></view>
+
+
+                <!-- 分享\评论\点赞 -->
+
+
+                <view class='interactive_bar'>
+                  <!-- 评论 -->
+                  <view class='interactive_item pinlun'>
+                    <image src='https://www.izhuangsha.com/api/images/anonymous/huifu.png'></image>
+                    <text class='txt_commentCount counter'> {{item.anonyCount==''?0:item.anonyCount}}</text>
+                  </view>
+
+                  <!-- 点赞 -->
+                  <view class='interactive_item dianzan' data-id="{{item.id}}" catchtap='clickFabulous'>
+                    <image src="{{imageUrl}}{{item.FabulousImg}}"></image>
+                    <text class='txt_praise counter'> {{item.FabulousCount}}</text>
+                  </view>
+                  <!-- 转发 -->
+                  <view class="interactive_item " >
+                    <button id="shareBtn" data-item="{{item.anonymous_Title}}" data-id="{{item.id}}" open-type="share"
+ style="background-image:url(https://www.izhuangsha.com/images/interactive_bar/Grade_share.png);" catchtap="share"> 转发
+                    </button>
+                  </view>
+
+                </view>
+
+              </view>
+
+              <!-- 是否加精 -->
+              <view class='isRecommend' wx:if="{{item.Recommend==1}}">
+                <image src='https://www.izhuangsha.com/api/images/Boutique.png'></image>
+              </view>
+            </view>
+          </navigator>
+        </block>
+        <!--加载更多模版-->
+        <block wx:if="{{isLoading}}">
+          <template is="loading" />
+        </block>
+        <block wx:else>
+          <template is="nodata" />
+        </block>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+<official-account></official-account>
+  <tabbar tabbar="{{tabbar}}"></tabbar>
+</view>
+<!-- 新人专享  按钮 -->
+<view class='newusertask_icon' catchtap='toNewTask' wx:if="{{isShowNews}}">
+  <vpush-view><image src='https://www.izhuangsha.com/api/images/BA_crd/newTask_icon.png'></image></vpush-view>
+</view>
+<!-- 手册-->
+<view class='add_icon' bindtap='topage' hidden='{{instructions==1?true:false}}'>
+  <vpush-view><image src='http://www.izhuangsha.com/api/images/help_icon.png'></image></vpush-view>
+  <!-- <text>手册</text> -->
+</view>
+<!-- 弹出层--新人专享 -->
+<view wx:if="{{isNewUser}}" catchtouchmove="return">
+
+  <view class='shadow'>
+    <view class='newuserimg'>
+    <view class='imgInner'>
+        <image src='https://www.izhuangsha.com/api/images/BA_crd/newpeople.png'></image>
+        <view class='newuser_btn' bindtap='closeTask'></view> 
     </view>
-   <!-- <view class="body-view">
-         <loading hidden="{{hidden}}" bindchange="loadingChange">
-             加载中...
-         </loading>
-     </view>    -->
+    </view>
+  </view>
 </view>
 
-<view class='userinfo_list'>
-
-</view>
+<!-- 引导添加我的小程序 -->
+<!-- <view class='shadow' wx:if="{{add_desk_isshow}}" catchtouchmove="return">
+  <view class="add_desk_warp">
+    <image class='add_desk' src='https://www.izhuangsha.com/api/images/BA_crd/add_desk.png' style='top:{{add_desk_top}};'></image>
+    <view class="add_desk_btn" catchtap='close_add_desk'></view>
+  </view>
+</view> -->
+<!-- <vpush-checkin title="今日签到"
+desc="每日签到，畅享美好！"
+bind:onCheckIn="checkInHandler"
+/> -->
+<!-- 遮罩层 -->
+<!-- <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view> -->
+<!-- 弹出层 -->
+<!-- <view class="modalDlg" wx:if="{{showModal}}"> -->
+<!-- 二维码或其他图片 -->
+<!-- <image src="/images/Notice.png"/>
+    <text class="text">妆啥小程序即将上线佣金模式，使用规则如下：</text>
+    <text class="text1">1、进入福利领取任务</text>
+    <text class="text1">2、领取任务成功后，需要提醒用户加福利君的微信号</text>
+    <text class="text1">3、任务要求：按照要求进行产品试用并在规定时间内完成问卷填写</text>
+    <text class="text1">4、后台审核确认任务是否完成-确认完成任务后奖金到账</text>
+    <view bindtap="ok" class="ok">好的</view>
+</view> -->

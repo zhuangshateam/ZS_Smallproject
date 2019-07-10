@@ -1,0 +1,110 @@
+<!--pages/forumAdd/forumAdd.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText" bindtap='binReturn'>返回</view>
+  <view slot="content">BA名片</view>
+</cu-custom>
+
+<!-- BA名片 -->
+<view class="card_wrap">
+  <view style='height:70rpx;'></view>
+  <view class="container">
+    <view bindtap="bindViewTap" class="userinfo">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+  </view>
+
+  <view class='card_inner'>
+    <view class="text1">
+      <text>邀请你一起学习</text>
+    </view>
+    <view class='text2'>
+      <text>BA实战案例</text>
+    </view>
+    <view class='text3'>
+      <text>抢先获取内测福利</text>
+    </view>
+    <view class="user_code">
+      <image src='{{imgUrl}}{{codeImg}}'></image>
+    </view>
+  </view>
+
+
+</view>
+<!-- 好友列表 -->
+<view class='friend_wrap'>
+  <view class='friend_list'>
+    <view class='ranking_icon' bindtap='toFriendRanking' >
+      <image src='https://www.izhuangsha.com/api/images/BA_crd/ranking_icon.png'></image>
+    </view>
+    <view class='list_head'>
+      <view class='title'>
+        推荐好友
+        <text class="friend_num"> {{friendNum}} </text>人
+      </view>
+      <view wx:if='{{friendNum > 0}}'>
+       <text style='padding-right:35rpx'>新人任务</text>
+      </view>
+    </view>
+
+
+    <!-- 好友为空 -->
+    <view class='none_bj' wx:if='{{friendNum <= 0}}'>
+      <image src='https://www.izhuangsha.com/api/images/BA_crd/comment2_img.png'></image>
+    </view>
+    <!-- 好友列表 -->
+
+    <view class="friend_add_list">
+      <scroll-view scroll-y style="height: 292rpx;width:83vw;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" >
+        <block wx:for="{{cardList}}" wx:key="cardList" wx:for-index="idx" wx:for-item="item">
+          <view class="friend_item">
+            <view class='friend_Info'>
+              <image src='{{item.headimgurl1}}'></image>
+              <text>{{item.nickname1}}</text>
+            </view>
+            <view class='task' wx:if='{{item.examine==3}}'>
+              <text class='readText'>已完成</text>
+            </view>
+             <view class='task' wx:elif='{{item.examine==1}}'>
+              <text class='grayText'>审核中</text>
+            </view>
+            <view class='task' wx:elif='{{item.examine==2}}'>
+              <text class='grayText' style='color:red;font-size: 22rpx;'>未通过</text>
+            </view>
+            <view class='task' wx:else='{{item.examine}}'>
+              <text class='grayText'>未完成</text>
+            </view>
+          </view>
+
+
+          <!-- <view class="friend_item">
+            <view class='friend_Info'>
+              <image src='{{userInfo.avatarUrl}}'></image>
+              <text>{{userInfo.nickName}}</text>
+            </view>
+            <view class='task'>
+              <text class='grayText'>未完成</text>
+            </view>
+          </view> -->
+
+
+
+        </block>
+      </scroll-view>
+    </view>
+
+
+
+  </view>
+</view>
+<!-- 底部按钮 -->
+<form bindsubmit='formSubmit' report-submit='true'>
+<view class='button_group'>
+  <view class='leftBtn'>
+    <button formType="submit" data-openid="{{openid}}" data-nickname="{{openid}}" open-type="share">邀请好友</button>
+  </view>
+  <view class='reightBtn' bindtap='cardPoster'>
+    <view >生成图片</view>
+  </view>
+</view>
+</form>

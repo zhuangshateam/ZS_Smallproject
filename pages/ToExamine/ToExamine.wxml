@@ -1,0 +1,30 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+<view class='myPosting_main'>
+<block wx:for="{{productList}}" wx:key="productList" wx:for-index="idx" wx:for-item="item" >
+        <!-- <navigator url="/pages/newsinfo/newsinfo?id={{item.id}}&currentTab=0" hover-class="none"> -->
+          <view class="news-list">
+              <view class='txt_nickname'>
+                <image src="{{item.headimgurl}}" class='news_img'></image> 
+                <text class='txt_nickname_title'>{{item.nickname}}</text>
+              </view>
+              <view class="news-list-right">
+                  <text class="news-title">{{item.ProductNmae}}</text>
+                  <text class="news-ProductNmae">{{item.CorporateName}}</text>
+                  <view class="news-text">{{item.CreateTime}}</view>
+              </view>
+              <view class='Mark'>
+                <view class='color_Mark' wx:if='{{item.Toexamine==0}}'><text>审核中</text></view>
+                 <view class='color_Mark' wx:elif='{{item.Toexamine==1}}'><text>审核通过</text></view>
+                  <view class='color_Mark' wx:else='{{item.Toexamine==2}}'><text>审核不通过</text></view>
+              </view>
+          </view>
+      <!-- </navigator> -->
+</block>
+<!--圆形点击框  -->
+    <view class="round-click" hidden='{{toexamine}}'>
+       <navigator url='/pages/addProducts/addProducts' >发布产品</navigator >
+    </view>
+</view>

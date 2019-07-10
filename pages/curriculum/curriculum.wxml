@@ -1,0 +1,44 @@
+<!--pages/curriculum/curriculum.wxml-->
+<import src="../template/loading.wxml" />
+<cu-custom bgColor="bg-gradual-pink" >
+	<view slot="content">妆啥</view>
+</cu-custom>
+
+<view class='container' >
+  <view class="cu-bar search bg-white">
+    <view class='search-form'>
+      <text class="cuIcon-search lg text-gray"></text>
+      <input type="text" placeholder="搜索课程" confirm-type="search" bindinput='wxSearchInput' name="keyword" value="{{inputValue}}"></input>
+      <view class="weui-icon-clear" wx:if="{{inputValue.length > 0}}" bindtap="clearInput">
+        <text class='icon-roundclosefill lg text-gray'></text>
+      </view>
+    </view>
+    <view class='action'>
+      <button class='cu-btn bg-Makeup shadow-blur search_btn {{inputValue.length==0? "":"search_btn_on"}}'  bindtap="wxSearchFn">搜索</button>
+    </view>
+  </view>
+  <view class="cu-card article {{isCard?'no-card':''}} lists">
+    <view wx:for="{{clumList}}" class="cu-item shadow" bindtap='getCurrlunDetails' data-clid="{{item.id}}" data-imgurl="{{item.imagesUrl}}" data-brief="{{item.curri_brief}}" data-title="{{item.curriculumName}}">
+      <view class="title">{{item.curriculumName}}</view>
+      <view class="content">
+        <image src="{{imgUrl}}{{item.imagesUrl}}" mode="aspectFill"></image>
+        <view class="desc">
+          <view class='text-content'> {{item.curri_brief}}</view>
+          <view>
+            <view class='cu-tag bg-red light sm round'>{{item.Label_one}}</view>
+            <view class='cu-tag bg-green light sm round'>{{item.Label_two}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--加载更多模版-->
+    <block wx:if="{{isLoading}}">
+      <template is="loading" />
+    </block>
+    <block wx:else>
+      <template is="nodata" />
+    </block>
+  </view>
+  
+ <tabbar tabbar="{{tabbar}}"></tabbar>
+</view>

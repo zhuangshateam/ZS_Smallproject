@@ -1,0 +1,125 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText" bindtap='binReturn'>返回</view>
+  <view slot="content">品牌合作</view>
+</cu-custom>
+
+
+<!-- <form bindsubmit='formSubmit' report-submit='true'>
+  <view class="container container-gray">
+    <view class="group">
+      <view class="group-body">
+        <view class="input-list">
+          <view class="input-item">
+            <text class="input-item-label">公司名称：</text>
+            <view class="input-item-content">
+              <input name="title" type="text" placeholder="请输入名称" bindblur="titleBlurFocus" value='{{form_info}}'></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-label">商品名称：</text>
+            <view class="input-item-content">
+              <input name="shangpin" type="text" placeholder="请输入商品名称" bindblur="titleBlurFocus" value='{{form_info}}'></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-label" decode="{{true}}">规 &nbsp;&nbsp; &nbsp;&nbsp;格：</text>
+            <view class="input-item-content">
+              <input name="guige" type="text" placeholder="请输入规格" bindblur="titleBlurFocus" value='{{form_info}}'></input>
+            </view>
+          </view>
+
+
+          <view class="input-item">
+            <text class="input-item-label" decode="{{true}}">数&nbsp;&nbsp; &nbsp;&nbsp;  量：</text>
+            <view class="input-item-content">
+              <input name="fenshu" type="number" placeholder="请输入数量" bindblur="titleBlurFocus" value='{{form_info}}'></input>
+            </view>
+          </view>
+
+
+          <view class="input-item">
+            <text class="input-item-label" decode="{{true}}">姓 &nbsp;&nbsp; &nbsp;&nbsp;名：</text>
+            <view class="input-item-content">
+              <input name="xingming" type="text" placeholder="请输入姓名" bindblur="titleBlurFocus" value='{{form_info}}'></input>
+            </view>
+          </view>
+
+
+          <view class="input-item">
+            <text class="input-item-label" decode="{{true}}">电 &nbsp;&nbsp; &nbsp;&nbsp;话：</text>
+            <view class="input-item-content">
+              <input name="phoneNum" type="text" placeholder="请输入电话" bindblur="titleBlurFocus" value='{{form_info}}'></input>
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+    <view class="group-header">名片</view>
+    <view class="group-body">
+      <view class="img-upload">
+        <view class="img-add" bindtap="chooseImage"></view>
+        <view class="img-item" bindlongtap="editImage" wx:for="{{uploadimgs}}" wx:key="{{index}}">
+          <icon type="clear" size="20" color="red" style="display:{{editable?'block':'none'}}" bindtap="deleteImg" data-index="{{index}}" />
+          <image src='{{item}}' mode='aspectFill' data-idx='{{index}}' bindtap="handleImagePreview"></image>
+        </view>
+      </view>
+    </view>
+    <view class="btn-submit">
+      <button formType="submit" class="btn-block btn-red">提 交</button>
+    </view>
+  </view>
+</form> -->
+
+<form bindsubmit='formSubmit' report-submit='true'>
+  <view class="cu-form-group">
+    <view class="title">姓名</view>
+    <input name="xingming" type="text" placeholder="请输入姓名" bindblur="titleBlurFocus" value='{{form_info}}'></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">电话</view>
+    <input name="phoneNum" type="number" placeholder="请输入电话" bindblur="titleBlurFocus" value='{{form_info}}'></input>
+    <view class="cu-capsule radius ">
+      <view class="cu-tag bg-red">
+        +86
+      </view>
+      <view class="cu-tag line-red">
+        中国大陆
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-form-group margin-top">
+    <view class="title">公司名称</view>
+    <input placeholder="" name="title" type="text" placeholder="请输入名称" bindblur="titleBlurFocus" value='{{form_info}}'></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">规格</view>
+    <input placeholder="" name="guige" type="text" placeholder="请输入规格" bindblur="titleBlurFocus" value='{{form_info}}'></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">数量</view>
+    <input placeholder="" name="fenshu" type="number" placeholder="请输入数量" bindblur="titleBlurFocus" value='{{form_info}}'></input>
+  </view>
+
+  <view class="cu-form-group">
+    <view class="title">名片</view>
+  </view>
+    <view class="group-body">
+      <view class="img-upload">
+        <view class="img-add" bindtap="chooseImage"></view>
+        <view class="img-item" bindlongtap="editImage" wx:for="{{uploadimgs}}" wx:key="{{index}}">
+          <icon type="clear" size="20" color="red" style="display:{{editable?'block':'none'}}" bindtap="deleteImg" data-index="{{index}}" />
+          <image src='{{item}}' mode='aspectFill' data-idx='{{index}}' bindtap="handleImagePreview"></image>
+        </view>
+      </view>
+    </view>
+  <view class="margin-top ">
+    <button formType="submit" loading='{{loading}}' class="btn-block btn-red">申请合作</button>
+  </view>
+</form>
+<loading hidden="{{submitHidden}}">
+  正在提交...
+</loading>

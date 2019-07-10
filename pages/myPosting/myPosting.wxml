@@ -1,0 +1,67 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+<view class='myPosting_main'>
+<block wx:for="{{postingList}}" wx:key="newsList" wx:for-index="idx" wx:for-item="item" hidden='{{ishidden1}}'>
+        <navigator url="/pages/newsinfo/newsinfo?id={{item.id}}&currentTab=0" hover-class="none">
+          <view class="news-list">
+              <view class="news-list-right">
+                  <view class="news-title">{{item.ReviewTitle}}</view>
+              </view>
+              <!-- 编辑 -->
+              <view class='delete_item'>
+                  <view class='news_dateTime'><view class='reviewtime_time'> {{item.Reviewtime}}</view></view>
+                  <view class='Mark'>
+                    <view class='color_Mark'>经验</view>
+                  </view>
+                  <view class='delete_edits'>
+                      <view class='news_edit'  data-id="{{item.id}}" catchtap='bindViewTab'>
+                          <image src='https://www.izhuangsha.com/api/images/edit1.png'></image>
+                        </view>
+                      <!-- 删除 -->
+                      <view class='news_delete'>
+                        <view class='newsDel'  data-nid="{{item.id}}" catchtap='deleteClick'>
+                            <image src='https://www.izhuangsha.com/api/images/delete1.png'></image>      
+                        </view>
+                      </view>
+                  </view>
+              </view>
+              <!-- <view class='Mark'>
+                <view class='color_Mark'><text>经验</text></view>
+              </view> -->
+          </view>
+      </navigator>
+</block>
+<block wx:for="{{postingmakeupList}}" wx:key="makeupList" wx:for-index="idx" wx:for-item="items" hidden='{{ishidden2}}'>
+        <navigator url="/pages/makeupInfo/makeupInfo?id={{items.id}}&currentTab=1" hover-class="none">
+          <view class="news-list">
+              <view class="news-list-right">
+                  <text class="news-title">{{items.productName}}</text>
+              </view>
+              <!-- 编辑 -->
+              <view class='delete_item'>
+                  <view class='news_dateTime'><view class='reviewtime_time'> {{items.Reviewtime}}</view></view>
+                  <view class='Mark1'>
+                    <view class='color_Mark1'>体验</view>
+                  </view>
+                  <view class='delete_edits'>
+                      <view class='news_edit'  data-id="{{items.id}}" catchtap='bacompEdit'>
+                          <image src='https://www.izhuangsha.com/api/images/edit1.png'></image>
+                        </view>
+                      <!-- 删除 -->
+                      <view class='news_delete'>
+                        <view class='newsDel'  data-cid="{{items.id}}" catchtap='bacompDelete'>
+                            <image src='https://www.izhuangsha.com/api/images/delete1.png'></image>      
+                        </view>
+                      </view>
+                  </view>
+              </view>
+          </view>
+      </navigator>
+</block>
+</view>
+<view class='commentInfo_img' wx:if="{{isShow==true}}">
+    <image src='https://www.izhuangsha.com/api/images/nodata.png'></image>
+    <text>暂无发帖</text>
+</view>

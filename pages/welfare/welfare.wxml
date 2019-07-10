@@ -1,0 +1,157 @@
+<import src="../template/loading.wxml" />
+<cu-custom bgColor="bg-gradual-pink">
+  <view slot="content">福利</view>
+</cu-custom>
+<view class="container">
+  <!-- 导航栏 -->
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" catchtap="tabNav">
+      <view data-current="0" bindtap="tabNav">免费试用</view>
+    </view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" catchtap="tabNav">
+      <view data-current="1" bindtap="tabNav">积分兑换</view>
+    </view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" catchtap="tabNav">
+      <view data-current="2" bindtap="tabNav">佣金任务</view>
+    </view>
+  </view>
+
+  <!-- 内容区 -->
+  <swiper current="{{currentTab}}" duration="1000" style="height:{{len*490}}rpx" bindchange="bindChange">
+    <!-- 免费试用 -->
+    <swiper-item>
+      <scroll-view scroll-y="true" style="height:100%;" class="makeuplist" bindscrolltolower="bindDownLoad0">
+        <view class='mian_lists'>
+          <view class="item" wx:for="{{lists}}" bindtap="detail" wx:for-item="v" wx:key="its" data-id="{{index}}" data-did="{{v.id}}" data-guid="{{v.guid}}">
+            <view class="items">
+              <view class="i-top">
+                <image class="i-img" src="{{v.imagesUrl}}" lazy-load='true'></image>
+              </view>
+              <view class="content_1 item_m">
+                <view class="c-top">
+                  <view class="title">{{v.Product_Name}}</view>
+                  <view class="c-bottom">
+                    <view class='integral item_trial'>
+                      <text>免费试用</text>
+                    </view>
+                    <view class='item_trial'>
+                      <view class='trialNum ' wx:if='{{v.Trial_quantity > v.NumOk}}'>
+                        <button class="cu-btn bg-red ">进行中</button>
+                      </view>
+                      <view class='trialNum' wx:else='{{v.Trial_quantity > v.NumOk}}'>
+                        <button class="cu-btn block  ">已结束</button>
+                      </view>
+                    </view>
+                  </view>
+
+                </view>
+
+              </view>
+            </view>
+          </view>
+          <!--加载更多模版-->
+          <block wx:if="{{isLoading}}">
+            <template is="loading" />
+          </block>
+          <block wx:else>
+            <template is="nodata" />
+          </block>
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+    <!-- 积分兑换 -->
+    <swiper-item>
+      <scroll-view scroll-y="true" style="height:100%;" class="makeuplist" bindscrolltolower="bindDownLoad1">
+        <view class='mian_lists'>
+          <view class="item" wx:for="{{exList}}" wx:for-item="v" wx:key="its" data-id="{{index}}" data-eid="{{v.id}}" bindtap="catchTapCategory">
+            <view class="items">
+              <view class="i-top">
+                <image class="i-img" src="{{imgUrl}}{{v.imagesUrl}}" lazy-load='true'></image>
+              </view>
+              <view class="content_1">
+                <view class="c-top">
+                  <text class="title">{{v.exchange_Name}}</text>
+                  <view class='item_trial item_m'>
+                    <view class='integral item_trial'>
+                      <image src='https://www.izhuangsha.com/api/images/integral_on.png'></image>
+                      <text style='color:#FF2727;  font-weight: 600;margin-right: 5rpx;'>{{v.IntegralNum}}</text> 积分</view>
+
+                    <view class="right_jifen item_trial">
+                      <view class='item_trial'>
+                        <view class='trialNum' wx:if='{{v.Surplus_quantity> 0}}'>
+                          <button class="cu-btn bg-red ">进行中</button>
+                        </view>
+                        <view class='trialNum' wx:else='{{v.Surplus_quantity==0}}'>
+                          <button class="cu-btn block ">已结束</button>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+
+            </view>
+          </view>
+          <!--加载更多模版-->
+          <block wx:if="{{isLoading}}">
+            <template is="loading" />
+          </block>
+          <block wx:else>
+            <template is="nodata" />
+          </block>
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+    <!-- 佣金任务 -->
+    <swiper-item>
+      <scroll-view scroll-y="true" style="height:100%;" class="makeuplist" bindscrolltolower="bindDownLoad2">
+        <view class='mian_lists'>
+          <view class="item" wx:for="{{taskList}}" bindtap="taskdetail" wx:for-item="v" wx:key="its" data-id="{{index}}" data-tid="{{v.id}}" data-guid="{{v.guid}}">
+            <view class="items">
+              <view class="i-top">
+                <image class="i-img" src="{{imgUrl}}{{v.imagesUrl}}" lazy-load='true'></image>
+                <!-- <view class="productStatus" wx:if='{{v.task_quantity>0}}'>
+                  <image class="u-img" src="https://www.izhuangsha.com/api/images/icon/goin_ok.png"></image>
+                </view>
+                <view class="productStatus" wx:else='{{v.task_quantity==0}}'>
+                  <image class="u-img" src="https://www.izhuangsha.com/api/images/icon/goin_no.png"></image>
+                </view> -->
+              </view>
+              <view class="content_1">
+                <view class="c-top">
+                  <text class="title">{{v.Product_Name}}</text>
+                  <view class='item_trial'>
+                    <view class='integral'>
+                      <text class='reward'> 赏金：</text>
+                      <text style='color:#FF2727;  font-weight: 600'>￥{{v.taskCommisNum}}</text>
+                    </view>
+                    <view class="right_jifen item_trial">
+                      <view class='item_trial'>
+                        <view class='trialNum' wx:if='{{v.task_quantity> 0}}'>
+                          <button class="cu-btn bg-red ">进行中</button>
+                        </view>
+                        <view class='trialNum' wx:else='{{v.task_quantity==0}}'>
+                          <button class="cu-btn block  ">已结束</button>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!--加载更多模版-->
+          <block wx:if="{{isLoading}}">
+            <template is="loading" />
+          </block>
+          <block wx:else>
+            <template is="nodata" />
+          </block>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+  <tabbar tabbar="{{tabbar}}"></tabbar>
+</view>

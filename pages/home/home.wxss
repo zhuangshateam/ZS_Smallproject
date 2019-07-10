@@ -1,111 +1,191 @@
-.personal_info {
-	padding: 20px 0;
-	background-color: #FFF;
+@import '/colorui/icon.wxss';
+@import '/colorui/main.wxss';
+
+page{
+    height: 100%;
+    
+}
+.container{
+
+   justify-content: initial;
+     padding-bottom: 150rpx;
+}
+.personal_info,.tixian-img{
+  width: 100%;
+  height: 588rpx;
 }
 .photo_wrap {
-	text-align: left ;
-  margin-left:1rem;
+    position:absolute;
+  text-align:left;
+  width:90%;
+  left: 55rpx;
+  top:178rpx;
+  color:#fff;
 }
+/* 签到 */
+.Sign{
+ 
+  position: absolute;
+ left: 85%;
+ top: 203rpx;
+  display:flex;
+  flex-direction:column;
+  flex-wrap:wrap;
+  align-content:left;
+}
+.Sign image{
+  width: 65rpx;
+  height: 65rpx;       
+}
+/* 用户头像 */
 .photo {
-	width: 50px;
-	height: 50px;
-	border-radius: 90px;
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 180rpx;
+  border: 5rpx solid #f1f1f1;
 }
 .nickname {
-	position: absolute;
-	text-align: left;
-  margin-top: -3rem;
-  left:5rem;
-	color: #696969;
+  display: flex;
+  margin-top: -70rpx;
+  margin-bottom: 5rpx;
+	color: #fff;
+  font-size: 32rpx;
+   margin-left: 130rpx;
 }
-.Grade .lb_txt{
-	position: absolute;
-	text-align: left;
-  margin-top: -1.2rem;
-  left:6.2rem;
-  font-size: 0.8rem;
-}
-.Grade .carImg{
-  position: absolute;
-  text-align: left;
-  margin-top: -1.2rem;
-  left:5rem;
-  width: 1rem;
-  height: 1rem;
-}
+/* 发帖回帖 */
 .wode_menu{
-padding: 20px 0;
-margin-top: 10px;
-background-color: #FFF;
+  position:absolute;
+  text-align:center;
+  width:100%;
+  top:338rpx;
+  color:#fff;
+  display: flex;
+  flex-direction: row;
 }
-.wode_menu .view_menu_info{
-  height: 4.5rem;
+.view_menu_info{
+  width: 300rpx;
+  height: 90rpx;
+  padding-top: 8rpx;
+  border-right: 1rpx solid #FF83BF;
 }
-.wode_menu .menuImg{
- width: 2.5rem;
- height: 2.5rem;
- margin-left: 2rem;
+.wode_menu_fatie,.wode_menu_Replies,.wode_Grade_Collection{
+  display: flex;
+  flex-direction: column;
 }
-.wode_menu .wode_menu_fatie{
-	text-align: left;
-  margin-left: 1.9rem;
-  font-size: 0.8rem;
+.contNum{
+  margin-bottom: 8rpx;
+}
+/* 等级余额积分 */
+.Users_account{
+  position:absolute;
+  top:524rpx;
+  background-color: #fff;
+  margin-left:20rpx; 
+  margin-right:20rpx; 
+  display: flex;
+  flex-direction: row;
+  text-align:center;
+  border-radius: 20rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.view_menu_warp_Grade{
+  width: 230rpx;
+  height: 80rpx;
+  border-right: 1rpx solid #F5F5F5;
+  margin-top: 15rpx;
+}
+.view_menu_warp{
+  width: 240rpx;
+  height: 80rpx;
+  padding-top: 8rpx;
+}
+.wode_Grade_dengji{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10rpx;
+  align-items: center;
+  justify-content: center;  
+}
+.dengji{
+  margin-right: 5rpx;
+}
+.dengji image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.contNum_dengji{
+  color: #FFB303;
+  font-size: 36rpx;
+  margin-top: 2rpx;
+  /* letter-spacing:4rpx; */
+}
+/* 余额 */
+.wode_Grade_yue,.wode_Grade_jifen{
+  display: flex;
+  flex-direction: column;
+   align-items: center;
+  justify-content: center; 
+}
+.wode_yue,.wode_jifen{
+  display: flex;
+  flex-direction: row;
 
 }
+.wode_yue image,.wode_jifen image{
+  width: 50rpx;
+  height: 50rpx;
+    margin-top: -5rpx;
+}
+.balanNum,.integralNum{
+  margin-top: 10rpx;
+  font-weight: 600;
+}
+/* 我的-菜单 */
+.menu_lists{
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  text-align:center;
+  border-radius: 20rpx;
+  margin: 25rpx;
+  margin-top: 100rpx;
+}
+.list1{
+display: flex;
+  flex-direction: row; 
+  flex-wrap: wrap;
+  margin-left: 15rpx;
+}
 
-/* 回帖 */
-.wode_menu .wode_huitie_img{
+.view_Uersmenu_item{
+  width: 33%;
+  height: 150rpx;
+  padding-top: 30rpx;
+border-bottom: 1rpx solid #F5F5F5;
 
-  margin-top: -4.49rem;
-  margin-left: 8rem;
+/* margin-left: 15rpx;
+padding-right: 15rpx; */
 }
-.wode_menu .wode_menu_Replies{
-  margin-top: -0.05rem;
-  margin-left: 9.8rem;
-  font-size: 0.8rem;
-}
-/* 收藏夹 */
-.wode_menu .wode_shoucangImg{
-  margin-top: -4.6rem;
-  margin-left: 15.5rem;
-}
-.wode_menu .wode_Grade_Collection{
-margin-top: 0rem;
-margin-left: 17.4rem;
-  font-size: 0.8rem;
+.wode_Grade_menu_Gongge{
+  display: flex;
+  flex-direction: column;
+   align-items: center;
+  justify-content: center
 
 }
+.menu_Gongge image{
+  width: 55rpx;
+  height: 50rpx;
+}
+.titleName_user{
+  font-size: 28rpx;
 
-.wode_item_wrap {
-	background-color: #FFF;
-	font-size: 14px;
-	margin-top: 10px;
-	border-top: 1px solid #E5E5E5;
 }
-.wode_item {
-    height: 45px;
-	border-bottom: 1px solid #E5E5E5;
-	padding: 0 10px;
-	line-height: 45px;
-	position: relative;
+.con_btn{
+  color: #333333;
+  font-size: 28rpx;
+  background-color: #fff;
+margin-top: -2rpx;
 }
-.arrow_wrap {
-    position: absolute;
-    width: 50px;
-    height: 45px;
-    right: 0;
-    top: 0;
-    background-image: url(../../image/icon-arrow.png);
-    background-repeat: no-repeat;
-    background-size: 16px;
-    background-position: 17px 14px;
-}
-.wode_out {
-	height: 45px;
-	line-height: 45px;
-	text-align: center;
-	background-color: #FFF;
-	margin-top: 10px;
-	border-bottom: 1px solid #E5E5E5;
-	border-top: 1px solid #E5E5E5;
-}
+button::after{ border: none; }

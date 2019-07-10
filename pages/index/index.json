@@ -1,1 +1,9 @@
-{}
+{
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "tabbar": "../../tabbarComponent/tabbar",
+    "add-tips": "/vpush-pro-sdk/components/index",
+    "vpush-view": "/vpush-pro-sdk/components/view"
+  }
+}

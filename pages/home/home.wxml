@@ -1,37 +1,191 @@
-<view class="personal_info">
-	<view class="photo_wrap">
-		<image src="{{userInfo.avatarUrl}}" class="photo"></image>
-	</view>
-	<view class="nickname">
-		{{userInfo.nickName}}
-	</view>
-  	<view class="Grade">
-    <image src="../../images/Grade.png" class="carImg" ></image>
-		<text class='lb_txt'>0</text>
-	</view>
-</view>
-<view class='wode_menu'>
-<view class='view_menu_info' bindtap="tapName">
-    <view class='wode_img'> 
-      <image src="../../images/Grade_Post.png" class="menuImg"></image>
+<view class='container'>
+  <view class="personal_info">
+    <image class="tixian-img" src="https://www.izhuangsha.com/api/images/home/bjhome.jpg"></image>
+    <view class="photo_wrap" >
+      <view><image src="{{userInfo.avatarUrl}}" class="photo"></image></view>
+      <view class="nickname">{{userInfo.nickName}}</view>
     </view>
-    <view class='wode_menu_fatie'><text class='lb_fatie'>发帖[0]</text></view> 
- </view>
-  <view class='view_menu_info'>
-    <view class='wode_huitie_img'>
-      <image src="../../images/Grade_Replies.png"class="menuImg"></image>
+    <!-- 签到 -->
+    <navigator url="/pages/mySign/mySign" hover-class="none">
+    <view class='Sign flex-wrp-row'>
+      <vpush-view><image src='https://www.izhuangsha.com/api/images/qiandao.png'  mode='aspectFit'></image></vpush-view>
+      <!-- <text>签到</text>   -->
+    </view></navigator>
+    <!-- 发帖回帖 -->
+    <view class='wode_menu'>
+      <view class='view_menu_info'>
+          <navigator url="/pages/myPosting/myPosting?isPostingCont={{isPostingCont}}" hover-class="none">
+              <view class='wode_menu_fatie'>
+                <view class='contNum'>{{isPostingCont}}</view>
+                <view><text class='lb_fatie'>发帖</text></view>
+              </view> 
+          </navigator>
+      </view>
+      <view class='view_menu_info'>
+        <navigator url="/pages/myReplies/myReplies?isRepliesCont={{isRepliesCont}}" hover-class="none">
+          <view class='wode_menu_Replies'>
+            <view class='contNum'>{{isRepliesCont}}</view>
+            <view><text class='lb_fatie'>回帖</text></view>
+          </view>
+        </navigator>
+      </view>
+
+      <view class='view_menu_info'>
+        <navigator url="/pages/myFavorites/myFavorites?isFavoritesCount={{isFavoritesCount}}" hover-class="none">
+            <view class='wode_Grade_Collection'>
+              <view class='contNum'>{{isFavoritesCount}}</view>
+              <view><text class='lb_fatie'>收藏夹</text></view>
+            </view>
+        </navigator>
+      </view>
     </view>
-    <view class='wode_menu_Replies'><text class='lb_fatie'>回帖[0]</text></view>
+  </view>
+<vpush-checkin title="今天还没签到~" desc="每日签到，赚积分，兑礼品" bind:onCheckin="checkInHandler" />
+  <!-- 等级余额积分 -->
+  <view class='Users_account'>
+    <view class='view_menu_warp_Grade'>
+        <!-- <navigator url="/pages/myFavorites/myFavorites?isFavoritesCount={{isFavoritesCount}}" hover-class="none"> -->
+            <view class='wode_Grade_dengji'>
+              <view class='dengji'><image src='https://www.izhuangsha.com/api/images/home/Grade_Users.png'></image></view>
+              <view class='contNum_dengji'>Lv 1</view>
+            </view>
+        <!-- </navigator> -->
+    </view>
+    <view class='view_menu_warp'>
+        <navigator url="/pages/withdraw/withdraw?userMoney={{userMoney}}" hover-class="none">
+            <view class='wode_Grade_yue'>
+              <view class='wode_yue'>
+                <image src='https://www.izhuangsha.com/api/images/home/wode_yue.png'></image>
+                <text>余额</text>
+              </view>
+              <view class='balanNum'>￥{{userMoney}}</view>
+            </view>
+        </navigator>
+    </view>
+    <view class='view_menu_warp'>
+        <navigator url="/pages/Integral_record/Integral_record" hover-class="none">
+            <view class='wode_Grade_jifen'>
+              <view class='wode_jifen'>
+                <image src='https://www.izhuangsha.com/api/images/home/wode_jifen.png'></image>
+                <text>积分</text>
+              </view>
+              <view class='integralNum'>{{integral}}</view>
+            </view>
+        </navigator>
+      </view>
+  </view>
+  <!-- 中部九宫格菜单 -->
+  <view class='menu_lists'>
+    <view class='list1'>
+        <view class='view_Uersmenu_item'>
+            <navigator  url="/pages/PersonHome/PersonHome?integral={{integral}}" hover-class="none">
+                <view class='wode_Grade_menu_Gongge'>
+                  <view class='menu_Gongge'>
+                    <image src='https://www.izhuangsha.com/api/images/home/My_users.png'></image>
+                  </view>
+                  <view class='titleName_user'>个人主页</view>
+                </view>
+            </navigator>
+        </view>
+
+        <view class='view_Uersmenu_item'>
+            <navigator  url="/pages/IntegralRanking/IntegralRanking" hover-class="none">
+                <view class='wode_Grade_menu_Gongge'>
+                  <view class='menu_Gongge'>
+                    <image src='https://www.izhuangsha.com/api/images/home/My_user_Ranking.jpg'></image>
+                  </view>
+                  <view class='titleName_user'>积分排行</view>
+                </view>
+            </navigator>
+        </view>
+
+        <view class='view_Uersmenu_item'>
+            <navigator  url="/pages/MyTrial/MyTrial" hover-class="none">
+                <view class='wode_Grade_menu_Gongge'>
+                  <view class='menu_Gongge'>
+                    <image src='https://www.izhuangsha.com/api/images/home/My_user_trial.png'></image>
+                  </view>
+                  <view class='titleName_user'>我的试用</view>
+                </view>
+            </navigator>
+        </view>
+        <view class='view_Uersmenu_item'>
+            <navigator  url="/pages/Myexchange/Myexchange" hover-class="none">
+                <view class='wode_Grade_menu_Gongge'>
+                  <view class='menu_Gongge'>
+                    <image src='https://www.izhuangsha.com/api/images/home/My_user_exchange.png'></image>
+                  </view>
+                  <view class='titleName_user'>我的兑换</view>
+                </view>
+            </navigator>
+        </view>
+        <view class='view_Uersmenu_item'>
+            <navigator  url="/pages/Mytask/Mytask" hover-class="none">
+                <view class='wode_Grade_menu_Gongge'>
+                  <view class='menu_Gongge'>
+                    <image src='https://www.izhuangsha.com/api/images/home/My_task.png'></image>
+                  </view>
+                  <view class='titleName_user'>我的任务</view>
+                </view>
+            </navigator>
+        </view>
+
+         <view class='view_Uersmenu_item'>
+            <navigator  url="/pages/Partners/Partners" hover-class="none">
+                <view class='wode_Grade_menu_Gongge'>
+                  <view class='menu_Gongge'>
+                    <image src='https://www.izhuangsha.com/api/images/home/My_user_cooperation.png'></image>
+                  </view>
+                  <view class='titleName_user'>品牌合作</view>
+                </view>
+            </navigator>
+        </view>
+        <view class='view_Uersmenu_item' hidden='{{showView}}'>
+            <navigator  url="/pages/ToExamine/ToExamine" hover-class="none">
+                <view class='wode_Grade_menu_Gongge'>
+                  <view class='menu_Gongge'>
+                    <image src='https://www.izhuangsha.com/api/images/home/My_user_examine.png'></image>
+                  </view>
+                  <view class='titleName_user'>我的审核</view>
+                </view>
+            </navigator>
+        </view>
+        <view class='view_Uersmenu_item' hidden='{{showProduct}}'>
+            <navigator  url="/pages/Myproduct/Myproduct" hover-class="none">
+                <view class='wode_Grade_menu_Gongge'>
+                  <view class='menu_Gongge'>
+                    <image src='https://www.izhuangsha.com/api/images/home/My_user_product.png'></image>
+                  </view>
+                  <view class='titleName_user'>我的产品</view>
+                </view>
+            </navigator>
+        </view>
+
+         <view class='view_Uersmenu_item' bindtap='toBAcard'>
+            <view class='wode_Grade_menu_Gongge'>
+                  <view class='menu_Gongge'>
+                    <image src='https://www.izhuangsha.com/api/images/home/My_user_Invitation.png'></image>
+                  </view>
+                  <view class='titleName_user'><button class='con_btn' hover-class="none"  >邀请好友</button></view>
+            </view>
+        </view>
+        <view class='view_Uersmenu_item'>
+            <navigator  url="/pages/myfeedback/myfeedback" hover-class="none">
+                <view class='wode_Grade_menu_Gongge'>
+                  <view class='menu_Gongge'>
+                    <image src='https://www.izhuangsha.com/api/images/home/My_user_feedback.png'></image>
+                  </view>
+                  <view class='titleName_user'>意见反馈</view>
+                </view>
+            </navigator>
+        </view>
+    </view>
   </view>
 
-  <view class='view_menu_info'>
-  <view class='wode_shoucangImg'><image src="../../images/Grade_Collection.png"class="menuImg"></image></view>
-  <view class='wode_Grade_Collection'><text class='lb_fatie'>收藏夹</text></view>
-  </view>
-</view>
-<view class="wode_item_wrap">
-	<view class="wode_item" wx:for="{{mode}}">
-		{{item}}
-		<span class="arrow_wrap"></span>
-	</view>
+<view class="body-view">
+         <loading hidden="{{hidden}}">
+             加载中...
+         </loading>
+     </view>   
+      <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>

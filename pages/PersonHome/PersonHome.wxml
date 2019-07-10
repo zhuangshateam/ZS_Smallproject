@@ -1,0 +1,54 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+<view class="container">
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <view class='account-bg'>
+      <view class='v_age'><image src='https://www.izhuangsha.com/api/images/integral_user.png'></image> <view style='margin-left: 8rpx;'>{{integral}}</view></view>
+      <view class='v_sex'><image src='https://www.izhuangsha.com/api/images/City_user.png'></image><view style='margin-left: 4rpx;'>{{ipt_city}}</view></view>
+    </view>
+    <!-- <view class='txt_brief'>
+      <view class='beif'>签名：</view>
+      <view class='txt_contentBeif' wx:if='{{person_signature!=""}}'><text>{{person_signature}}</text></view>
+      <view class='txt_contentBeif' wx:else='{{person_signature==""}}'><text>这个人很懒，什么也没留下</text></view>
+    </view> -->
+
+     <!-- <view class='Business' bindtap='editData'>
+      <button class='btn1'>编辑资料</button>
+    </view> -->
+  </view>
+
+  <view class="separate"></view>
+  <view class='center_list'>
+    <view class='list_ul'>
+      <view class="nav_list_center" catchtap="toOrderRep" >
+        <view class='itemName_li'>已发表经验</view>
+        <view class='piece_li'>{{rexperienceCount}} 篇</view>
+      </view>
+    </view>
+    <view class='list_ul'>
+      <view class="nav_list_center" catchtap="toOrderCom" >
+        <view class='itemName_li'>已发表体验</view>
+        <view class='piece_li'>{{compositionCount}} 篇</view>
+        
+      </view>
+    </view>
+    <view class='list_ul'>
+      <view class="nav_list_center" catchtap="toOrderCom" >
+      <text class='itemName_li'>已收获</text>
+        <text class='piece_li1'>{{praiseTotal}}<text style='color: #000000;'> 赞</text> </text>
+        
+      </view>
+    </view>
+    <view class='list_ul'>
+      <view class="nav_list_center" catchtap="toOrderCom" >
+      <text class='itemName_li'>积分排行</text>
+        <text class='piece_li2'  wx:if="{{rankingTop==0}}">暂无排名<text style='color: #000000;'> </text> </text>
+         <text class='piece_li1'  wx:else="{{rankingTop!=0}}"><text style='color: #000000;'> 第 </text>{{rankingTop}}<text style='color: #000000;'> 名</text> </text>
+      </view>
+    </view>
+  </view>
+</view>

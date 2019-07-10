@@ -1,0 +1,314 @@
+/* pages/BargainIn/BargainIn.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #F4F4F4;
+}
+/* .top_main{
+  width: 100%;
+    height: 530rpx;
+  background-image: url(https://www.izhuangsha.com/api/images/Bargain_bj.jpg);
+  background-size: 100% 100%;
+} */
+.top_main{
+  position: relative;
+}
+.tixian-img{
+  width: 100%;
+  height: 550rpx;
+  background:linear-gradient(105deg, #f78196, #c23af0);
+}
+.main{
+display: flex;
+flex-direction: column;
+margin-bottom: 30rpx;
+padding-bottom: 50rpx;
+}
+.userImgurl{
+  position: absolute;
+  top:10rpx;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  margin-top: 15rpx;
+  flex-direction: column;
+}
+.userImgurl text{
+  font-size: 34rpx;
+  margin-top: 10rpx;
+}
+.userImgurl image{
+  width: 145rpx;
+  height: 145rpx;
+  border-radius: 50%;
+  border: 8rpx solid #fff;
+}
+.details_List{
+  position:absolute;
+  text-align:left;
+  width:90%;
+  left: 55rpx;
+  top:280rpx;
+  color:#000;
+}
+.userName_details{
+  width: 610rpx;
+  margin-top: 5rpx;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  padding-bottom: 20rpx;
+  margin-right: 15rpx;
+  margin-left: 15rpx;
+  border-bottom: 2rpx solid #E5E5E5;
+}
+.Image_txtList{
+  display: flex;
+  flex-direction: row;
+margin: 20rpx;
+margin-top: 25rpx;
+  margin-bottom: 60rpx;
+}
+.Image_txtList image{
+  width: 250rpx;
+  height: 160rpx;
+
+}
+.row_item{
+  display: flex;
+  flex-direction: column;
+  margin-left: 25rpx;
+}
+ .titName{
+   font-family: 'STHeiti';
+  font-size: 30rpx;
+  font-weight:  500;
+  width: 350rpx;
+  height: 120rpx;
+
+  display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:3;
+}
+.detailsNames{
+  display: flex;
+  flex-direction: row;
+  font-size: 28rpx;
+
+  }
+  .detailsNames text{
+    line-height: 40rpx;
+    color: #D8497C;
+  }
+  
+  .detailsNames image{
+    width: 35rpx;
+    height: 35rpx;
+    margin-top: 4rpx;
+  }
+  .details_list2{
+    display: flex;
+    flex-direction: column;
+  margin-top: 35rpx;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  border-radius: 15rpx;
+  margin-bottom: 200rpx;
+  }
+  .userinfoName_ils{
+       display: flex;
+  align-items: center;
+  justify-content: center;  
+  font-size: 30rpx;
+  margin: 35rpx 0 35rpx 0;
+    letter-spacing:2rpx;
+  }
+  .btn_Bargain{
+	color: #fff;
+	font-size: 30rpx;
+  padding: 25rpx;
+  text-align: center;
+  background:#C7537A;
+  border-radius:20rpx;
+  width: 400rpx;
+  letter-spacing:2rpx;
+  margin: 0 auto; 
+  margin-bottom: 40rpx;
+}
+.bargain_item_center{
+    margin: 32rpx;
+  border: 2rpx solid #C7537A;
+  border-radius: 25rpx;
+}
+.us_bargain{
+  position: relative;
+
+  margin: 10rpx;
+  /* border-bottom: 2rpx solid #E5E5E5; */
+
+    /* padding: 20rpx 45rpx; */
+
+}
+ .flex-wrp-row{
+  display: flex;
+  flex-direction: row;
+}
+.item_usin{
+  padding-left: 35rpx;
+  padding-top: 15rpx;
+  padding-right: 35rpx;
+  position: relative;
+}
+.flex-wrp-row image{
+  width: 60rpx;
+  height: 60rpx;
+    border-radius: 50%;
+}
+.Double_goods{
+  display: flex;
+  flex-direction: column;
+   flex: 1; /* 重要 */
+margin-left: 15rpx;
+}
+.goods_Usernickname{
+  display: flex;
+  flex-direction: row;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+.datetime_good{
+  font-size: 20rpx;
+  color: #c7c7cb;
+}
+.eh_BargainNum{
+   position: relative;
+  align-items:center;
+  font-size: 24rpx;
+  color: #c7c7cb;
+}
+.eh_BargainNum image{
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 8rpx;
+}
+.bg_price{
+  color: #C7537A;
+}
+.Load_more{
+display: flex;
+flex-direction: row;
+  align-items: center;
+  justify-content: center;  
+  font-size: 24rpx;
+  color: #4ABDCF;
+  /* border-top: 2rpx solid #F2F2F2; */
+
+  margin-top: 20rpx;
+  margin-bottom: 25rpx;
+}
+.Load_more image{
+  width: 30rpx;
+  height: 30rpx
+}
+
+
+/* 底部固定按钮 */
+.btn_fixed{
+  position: fixed;
+  z-index: 998;
+  bottom:0;
+  width: 100%;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  border-top:0.2rpx solid #F0F0F0;
+  height: 100rpx;
+}
+.home_btn{
+  display: flex;
+  width: 15%;
+  flex-direction: column;
+  color: #2B2B2B;
+  align-items: center;
+  text-align: center;
+  padding-top: 15rpx;
+}
+.btn_CutInteg{
+    display: flex;
+    width: 15%;
+  flex-direction: column;
+  color: #2B2B2B;
+   padding-left:32rpx; 
+   padding-top: 15rpx; 
+
+}
+.zanbtn{
+position: absolute;
+    display: flex;
+  flex-direction: column;
+   width: 15%;
+  height:80rpx;
+   opacity:0;
+}
+
+
+.home_btn image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 5rpx;
+}
+.txt_home{
+  font-size: 20rpx;
+  color: #2B2B2B;
+}
+.txt_CutInteg{
+    font-size: 20rpx;
+  color: #2B2B2B;
+  margin-left: 5rpx;
+}
+.btn_CutInteg image{
+
+     width: 50rpx; 
+    height: 50rpx; 
+    /* margin-left: 5%; */
+}
+
+.btn_exchange{
+  position: relative;
+	color: #fff;
+	font-size: 32rpx;
+  text-align: center;
+  background:#C7537A;
+  width: 70%;
+  letter-spacing:1rpx;
+  margin: 0 auto; 
+  padding-top: 30rpx;
+
+
+
+}
+
+/* 新人暴击 */
+.crit_img_list{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10rpx;
+}
+.goods_Crit{
+  width: 100rpx;
+  font-size: 22rpx;
+
+  color: #60CEFA;
+
+}
+.goods_Usernickname image{
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: -8rpx;
+}

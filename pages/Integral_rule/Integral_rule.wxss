@@ -1,0 +1,16 @@
+/* pages/Integral_rule/Integral_rule.wxss */
+page{
+  background-color: #fff;
+}
+.main{
+  padding: 15rpx;
+  font-size: 28rpx;
+}
+.main_txt_two{
+  margin-top: 30rpx;
+margin-bottom: -50rpx;
+color: #D8497C;
+}
+.main_txt_Three{
+  margin-bottom: -50rpx;
+}

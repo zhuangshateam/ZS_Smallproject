@@ -1,0 +1,68 @@
+/* pages/Ontrial2/Ontrial2.wxss */
+page{
+  background: #F4F4F4;
+  height: 100%;
+  display: block;
+}
+.bg-red{
+ 
+  background-color: #d8497c
+}
+.line-red{
+  color:#d8497c;
+}
+.Tips{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* margin-bottom: 50rpx; */
+  padding-top: 20rpx;
+
+}
+.Tips_list{
+  display: flex;
+  flex-direction: column;
+  background-color: #EBEBEB;
+  width:85%;
+  height: auto;
+  border-radius: 20rpx;
+}
+.Reminder{
+  display:block;
+  text-align: center;
+  padding-top: 30rpx;
+  padding-left: 35rpx;
+  color: #979797;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.Context_t{
+  display:block;
+  padding-top: 10rpx;
+  padding-left: 35rpx;
+  color: #979797;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+.btn-red{
+  background: #D8497C;
+	/* background: #EA2000; */
+	color: #fff;
+}
+.btn-red1{
+  background: #EBEBEB;
+	color: #D8497C;
+}
+.btn-red2{
+  color: #fff;
+}
+.lg{
+width: 50vw;
+margin: 30rpx auto 0;
+}
+.userGroup_top{
+margin-top: 0;
+}

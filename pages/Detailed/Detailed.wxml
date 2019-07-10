@@ -1,0 +1,37 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+<view class='integral_top'>
+    <view class='integral_title'>历史明细</view>
+  <view class='integral_detail'>
+    <view class='integral_text'>总收入：¥{{mymyincome}}</view>
+    <view class='integral_text'>总提现：¥{{mywithdraw}}</view>
+  </view>
+</view>
+
+
+
+<!-- 收支明细 -->
+<view class="integral_bottom margin-top-xs" hidden='{{isHide}}'>
+ <view class="items">
+  <view wx:for="{{clist}}" wx:key="{{index}}" class="inner txt">
+   <view class='record_list items_li'>
+      <view class='left'>
+         <view class='nameTxt'>{{item.category_Name}}</view>
+         <view class='item-icon'> {{item.createtime}}</view>
+      </view>
+      <view class="item-data record_list" wx:if="{{item.isplus==0}}">
+        <i class="add"> +{{item.CashMoney}}</i>
+      </view>
+      <view class="item-data record_list" wx:else="{{item.isplus==1}}">
+        <i class="minus"> -{{item.CashMoney}}</i>
+      </view>
+   </view>
+  </view>
+ </view>
+</view>
+<view class='commentInfo_img' wx:if="{{isShow==true}}">
+    <image src='https://www.izhuangsha.com/api/images/zanwu2.png'></image>
+    <text>暂无收支明细</text>
+</view>

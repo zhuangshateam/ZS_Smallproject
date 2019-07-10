@@ -1,0 +1,298 @@
+<view wx:if='{{isshare==0}}'>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+<view slot="backText" bindtap='binReturn'>返回</view>
+<view slot="content">妆啥</view>
+</cu-custom>
+</view>
+<view wx:elif='{{isshare==1}}'>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+<view slot="backText" catchtap='backHome'>返回</view>
+<view slot="content">妆啥</view>
+</cu-custom>
+</view>
+
+<view catchtap="hideEmojis">
+  <block wx:for="{{makeupList}}" wx:key="makeupList" wx:for-index="idx" wx:for-item="item">
+    <view class='main'>
+      <view class='main_title'>
+        <text class='main_font'>{{item.productName}}</text>
+      </view>
+      <view class='us_userinfo'>
+        <view class='content-text'>
+          <image src="{{item.headimgurl}}" class='details_img' bindtap='homepageBind' data-noid='{{item.openid}}' data-nickname='{{item.nickname}}' data-headurl='{{item.headimgurl}}'></image>
+          <view class='item_userInfo'>
+            <view class='content_txtNmae'>
+              <text class='content_name'>{{item.nickname}}</text>
+            </view>
+            <view class='content_txtTime'>
+              <text class='content_time'>{{item.Reviewtime}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='main_line'></view>
+
+      <view class='makeup_score'>
+        <view>
+          <text class='score_index'>使用推荐指数：</text>
+        </view>
+        <view class="makeup_score_show">
+          <block wx:for="{{item.score}}">
+            <text style="padding-right: .4em;" class="zan-c-red">★</text>
+          </block>
+          <block wx:for="{{5-item.score}}">
+            <text style="padding-right: .4em" class="zan-c-gray-dark">☆</text>
+          </block>
+        </view>
+      </view>
+
+      <view class='makeup_score1'>
+        <view>
+          <text class='score_index'>销售推荐指数：</text>
+        </view>
+        <view class="makeup_score_show1">
+          <block wx:for="{{item.sales_score}}">
+            <text style="padding-right: .4em;" class="zan-c-red">★</text>
+          </block>
+          <block wx:for="{{5-item.sales_score}}">
+            <text style="padding-right: .4em" class="zan-c-gray-dark">☆</text>
+          </block>
+        </view>
+      </view>
+      <view class='context_center'>
+        <!-- 体验时间 -->
+        <view class='makeup_experienceTime'>
+          <view>
+            <text class='score_index'>体验时间：</text>
+          </view>
+          <view class='makeup_experienceTime_show'>
+            <text class='makeup_time'>{{item.experienceTime}}—</text>
+            <text class='makeup_time'>{{item.datetimeEnd}}</text>
+          </view>
+        </view>
+        <!-- 年龄 -->
+        <view class='makeup_sliderAge'>
+          <view>
+            <text class='score_index' decode="{{true}}">年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：</text>
+          </view>
+          <view class='makeup_sliderAge_show'>
+            <text class='txt_sliderAge'>{{item.sliderAge}}</text>
+          </view>
+        </view>
+        <!-- 性别 -->
+        <view class='makeup_sex'>
+          <view>
+            <text class='score_index' decode="{{true}}">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</text>
+          </view>
+          <view class='makeup_sliderAge_show'>
+            <text class='txt_sliderAge'>{{item.sex==0?"女":"男"}}</text>
+          </view>
+        </view>
+        <!-- 体验者皮肤特征 -->
+        <view class='makeup_experientialSkin'>
+          <view>
+            <text class='score_index'>皮肤特征：</text>
+          </view>
+          <view class='makeup_experientialSkin_show'>
+            <text class='txt_experientialSkin'>{{item.experientialSkin}}</text>
+          </view>
+        </view>
+        <!-- 产品品质 -->
+        <!-- <view class='makeup_experientialSkin'>
+            <view><text class='score_index'>产品品质：</text></view>
+            <view class='makeup_experientialSkin_show'><text class='txt_experientialSkin'>{{item.productQuality}}</text></view>
+        </view> -->
+        <view class='main_line'></view>
+
+        <!-- 导航栏 -->
+        <view class="swiper-tab">
+          <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" catchtap="tabNav">
+            <view data-current="0" bindtap="tabNav">产品气质</view>
+          </view>
+          <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" catchtap="tabNav">
+            <view data-current="1" bindtap="tabNav">使用体验</view>
+          </view>
+          <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" catchtap="tabNav">
+            <view data-current="2" bindtap="tabNav">产品推广</view>
+          </view>
+          <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" catchtap="tabNav">
+            <view data-current="3" bindtap="tabNav">消费者</view>
+          </view>
+        </view>
+        <!-- 内容区 -->
+        <swiper current="{{currentTab}}" duration="1000" bindchange="bindChange">
+          <!-- 产品气质 -->
+          <swiper-item style="overflow: scroll;">
+            <view class='swiper-content'>
+              <text class='txt_experientialSkin'>{{item.productMakings}}</text>
+            </view>
+          </swiper-item>
+          <!-- 使用体验 -->
+          <swiper-item style="overflow: scroll;">
+            <view class='swiper-content'>
+              <text class='txt_experientialSkin'>{{item.usersExperience}}</text>
+            </view>
+          </swiper-item>
+          <!-- 产品推广 -->
+          <swiper-item style="overflow: scroll;">
+            <view class='swiper-content'>
+              <text class='txt_experientialSkin'>{{item.productExtension}}</text>
+            </view>
+          </swiper-item>
+          <!-- 消费者 -->
+          <swiper-item style="overflow: scroll;">
+            <view class='swiper-content'>
+              <text class='txt_experientialSkin'>{{item.consumer}}</text>
+            </view>
+          </swiper-item>
+        </swiper>
+        <view class='picture_list {{imgList.length == 0?"hide":"show"}}'>
+          <!-- <block wx:for="{{imgList}}" wx:key="imgList" wx:for-index="idx" wx:for-item="items" > -->
+          <view class="item" wx:for="{{imgList}}" wx:key="{{index}}">
+            <image src='{{item.imagesUrl}}' data-index="{{index}}" bindtap="previewImg"></image>
+            <!-- </block> -->
+          </view>
+        </view>
+
+
+      </view>
+      <view class='main_line'></view>
+      <view class='interactive_bar'>
+       
+          <!-- 点击搜藏 -->
+          <view class='interactive_item' bindtap="haveSave">
+            <image src="{{isClick?'https://www.izhuangsha.com/images/interactive_bar/Grade_Collection.png':'https://www.izhuangsha.com/images/interactive_bar/Collection.png'}}" ></image>
+            <text>收藏</text>
+          </view>
+        
+       
+          <!-- 转发 -->
+          <view class="interactive_item" bindtap='onShareAppMessage'>
+            <button class='share' id="shareBtn" open-type="share" hover-class="none" style="background-image:url(https://www.izhuangsha.com/images/interactive_bar/Grade_share.png);">转发
+            </button>
+          
+          </view>
+       
+        
+          <!-- 生成海报 -->
+          <view class="interactive_item" bindtap='circleFriends'>
+            <image src='https://www.izhuangsha.com/images/interactive_bar/Grade_Circle_friends.png'></image>
+            <text>海报</text>
+          </view>
+          
+        
+      </view>
+
+
+      <view class='main_line_bottom'></view>
+      <!-- 评论 -->
+      <view class='contxt_comment' bindtap='blankCilck'>
+        <view class='com_tit'>
+          <view class='bolck_comm'></view>
+          <text class='comment_Name'>最新评论({{comCount}})</text>
+        </view>
+        <!-- <view class='comment_Name_line'></view> -->
+        <view class="comment_item touch-active" wx:for="{{commentList}}" wx:key="" wx:for-item="items">
+          <!-- <block wx:for="{{commentList}}" wx:key="commentList" wx:for-index="idx" wx:for-item="items"> -->
+          <view class="i-left">
+            <image class="c-u-img" src="{{items.wx_user_headimgurl}}"></image>
+          </view>
+          <view class="i-right">
+            <view class="top">
+              <text class="u-name">{{items.wx_user_nickname}}</text>
+              <!-- <text class="time">{{items.create_date}}</text> -->
+              <view class='item_praise' data-comid="{{items.id}}" data-id="{{item.id}}" catchtap='makeupFabulous'>
+                <image src='{{imgUrl}}{{items.Fabulousimg}}'></image>
+                <text class='txt_praise' style='font-size: 25rpx;'> {{items.FabulousNum}}</text>
+              </view>
+            </view>
+            <!--评论内容-->
+            <view class="content">
+              <view>{{items.reply_msg}}</view>
+              <view class='delete_item'>
+                <text class="time">{{items.create_date}}</text>
+                <view class="text">
+                  <view class="sharebtn" data-comid="{{items.id}}" data-commentusername="{{items.wx_user_nickname}}" catchtap="bindReply" data-useropenid="{{items.wx_user_id}}" data-fromid="{{items.from_id}}">回复</view>
+                </view>
+              </view>
+              <view wx:if="{{items.wx_user_id == openid}}" class="status text">
+                <text class="delete" decode="true" catchtap='delMakeupComment' data-makeupid="{{items.id}}">删除</text>
+              </view>
+            </view>
+            <view>
+              <!-- <view wx:if="{{isFold}}" bindtap="flodFn" data-id='{{items.id}}' class='Open_reply'>
+                      展开回复
+                  </view>
+                  <view wx:else>
+                    <view> -->
+              <!-- 回复内容 -->
+              <view class="comment_item touch-active" wx:for="{{commenReplytList}}" wx:key="" wx:for-item="chile" wx:if="{{items.id == chile.comment_id}}">
+
+
+                <view class="i-left">
+                  <image class="c-u-img" src="{{chile.userPhoto}}"></image>
+                </view>
+                <view class="i-right">
+                  <view class="top">
+                    <text class="u-name">{{chile.reply_nickname}}</text>
+                    <view class='item_praise' data-comid="{{items.id}}" data-nid="{{item.id}}" data-rid="{{chile.id}}" catchtap='replyFabulous_Makeup'>
+                      <image src='{{imgUrl}}{{chile.Fabulousimg}}'></image>
+                      <text class='txt_praise' style='font-size: 25rpx;'> {{chile.FabulousNum}}</text>
+                    </view>
+
+                  </view>
+
+                  <!--回复内容-->
+                  <view class="content">
+                    <view>{{chile.reply_msg}}</view>
+                    <view class='delete_item'>
+                      <text class="time">{{chile.create_date}}</text>
+                      <view wx:if="{{chile.from_user_id == openid}}" class="status text">
+                        <text class="delete" decode="true" catchtap='delReplyComm_Make' data-mk_repid="{{chile.id}}">删除</text>
+                      </view>
+                    </view>
+
+
+                  </view>
+                  <!-- </view> -->
+                  <!-- </view> -->
+                  <!-- <view bindtap="flodFn" class='Close_reply'>收起回复</view> -->
+
+                </view>
+              </view>
+            </view>
+            <view class="person-line"></view>
+          </view>
+        </view>
+
+      </view>
+      <view class='commentInfo_img' wx:if="{{isshow==true}}">
+        <image src='https://www.izhuangsha.com/images/comment_img.png'></image>
+      </view>
+      <!-- 回到首页(分享的时候显示) -->
+      <!-- <image wx:if="{{isshare}}" bindtap='backHome' class='d-back-home' src='https://www.izhuangsha.com/api/images/backHome.png' lazy-load></image> -->
+    </view>
+  </block>
+</view>
+<view class="view_bottom"></view>
+<form bindsubmit="submitForm" report-submit="true">
+  <view class="comment-fixed">
+    <view class="cf-box">
+
+      <input class="cf-content" name='txt_Context' bindfocus="textAreaFocus" maxlength="500" bindblur="textAreaBlur" value="{{content}}" placeholder="{{placeholder}}{{reply_userName}}" placeholder-class='placeholder' fixed="true" cursor-spacing='20' focus='{{istrue}}' confirm-type='send' bindconfirm="send"></input>
+      <image catchtap="emojiShowHide" src="https://www.izhuangsha.com/api/images/chat/emotion-o.png" class='toggleEmojis' mode='widthFix'></image>
+      <button form-type="submit" class="cf-send touch-active">发送</button>
+    </view>
+
+    <view class="emojis_box" wx:if="{{showEmojis}}">
+      <scroll-view scroll-y="true" bindscroll="emojiScroll" style="height:200px">
+        <block wx:for="{{emojis}}" wx:for-item="e" wx:key="">
+          <view class="emoji-cell">
+            <image class="touch-active" catchtap="emojiChoose" src="http://soupu.oss-cn-shanghai.aliyuncs.com/emoji/{{e.emoji}}.png" data-emoji="{{e.char}}" data-oxf="{{e.emoji}}"></image>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+    
+  </view>
+</form>

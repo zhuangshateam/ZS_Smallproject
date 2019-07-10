@@ -1,0 +1,108 @@
+.banner image{
+  width: 100vw;
+  height: 352rpx;
+  vertical-align: top;
+}
+/* 排名列表 */
+.rank_list{
+  min-height: 50vh;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.list_items{
+  height: 134rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+.item_left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.list_items:nth-child(1) .ranking{
+  opacity: 0
+}
+.list_items:nth-child(2) .ranking{
+  opacity: 0
+}
+.list_items:nth-child(3) .ranking{
+  opacity: 0
+}
+.list_items .item_left{
+  background-repeat: no-repeat;
+  background-size: 50rpx;
+  background-position:16rpx 16rpx;
+}
+.list_items:nth-child(1) .item_left {
+  background-image: url('https://www.izhuangsha.com/api/images/jifen/top_01.png');
+}
+.list_items:nth-child(2) .item_left{
+  background-image: url('https://www.izhuangsha.com/api/images/jifen/top_02.png');
+}
+.list_items:nth-child(3) .item_left{
+  background-image: url('https://www.izhuangsha.com/api/images/jifen/top_03.png');
+}
+/* 自己的排行 */
+.mypic{
+  border:2px solid #d8497c;
+}
+.myname{
+  color:#d8497c;
+}
+
+
+.index{
+  font-weight: bold;
+  text-align: center;
+  color: #E974A0;
+}
+.index image{
+  width: 35rpx;
+  height: 35rpx;
+}
+.items{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.myranking{
+  height: 134rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.index{
+  width: 80rpx;
+  text-align: center;
+}
+.headPic{
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 50%;
+}
+.myInfo{
+  padding-left: 30rpx;
+}
+.username{
+  font-size: 28rpx;
+}
+.rankNumber{
+  font-size: 24rpx;
+  color:#999;
+}
+.pNumber{
+  font-size: 30rpx;
+  color:#d8497c;
+  padding-right:40rpx;
+  font-weight: bold;
+}
+.pNum{
+
+   font-weight: normal;
+}

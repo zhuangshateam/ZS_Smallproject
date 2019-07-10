@@ -1,0 +1,10 @@
+<view class="commodity_screen2" bindtap='closePoste'  style='opacity: 0.8;' wx:if="{{showpost}}" catchtouchmove="return"></view>
+<view class='poste_box'  bindlongpress='saveShareImg' hidden='{{!showpost}}' catchtouchmove="return">
+  <view class='poste_content' id='canvas-container' catchtouchmove="return">
+    <canvas canvas-id="myCanvas" style="width:100%;height:{{imgHeight}}px;" />
+  </view>
+  <!-- <view class='close-poste'>
+    <image src='https://www.izhuangsha.com/api/images/dele.png' catchtap='closePoste'></image>
+  </view> -->
+</view>
+

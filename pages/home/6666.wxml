@@ -1,0 +1,156 @@
+<view class='Mymain'>
+<view class="personal_info">
+	<view class="photo_wrap" >
+  <!-- wx:if='{{showHome==false}}' -->
+		<image src="{{userInfo.avatarUrl}}" class="photo"></image>
+    <view class="nickname">{{userInfo.nickName}}</view>
+      <!-- <view class="Grade">
+        <image src="https://www.izhuangsha.com/api/images/Grade.png" class="carImg" ></image>
+        <text class='lb_txt'>Lv0</text>
+      </view> -->
+	</view>
+  <!-- 个人中心 -->
+    <!-- <view class='Business' bindtap='personHome'>
+      <button class='btn1'><image class='btnImg' src='https://www.izhuangsha.com/api/images/userinfo.png'></image>个人主页</button>
+    </view> -->
+  <!-- </navigator> -->
+  <!-- 签到 -->
+  <navigator url="/pages/mySign/mySign" hover-class="none">
+  <view class='Sign flex-wrp-row'>
+    <image src='https://www.izhuangsha.com/api/images/Sign.png' class='icon-right' mode='aspectFit'></image>
+    <text>签到</text>  
+  </view></navigator>
+</view>
+
+<view class='user_balance'>
+  <view class='balance_persons'>
+    <navigator  hover-class="none" class="userinfo-item" url="/pages/withdraw/withdraw?userMoney={{userMoney}}">
+    <view class='balan_sumTxt'> 
+       <view class='balan_left_li'><image src='https://www.izhuangsha.com/api/images/balance.png'></image></view>
+       <view class='balan_yuee'><text>余额：</text></view>
+       <view class='balan_centeb_li'><text> ￥{{userMoney}}</text></view>
+    </view>
+    </navigator>
+  </view>
+  <view class='integral_persons'>
+    <view class='integral_user_jifen'><image src='https://www.izhuangsha.com/api/images/integral_userInfo.png'></image></view>
+    <view class='integral_userInfo_li'> <text>积分：</text></view>
+    <view class='integral_userInfo_li_num'><text>{{integral}}</text></view>
+  </view>
+</view>
+<view class='wode_menu'>
+  <view class='view_menu_info'>
+      <navigator url="/pages/myPosting/myPosting?isPostingCont={{isPostingCont}}" hover-class="none">
+          <view class='wode_img'> 
+            <image src="https://www.izhuangsha.com/api/images/Grade_Post.png" class="menuImg"></image>
+          </view>
+          <view class='wode_menu_fatie'><text class='lb_fatie'>发帖[{{isPostingCont}}]</text></view> 
+      </navigator>
+  </view>
+  <view class='view_menu_info'>
+    <navigator url="/pages/myReplies/myReplies?isRepliesCont={{isRepliesCont}}" hover-class="none">
+      <view class='wode_huitie_img'>
+        <image src="https://www.izhuangsha.com/api/images/Grade_Replies.png"class="menuImg"></image>
+      </view>
+      <view class='wode_menu_Replies'><text class='lb_fatie'>回帖[{{isRepliesCont}}]</text></view>
+    </navigator>
+  </view>
+
+  <view class='view_menu_info'>
+    <navigator url="/pages/myFavorites/myFavorites?isFavoritesCount={{isFavoritesCount}}" hover-class="none">
+        <view class='wode_shoucangImg'><image src="https://www.izhuangsha.com/api/images/Grade_Collection.png"class="menuImg"></image></view>
+        <view class='wode_Grade_Collection'><text class='lb_fatie'>收藏夹</text></view>
+    </navigator>
+  </view>
+</view>
+<view class="wode_item_wrap">
+
+    <!-- 我的产品 -->
+<view class="wode_item" hidden='{{showProduct}}'>
+		<navigator url="/pages/Myproduct/Myproduct" hover-class="none">
+	  <view style='padding-top: 10rpx;' class='wode_yijian'><image src="https://www.izhuangsha.com/api/images/home/home_product.png" style="width: 20px;height: 20px;margin-right: 5px;" /><text>我的产品</text></view>
+			<span class="arrow_wrap"><image src='https://www.izhuangsha.com/api/images/icon-arrow.png' class='icon-right' mode='aspectFit'></image></span>
+   </navigator> 
+	</view>
+   <!-- 我的试用 -->
+<view class="wode_item" hidden='{{showProduct}}'>
+		<navigator url="/pages/MyTrial/MyTrial" hover-class="none">
+	  <view style='padding-top: 10rpx;' class='wode_yijian'><image src="https://www.izhuangsha.com/api/images/home/home_trial.png" style="width: 20px;height: 15px;margin-right: 5px;" /><text>我的试用</text></view>
+			<span class="arrow_wrap"><image src='https://www.izhuangsha.com/api/images/icon-arrow.png' class='icon-right' mode='aspectFit'></image></span>
+   </navigator> 
+	</view>
+
+    <!-- 我的兑换 -->
+	<view class="wode_item">
+		<navigator url="/pages/Mytask/Mytask" hover-class="none">
+	  <view style='padding-top: 10rpx;' class='wode_yijian'><image src="https://www.izhuangsha.com/api/images/home/task.png" style="width: 20px;height: 20px;margin-right: 5px;" /><text>我的任务</text></view>
+			<span class="arrow_wrap"><image src='https://www.izhuangsha.com/api/images/icon-arrow.png' class='icon-right' mode='aspectFit'></image></span>
+   </navigator> 
+	</view>
+  <!-- 我的兑换 -->
+	<view class="wode_item">
+		<navigator url="/pages/Myexchange/Myexchange" hover-class="none">
+	  <view style='padding-top: 10rpx;' class='wode_yijian'><image src="https://www.izhuangsha.com/api/images/home/Meexchange.png" style="width: 20px;height: 20px;margin-right: 5px;" /><text>我的兑换</text></view>
+			<span class="arrow_wrap"><image src='https://www.izhuangsha.com/api/images/icon-arrow.png' class='icon-right' mode='aspectFit'></image></span>
+   </navigator> 
+	</view>
+<!-- 积分规则 -->
+	<view class="wode_item">
+		<navigator url="/pages/Integral_rule/Integral_rule" hover-class="none">
+	  <view style='padding-top: 10rpx;' class='wode_yijian'><image src="https://www.izhuangsha.com/api/images/home/home_integral.png" style="width: 20px;height: 20px;margin-right: 5px;" /><text>积分规则</text></view>
+			<span class="arrow_wrap"><image src='https://www.izhuangsha.com/api/images/icon-arrow.png' class='icon-right' mode='aspectFit'></image></span>
+   </navigator> 
+	</view>
+  
+  <view class="wode_item">
+		<navigator url="/pages/IntegralRanking/IntegralRanking" hover-class="none">
+
+	  <view style='padding-top: 10rpx;' class='wode_yijian'>
+      <image src="https://www.izhuangsha.com/api/images/home/home_Ranking.png" style="width: 20px;height: 20px;margin-right: 5px;" />
+      <text>积分排行</text></view>
+			<span class="arrow_wrap"><image src='https://www.izhuangsha.com/api/images/icon-arrow.png' class='icon-right' mode='aspectFit'></image></span>
+   </navigator> 
+	</view>
+
+    	<view class="wode_item">
+		<navigator url="/pages/Partners/Partners" hover-class="none">
+	  <view style='padding-top: 10rpx;' class='wode_yijian'><image src="https://www.izhuangsha.com/api/images/home/home_cooperation.png" style="width: 20px;height: 20px;margin-right: 5px;" /><text>品牌合作</text></view>
+			<span class="arrow_wrap"><image src='https://www.izhuangsha.com/api/images/icon-arrow.png' class='icon-right' mode='aspectFit'></image></span>
+   </navigator> 
+	</view>
+  <!-- 品牌合作 -->
+<view class="wode_item" hidden='{{showView}}'>
+		<navigator url="/pages/ToExamine/ToExamine" hover-class="none">
+	  <view style='padding-top: 10rpx;' class='wode_yijian'><image src="https://www.izhuangsha.com/api/images/home/home_Myaudit.png" style="width: 20px;height: 20px;margin-right: 5px;" /><text>我的审核</text></view>
+			<span class="arrow_wrap"><image src='https://www.izhuangsha.com/api/images/icon-arrow.png' class='icon-right' mode='aspectFit'></image></span>
+   </navigator> 
+	</view>
+<!-- 我的地址 -->
+  <!-- <view class="wode_item">
+		<navigator url="/pages/proAddress/proAddress" hover-class="none">
+
+	  <view style='padding-top: 10rpx;' class='wode_yijian'>
+      <image src="https://www.izhuangsha.com/api/images/home/address.png" style="width: 20px;height: 20px;margin-right: 5px;" />
+      <text>我的地址</text></view>
+			<span class="arrow_wrap"><image src='https://www.izhuangsha.com/api/images/icon-arrow.png' class='icon-right' mode='aspectFit'></image></span>
+   </navigator> 
+	</view> -->
+
+  <view class="wode_item">
+		<button class='con_btn' hover-class="none" bindtap='onShareAppMessage' open-type="share"><image src="https://www.izhuangsha.com/api/images/home/home_friends1.png" style="width: 20px;height: 20px;margin-right: 5px;" /><text>邀请好友</text></button>
+			<span class="arrow_wrap"><image src='https://www.izhuangsha.com/api/images/icon-arrow.png' class='icon-right' mode='aspectFit'></image></span>
+	</view>
+ <view class="wode_item" >
+ <navigator url="/pages/myfeedback/myfeedback" hover-class="none">
+	  <view style='padding-top: 10rpx;' class='wode_yijian'><image src="https://www.izhuangsha.com/api/images/home/home_feedback.png" style="width: 20px;height: 20px;margin-right: 5px;" /><text>意见反馈</text></view>
+			<span class="arrow_wrap"><image src='https://www.izhuangsha.com/api/images/icon-arrow.png' class='icon-right' mode='aspectFit'></image></span>
+   </navigator> 
+	</view>
+</view>
+<view class="body-view">
+         <loading hidden="{{hidden}}">
+             加载中...
+         </loading>
+     </view>   
+      <tabbar tabbar="{{tabbar}}"></tabbar>
+</view>

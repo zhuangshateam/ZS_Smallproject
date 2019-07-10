@@ -1,0 +1,56 @@
+<!--pages/exchangeFrom/exchangeFrom.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+<form bindsubmit='formSubmit' report-submit='true'>
+<view class='ul_Delivery_list' bindtap='getAddress'>
+  <view class='ul_city_name'>选择地址</view>
+  <view class='ul_item_list'>
+    <view class='img_ui'><image src='https://www.izhuangsha.com/api/images/address.png'></image></view>
+    <view class='city_list_warp'>
+      <view class='warp_titleName'>{{uname}} {{phoneNum}}</view>
+      <view class='warp_context'>
+        <view class='city_tit'>{{city}}</view>
+        <view class='address_tit'>{{province}}</view>
+        <view class='city_tit'>{{region}}</view>
+        <view class='address_details'>{{address}}</view></view>
+    </view>
+    <span class="arrow_wrap"><image src='https://www.izhuangsha.com/api/images/icon-arrow.png' class='icon-right' mode='aspectFit'></image></span>
+  </view>
+  <!-- <view class='btn_bottom' >获取微信收货地址</view> -->
+</view>
+<view class='details_List' wx:for="{{dlist}}" wx:key="{{item.id}}">
+    <view class='Image_txtList'>
+      <image src='{{imageurl}}{{item.imagesUrl}}'></image>
+      <view class='row_item'>
+        <view class='titName'> {{item.exchange_Name}}</view>
+        <view class='detailsNames'>
+          <image src='https://www.izhuangsha.com/api/images/integral1.png'></image>
+          <text style='  color: #D8497C'> {{item.IntegralNum}}</text>积分
+        </view>
+      </view>
+    </view>
+    <view class='ul_li_infred'>你的好友已帮你砍掉积分： <text>{{countNum}}</text></view>
+    <view class='ul_btn_SettlementList'>
+      <view class='btn_left'>合计支付：
+        <text class='btn_left_payNum'>{{payNum}}</text> 
+        <text class='btn_left_integral'>积分</text>
+        <view class='btn_Surplus'>你当前账户剩余积分为：<text>{{integraUserNum}}</text></view>
+      </view>
+      <!-- <view class='btn_right' bindtap="confirmation">确认兑换</view> -->
+     	<view class="btn_right">
+        <block wx:if='{{!disabled}}'>
+          <button formType="submit" loading='{{loading}}' class="btn-block btn-red">确认兑换</button>
+        </block>
+        <block wx:if='{{disabled}}'>
+          <button formType="submit" loading='{{loading}}' class="btn-block btn-red2" disabled='{{disabled}}'>确认兑换</button>
+        </block>
+        
+      </view>
+    </view>
+  </view>
+  </form>
+  <loading hidden="{{submitHidden}}">
+  正在提交...
+</loading>

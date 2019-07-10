@@ -1,0 +1,83 @@
+<view wx:if='{{isshare==0}}'>
+  <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText" bindtap='binReturn'>返回</view>
+    <view slot="content">妆啥</view>
+  </cu-custom>
+</view>
+<view wx:elif='{{isshare==1}}'>
+  <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText" catchtap='backHome'>返回</view>
+    <view slot="content">妆啥</view>
+  </cu-custom>
+</view>
+<view class='integral_top'>
+  <view class='sum'>
+    <image src='https://www.izhuangsha.com/api/images/home/integral_icon.png'></image>
+    <text>{{integral}}</text>
+  </view>
+  <view class='integral_jisuan'>(从4月24号开始计算)</view>
+  <view class='rule_wrap'>
+    <navigator url="/pages/Integral_rule/Integral_rule" hover-class="none">
+      <view class='rule_text'>积分规则</view>
+    </navigator>
+  </view>
+
+
+
+</view>
+<view class='integral_bottom'>
+  <view class="item-box">
+    <view class='integralCenter'>积分明细</view>
+    <scroll-view scroll-y='true' style='height:32vh'>
+      <view class="items">
+        <view wx:for="{{ilist}}" wx:key="{{index}}" class="item">
+          <view data-index="{{index}}" class="inner txt">
+            <view class='record_list'>
+              <view class='left'>
+                <view class='nameTxt'> {{item.inte_type}}</view>
+                <view class='item-icon'>{{item.createTime}}</view>
+              </view>
+              <view class="item-data" wx:if="{{item.isplus=='true'}}">
+                <i class="add"> +{{item.integralNum}}</i>
+              </view>
+              <view class="item-data" wx:else="{{item.isplus=='false'}}">
+                <i class="minus"> -{{item.integralNum}}</i>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<!-- 最新商品 -->
+<view class='commodity_warp'>
+  <view class='new_commodity'>
+    <view class='title_left'>最新商品</view>
+    <view class='title_right' bindtap='toWelfare'>更多福利>></view>
+  </view>
+  <view class='commodity_list'>
+    <block wx:for='{{productList}}' wx:key='item'>
+      <view class="commodity_item">
+        <navigator url='/pages/exchange_details/exchange_details?id={{item.id}}'>
+          <view class='commodity_item_top'>
+            <image src="{{imageurl}}{{item.imagesUrl}}"></image>
+            <view class='commodity_name'>
+              <text>{{item.exchange_Name}}</text>
+            </view>
+          </view>
+          <view class='commodity_item_bon'>
+            <view class='jf'>
+              <image src='https://www.izhuangsha.com/api/images/integral_on.png'></image>
+              <text class='jf_Text'>{{item.IntegralNum}}</text> 积分
+            </view>
+            <view class='btn'>
+              兑换
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </block>
+  </view>
+
+</view>

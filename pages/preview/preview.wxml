@@ -1,0 +1,52 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+<view class='main'>
+  <swiper class="main_swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000" >
+   <block wx:for="{{imgarrList}}" wx:key="index">
+      <swiper-item>
+        <image src="{{imgarrList[index]}}" class="slide-image"/>
+      </swiper-item>   
+      </block>
+  </swiper>
+  <view class='titleList'>
+    <view class='titleNmae'>{{product_Name}}</view>
+    <view class='retail_content'>零售指导价:<text class='txt_Number'>￥{{retail_Price}}</text> </view>
+  </view>
+  <!-- 中间参数 -->
+  <view class='section_item'>
+      <view class='parameter_classification_two'>
+        <view  class='Specifications'>规格</view><view class='Specifications_content'>{{product_Specifications}}</view>
+      </view>
+      <view class='parameter_classification_Three'>
+        <view class='Effect'>功效</view><view class='Effect_content'>{{main_functions}}</view>
+      </view>
+  </view>
+  <!-- 申请规则 -->
+   <view class='section_item'>
+      <view class='parameter_app_rules'>
+        <view class='Effect_rules'>申请规则</view>
+        <text class='Effect_content'>{{app_rules}}</text>
+      </view>
+  </view>
+  <!-- 底部产品详情 -->
+  <view class='bottomDetails_List'>
+    <view class='bd_li'>
+    <view class='Details_Names'>
+      <view class='bolck_comm'></view>
+      <view class='DetailsTitle'><text>产品详情</text></view>
+    </view>
+    <view class='Details_content'>
+      <text class='txt_detailsContext'>{{details_introduce}}</text>
+    </view>
+    <view class='Details_ImgArray'  wx:for="{{imgarrList_detail}}" wx:for-item="img">
+      <image src='{{imgarrList_detail[index]}}' mode='widthFix'></image>
+    </view> 
+  </view></view>
+  <view class='add_btn'>
+    <button class='btn' bindtap='geReturn'>
+        返回
+    </button>
+  </view>
+</view>

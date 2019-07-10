@@ -1,0 +1,68 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText" bindtap='binReturn'>返回</view>
+  <view slot="content">妆啥</view>
+</cu-custom>
+
+<view class='myPosting_main'>
+
+<!-- BA经验 -->
+  <view class="cu-bar bg-white solid-bottom" wx:if='{{repliesList.length > 0}}'>
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text>BA经验
+    </view>
+  </view>
+
+  <view wx:if='{{repliesList.length > 0}}' class='margin-bottom-sm'>
+    <block wx:for="{{repliesList}}" wx:key="newsList" wx:for-index="idx" wx:for-item="item" hidden='{{ishidden1}}'>
+    <navigator url="/pages/newsinfo/newsinfo?id={{item.id}}&currentTab=0" hover-class="none">
+      <view class="news-list">
+        <view class="news-list-right">
+          <view class="news-title">{{item.ReviewTitle}}</view>
+        </view>
+        <!-- 编辑 -->
+        <view class='delete_item items_res'>
+          <view class='news_dateTime delete_item'>
+            <view class='reviewtime_time'> {{item.Reviewtime}}</view>
+          </view>
+          <!-- <view class='Mark delete_item'>
+            <view class='color_Mark'>经验</view>
+          </view> -->
+        </view>
+      </view>
+    </navigator>
+  </block>
+  </view>
+
+
+
+ <!-- BA体验 -->
+  <view class="cu-bar bg-white solid-bottom" wx:if='{{repliesmakeupList.length > 0}}'>
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text>BA体验
+    </view>
+  </view>
+  <block wx:for="{{repliesmakeupList}}" wx:key="makeupList" wx:for-index="idx" wx:for-item="items" hidden='{{ishidden2}}'>
+    <navigator url="/pages/makeupInfo/makeupInfo?id={{items.id}}&currentTab=1" hover-class="none">
+      <view class="news-list">
+        <view class="news-list-right">
+          <text class="news-title">{{items.productName}}</text>
+        </view>
+        <!-- 编辑 -->
+        <view class='delete_item items_res'>
+          <view class='news_dateTime delete_item'>
+            <view class='reviewtime_time'> {{items.Reviewtime}}</view>
+          </view>
+          <!-- <view class='Mark1 delete_item'>
+            <view class='color_Mark1'>体验</view>
+          </view> -->
+        </view>
+      </view>
+    </navigator>
+  </block>
+
+
+  <view class='commentInfo_img' wx:if="{{isShow==true}}">
+    <image src='https://www.izhuangsha.com/api/images/nodata.png'></image>
+    <text>暂无回帖</text>
+  </view>
+</view>

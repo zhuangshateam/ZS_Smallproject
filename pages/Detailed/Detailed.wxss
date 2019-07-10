@@ -1,0 +1,158 @@
+
+/* view{
+  box-sizing: border-box;
+}
+.integralCenter{
+   display: flex;   
+    align-items: center;   
+    vertical-align: center;
+    justify-content: center; 
+    flex-direction:row; 
+    padding-bottom: 30rpx;
+}
+.item-box{
+  width: 700rpx;
+  margin: 0 auto;
+  padding:40rpx 0;
+}
+.items{
+  width: 100%;
+}
+.item{
+  position: relative;
+  border-top: 2rpx solid #eee;
+  height: 140rpx;
+  line-height: 120rpx;
+  overflow: hidden;
+   
+}
+.record_list{
+  display: flex;
+  flex-direction: row;
+}
+
+.detailed_items{
+  display: flex;
+  flex-direction: column;
+  height: 100rpx;
+   flex: 1; 
+   align-items:left;
+
+}
+
+.item:last-child{
+  border-bottom: 2rpx solid #eee;
+}
+
+.item-icon{
+  display: flex;
+  height: 30rpx;
+  margin-left:15px;
+  font-size: 28rpx;
+}
+.nameTxt{
+  display: flex;
+    height: 30rpx;
+    margin-left:15px;
+  font-size: 22rpx;
+}
+
+.item-data{
+
+  position: relative;
+  align-items:center;
+  margin-right: 30rpx;
+ }
+
+.rankpace{
+ color: #fa7e04;
+ font-size: 28rpx;
+ font-weight: 600;
+}
+.rankpace_jia{
+   color: #000;
+ font-size: 28rpx;
+ font-weight: 600;
+}
+
+*/
+.integral_top{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10rpx 20rpx;
+  background-color: #fff;
+}
+.integral_title{
+  font-size: 32rpx;
+  font-weight: bold;
+  line-height: 78rpx;
+}
+.integral_text{
+  font-size: 28rpx;
+  color:#999;
+}
+.integral_bottom{
+  min-height: 79vh;
+  padding:20rpx;
+  background-color: #fff;
+}
+.record_list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10rpx 0;
+}
+.nameTxt {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.item-icon {
+  font-size: 24rpx;
+  color: #999;
+}
+.item-data i{
+  line-height: 60rpx;
+  font-weight: bold;
+}
+.add {
+  color: #f4944e;
+  font-size: 28rpx;
+}
+
+.minus {
+  color: #666;
+  font-size: 28rpx;
+}
+
+
+.items_li{
+  border-bottom:1px solid #eee;
+
+} 
+
+
+
+
+
+
+
+
+/* 暂无数据 */
+.commentInfo_img{
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  width: 100%;
+  height: 80vh;
+  flex-direction: column;
+}
+.commentInfo_img image{
+  width: 120rpx;
+  height: 120rpx;
+
+}
+.commentInfo_img text{
+  font-size: 28rpx;
+}

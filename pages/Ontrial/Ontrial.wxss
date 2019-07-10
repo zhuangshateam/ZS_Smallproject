@@ -1,0 +1,156 @@
+/* pages/Ontrial2/Ontrial2.wxss */
+
+page{
+  background: #F4F4F4;
+  height: 100%;
+  display: block;
+}
+.bg-red{
+  background-color: #d8497c
+}
+.line-red{
+  color:#d8497c;
+}
+.Tips{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* margin-bottom: 50rpx; */
+  padding-top: 30rpx;
+  z-index: 9999;
+
+}
+.Tips_list{
+  display: flex;
+  flex-direction: column;
+  background-color: #EBEBEB;
+  width:85%;
+  height: auto;
+  border-radius: 20rpx;
+}
+.Reminder{
+  display:block;
+  text-align: center;
+  padding-top: 30rpx;
+  padding-left: 35rpx;
+  color: #979797;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.Context_t{
+  display:block;
+  padding-top: 10rpx;
+  padding-left: 35rpx;
+  color: #979797;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+.btn-red{
+  background: #D8497C;
+	/* background: #EA2000; */
+	color: #fff;
+}
+.btn-red1{
+  background: #EBEBEB;
+	color: #D8497C;
+}
+.btn-red2{
+  color: #fff;
+}
+.lg{
+  width: 50vw;
+
+  margin: 30rpx auto 0;
+}
+
+/* 免责书 */
+
+.tips {
+display: flex;
+justify-content: center;
+align-items: center;
+position: fixed;
+left: 0;
+top: 62rpx;
+z-index: 100;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.7);
+}
+
+.tips .tips_box {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 85%;
+height: auto;
+padding: 10rpx 0;
+border-radius: 45rpx;
+background: #fff;
+overflow: hidden;
+}
+
+.tips .tips_box .hint_view {
+display: flex;
+align-items: center;
+}
+
+.tips .tips_box .hint_view .text {
+display: flex;
+flex-direction: column;
+margin: 12rpx 24rpx;
+}
+
+.tips .tips_box .hint1 {
+margin-top: 10rpx;
+text-align: center;
+font-size: 28rpx;
+color: #999;
+line-height:52rpx;
+border-bottom:1px solid #666;
+}
+
+.tips .tips_box .hint2 {
+margin-top: 14rpx;
+text-align: justify;
+text-indent:52rpx;
+font-size: 28rpx;
+color: #bbb;
+line-height:42rpx;
+display: flex;
+flex-direction: column;
+}
+
+.tips .tips_box .login {
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 32rpx 0 32px;
+width: 50%;
+line-height: 64rpx;
+border-radius: 80rpx;
+font-size: 32rpx;
+letter-spacing: 6rpx;
+color: #fff;
+}
+.isTipShow {
+display: block;
+}
+
+.isTipHide {
+display: none;
+}
+.pink{
+  background-color: #d8497c;
+}
+.button-hover{
+    width: 50vw;
+}
+.chVal{
+  padding-left: 20rpx;
+  color:#666;
+}
+/* 免责书 */

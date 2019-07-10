@@ -1,0 +1,73 @@
+/* pages/TipsBox/TipsBox.wxss */
+.Tips_main{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 15rpx;
+  font-family:'Microsoft YaHei';
+}
+.tips_warp_title{
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+  font-weight: 600;
+}
+.tips_warp_Receipt{
+  font-size: 30rpx;
+margin-bottom: 10rpx;
+}
+.tips_list{
+   font-size: 30rpx;
+}
+.tips_Uname, .tips_phoneNum ,.tips_address{
+  margin: 15rpx;
+}
+.tips_btn{
+  display: flex;
+  flex-direction: row;
+
+}
+.tips_btnUpdate{
+ 
+	color: #D8497C;
+	font-size: 24rpx;
+	padding: 15rpx;
+  text-align: center;
+  background:#fff;
+  border-radius:40rpx;
+  margin-bottom: 40rpx;
+  width: 250rpx;
+  letter-spacing:1rpx;
+  border:1rpx solid #D8497C;
+  margin: 0 auto;
+ 
+
+}
+.warp_btn,.warp_btn_ok{
+ width: 320px;
+  height: 50px;
+  font-size: 34rpx;
+  text-align: right;
+  padding-top: 30px;
+  padding-right: 30px;
+}
+.tips_btnConfirm{
+  	color: #D8497C;
+	font-size: 24rpx;
+	padding: 15rpx;
+  text-align: center;
+  background:#fff;
+  border-radius:40rpx;
+  margin-bottom: 40rpx;
+  width: 250rpx;
+  letter-spacing:1rpx;
+  border:1rpx solid #D8497C;
+  margin: 0 auto;
+}
+.tips_context{
+  margin: 15rpx;
+  margin-right: 20rpx;
+  font-size: 30rpx;
+  color: #8B8B8B;
+  padding-top: 20px;
+
+}

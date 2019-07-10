@@ -1,0 +1,85 @@
+
+<!--pages/welfareDetail/welfareDetail.wxml-->
+ <import src="../../wxParse/wxParse.wxml"/>
+ <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+   <view class='details_List' wx:for="{{taskList}}" wx:key="{{item.id}}">
+    <view class='duihuan'>
+        <view wx:if='{{item.Toexamine==0}}'>
+          <!-- <view class='news_comment' wx:if='{{item.isgoods==0}}'> -->
+            <text class='txt_commentCount'>审核中</text>
+          <!-- </view> -->
+        </view>
+          <view class='news_comment' wx:elif='{{item.Toexamine==1}}'>
+            <!-- <text class='txt_commentCount'>任务进行中</text> -->
+            <view class='news_comment' wx:if='{{item.isgoods==0}}'>
+              <text class='txt_commentCount'>待发货</text>
+            </view>
+            <view class='news_comment' wx:elif='{{item.isgoods==1}}'>
+              <text class='txt_commentCount'>已发货，请注意查收</text>
+            </view>
+            <view class='news_comment' wx:elif='{{item.isgoods==2}}'>
+              <text class='txt_commentCount'>已收货，请按规则完成任务，等待审核</text>
+            </view>
+          </view>
+          <view class='news_comment' wx:elif='{{item.Toexamine==2}}'>
+            <text class='txt_commentCount'>任务已完成</text>
+          </view>
+          <view class='news_comment' wx:else='{{item.Toexamine==3}}'>
+            <text class='txt_commentCount'>任务失败，原因：{{item.Toexa_Reason}}</text>
+          </view>
+    </view>
+    <view class='address_list'>
+      <view class='address_item_ui'>
+        <view class='userName'><text>{{item.userName}}</text></view>
+        <view class='phonetemp'><text>{{item.phoneNum}}</text></view>
+      </view>
+      <view class='address_detail_ui'>
+        <view class='ressTxt'>{{item.city}} {{item.province}} {{item.address_Details}}</view>
+      </view>
+    </view>
+    <view class='Image_txtList'>
+      <image src='{{imgUrl}}{{item.imagesUrl}}' class='news_img' mode='aspectFill'></image>
+      <view class='row_item'>
+        <view class='titName'> {{item.Product_Name}}</view>
+        <view class='detailsNames'>
+          <text>佣金：</text>
+          <text style='  color: #D8497C'> ￥{{item.taskCommisNum}}</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+<view class='task_Requirement'>
+  <view class='taskItems'>
+    <view class='task_titleName'>任务流程</view>
+    <view class='task_mycontent'><text>{{app_rules}}</text></view>
+  </view>
+</view>
+<view class='task_list_ul'>
+  <view class='taskContext'>
+    <view wx:if="{{isgoods==2}}">
+      <view class='ui_list_task_one'>已收货</view>
+      <view class='imagesize'><image src='https://www.izhuangsha.com/api/images/btn_botton.png'></image></view>
+      <view wx:if="{{experience==0}}">
+        <view class='ui_list_task_two' bindtap='isexperience'>体验未提交</view>
+      </view>
+      <view wx:else="{{experience==1}}">
+        <view class='ui_list_task_two1'>体验已提交</view>
+      </view>
+      <view class='imagesize'><image src='https://www.izhuangsha.com/api/images/btn_botton.png'></image></view>
+      <view wx:if="{{questionnaire==0}}">
+        <view class='ui_list_task_Three' bindtap='questionnaireBind'>问卷未提交</view>
+      </view>
+      <view wx:if="{{questionnaire==1}}">
+        <view class='ui_list_task_Three1'>问卷已提交</view>
+      </view>
+    </view>
+    <view wx:else="{{isgoods}}">
+      <view class='ui_list_task_one' bindtap='isokgoods'>确认收货</view>
+    </view>
+    
+  </view>
+</view>

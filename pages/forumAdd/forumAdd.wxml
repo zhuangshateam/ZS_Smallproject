@@ -1,0 +1,50 @@
+<!--pages/forumAdd/forumAdd.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText" bindtap='binReturn'>返回</view>
+  <view slot="content">匿名讨论</view>
+</cu-custom>
+
+<form bindsubmit='formSubmit' report-submit='true'>
+  <!-- 经验 -->
+  <view class="cu-form-group">
+    <text class="title">标题：</text>
+    <input name="title" type="text" placeholder="请输入标题名称" bindblur="titleBlurFocus" value='{{form_info}}'></input>
+  </view>
+  <!-- 内容 -->
+  <view class="cu-form-group pr" hidden='{{ishidden}}'>
+    <textarea name="textarea" class='BA_groud_body' value='{{form_info}}' placeholder="请输入..." minlength="{{min}}" maxlength="{{max}}" bindinput="txt_inputs" show-confirm-bar='false'></textarea>
+    <text class="currentWordNumber pa">{{currentWordNumber|0}}/{{max}}</text>
+  </view>
+  <!-- 图片上传 -->
+  <view class="cu-bar bg-white border_top">
+    <view class="action">
+      图片上传
+    </view>
+    <view class="action">
+      {{uploadimgs.length}}/4
+    </view>
+  </view>
+  <view class="group-body">
+    <view class="img-upload">
+      <view class="img-add" bindtap="handleTap"></view>
+      <view class="img-item" bindlongtap="editImage" wx:for="{{uploadimgs}}" wx:key="{{item.id}}">
+        <icon type="clear" size="20" color="red" style="display:{{editable?'block':'none'}}" bindtap="deleteImg" data-index="{{index}}" />
+        <image src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="handleImagePreview"></image>
+      </view>
+      <cropper imageSrc="{{imageSrc}}" enableScale="{{true}}" isCircleCrop="{{false}}" ratio="{{1.7/2.5}}" bind:cropperDone="cropperDone" bind:cropperCancel="cropperCancel" bind:cropperFail="cropperFail"></cropper>
+    </view>
+  </view>
+
+
+  <view class="cu-form-group border_top">
+    <view class="title">是否匿名</view>
+    <switch class="red sm" checked="{{isChecked}}" bindchange="switch1Change"></switch>
+  </view>
+  <view class="margin-top">
+    <button formType="submit" loading='{{loading}}' class="btn-block btn-red">确 认 发 表</button>
+  </view>
+</form>
+
+<loading hidden="{{submitHidden}}">
+  正在提交...
+</loading>

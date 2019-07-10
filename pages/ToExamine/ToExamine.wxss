@@ -1,0 +1,130 @@
+/*列表*/
+
+.news-list{
+  margin-top: 10rpx;
+  border-bottom:0.5rpx solid #dddddd;
+  display:  flex;
+  width: 100%;
+  background-color: #FFFFFF;
+padding-bottom: 10rpx;
+}
+.news_img{
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  margin-left: 20rpx;
+  border-radius:50%;overflow:hidden;
+}
+.txt_nickname{
+  display:flex;
+  width: 130rpx;
+  height: 130rpx;
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-content:center;
+}
+.txt_nickname text{
+  width: 140rpx;
+  text-align: center;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+margin-right: 15rpx;
+overflow:hidden;
+    display: -webkit-box;
+  text-overflow:ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  color: #D8497C;
+
+
+}
+.news-list-right{
+  /* padding-left:40rpx; */
+  padding-top: 10rpx;
+  width:67%;
+}
+.news-list-right text{
+  display: block;
+}
+.news-title{
+  font-size:30rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-weight:bold;
+  color: #3a3a3a;
+}
+.news-ProductNmae{
+   font-size: 22rpx;
+}
+.news-text{
+  /* margin-top: 20rpx; */
+  font-size: 22rpx;
+}
+/*控制text行数*/
+.news-list-right text{
+  display: -webkit-box;
+    font-size:28rpx;
+    color:#000000;
+    line-height: 40rpx;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:3;
+    overflow: hidden;
+    text-overflow:ellipsis;
+
+}
+
+.Mark{
+  position:absolute; 
+  margin-top: 10rpx;
+  width: 170rpx;
+  /* height: 50rpx; */
+  right: 15rpx;
+  border-top-left-radius:10%;
+  border-bottom-left-radius: 10%;
+   padding-bottom: 5rpx;
+   text-align: right;
+}
+.color_Mark text{
+  font-size: 28rpx;
+color: #01D867;
+margin-left: 15rpx;
+
+}
+
+
+
+/*控制text行数*/
+.news-list-right text{
+  display: -webkit-box;
+    font-size:28rpx;
+    color:#000000;
+    line-height: 40rpx;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:3;
+    overflow: hidden;
+    text-overflow:ellipsis;
+
+}
+/* 圆形悬浮按钮 */
+.round-click{
+    height: 120rpx;
+    width: 120rpx;
+    background-color: #D8497C;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 120rpx;
+    right: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+}
+.round-click navigator{
+    font-size: 32rpx;
+    max-width: 80rpx;
+    color: #fff;
+    text-align: center;
+}

@@ -1,0 +1,75 @@
+<!--pages/welfareDetail/welfareDetail.wxml-->
+ <import src="../../wxParse/wxParse.wxml"/>
+ <view wx:if='{{isshare==0}}'>
+ <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">佣金任务</view>
+</cu-custom>
+</view>
+<view wx:elif='{{isshare==1}}'>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+<view slot="backText" catchtap='backHome'>返回</view>
+<view slot="content">佣金任务</view>
+</cu-custom>
+</view>
+<view class='main'>
+   <block wx:for="{{taskList}}" wx:key="index" wx:for-item="items">
+    <image src="{{imgUrl}}{{items.imagesUrl}}" class="slide-image" bindtap='previewImg'/>
+  <view class='titleList'>
+    <view class='titleNmae'>{{items.Product_Name}}</view>
+    <view class='retail_content'>零售指导价:<text class='txt_Number'>￥{{items.Retail_Price}}</text> </view>
+  </view>
+    <!-- 任务佣金 -->
+   <view class='section_item1'>
+      <view class='parameter_classification_two'>
+        <view  class='Specifications'>任务佣金</view><view class='Specifications_content1'>￥{{items.taskCommisNum}}</view>
+      </view>
+  </view>  
+  <!-- 中间参数 -->
+  <view class='section_item'>
+      <view class='parameter_classification_two'>
+        <view  class='Specifications'>规格</view><view class='Specifications_content'>{{items.Product_Specifications}}</view>
+      </view>
+      <view class='parameter_classification_Three'>
+        <view class='Effect'>功效</view>
+        <view class='Effect_content'>{{items.Main_functions}}</view>
+      </view>
+  </view>  
+  <!-- 任务要求 -->
+   <view class='section_item_rules'>
+      <view class='parameter_app_rules'>
+        <view class='Effect_rules'>任务要求</view>
+        <text class='Effect_content'>{{items.app_rules}}</text>
+      </view>
+  </view>
+  <!-- 底部产品详情 -->
+  <view class='bottomDetails_List'>
+    <view class='bd_li'>
+    <view class='Details_Names'>
+      <view class='bolck_comm'></view>
+      <view class='DetailsTitle'><text>产品详情</text></view>
+    </view>
+    <view class='Details_content'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+      <!-- <rich-text nodes="{{nodes}}" bindtap="tap"></rich-text> -->
+      <!-- <text class='txt_detailsContext'>{{items.Details_introduce}}</text> -->
+    </view>
+    <view class='Details_ImgArray' wx:for="{{imgLists}}" wx:for-item="img">
+      <image src='{{img.imagesUrl}}' mode='widthFix'></image>
+    </view> 
+  </view></view>
+  <view class='add_btn' wx:if='{{items.task_quantity > 0}}'>
+  <!-- bindtap='getUserSubm' -->
+  <form bindsubmit="formSubmit" report-submit='true' >
+    <button class='btn'  loading='{{loading}}' form-type="submit">
+        申请任务
+    </button>
+</form>
+  </view>
+   <view class='add_btn' wx:else='{{items.task_quantity==0}}'>
+    <button class='btn_end'>
+        已结束
+    </button>
+  </view>
+  </block>  
+</view>

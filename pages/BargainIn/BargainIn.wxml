@@ -1,0 +1,84 @@
+<!--pages/BargainIn/BargainIn.wxml-->
+<cu-custom bgColor="bg-gradual-pink">
+	<view slot="content">妆啥</view>
+</cu-custom>
+<view class='main'>
+  <view class='top_main'>
+    <image class="tixian-img" src="https://www.izhuangsha.com/api/images/Bargain_bj.png"></image>
+    <view class='userImgurl'>
+      <image src='{{headimgurl}}'></image>
+      <text style='  color: #fff'> {{nickname}}</text>
+    </view>
+    <view class='details_List' wx:for="{{dlist}}" wx:key="{{item.id}}">
+      <view class='userName_details'>我想要这件宝贝，快来帮我砍积分</view>
+      <view class='Image_txtList'>
+        <image src='{{imageurl}}{{item.imagesUrl}}'></image>
+        <view class='row_item'>
+          <view class='titName'> {{item.exchange_Name}}</view>
+          <view class='detailsNames'>
+            <image src='https://www.izhuangsha.com/api/images/integral1.png'></image>
+            <text> {{item.IntegralNum}}</text>积分
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='details_list2'>
+    <view class='btn_Bargain' catchtap='helpbindata' wx:if='{{isBargain==0}}'>帮TA砍积分</view>
+    <view class='btn_Bargain' catchtap='helMeTo' wx:else='{{isBargain>0}}'>我也想要</view>
+     <!-- <block wx:for="{{dlist}}" hidden='{{userCount==0?true:false}}'> -->
+    <view class='bargain_item_center'>
+      <view class='userinfoName_ils'>已有{{userCount}}位好友帮TA砍掉<text style='  color: #D8497C'>{{integralNum}}</text>积分</view>
+      <view wx:for="{{userList}}" wx:for-item="items" hidden='{{userCount==0?true:false}}'>
+        <view class='us_bargain' >
+                <view class='flex-wrp-row item_usin'>
+                  <image src='{{items.headimgurl}}'></image>
+                    <!-- 昵称与时间 -->
+                    <view class='Double_goods flex-wrp-row'>
+                      <view class='goods_Usernickname'>
+                        <view>{{items.nickname}} </view>
+                        <view class='crit_img_list' wx:if='{{items.isCrit=="true"}}'>
+                          <view class='goods_Crit'>新人暴击</view>
+                          <image src='https://www.izhuangsha.com/api/images/Crit.png'></image>
+                        </view>
+                      </view>
+                      <view class='datetime_good'>{{items.CreateTime}}</view>
+                    </view>
+                    <!-- 砍掉多少分 -->
+                    <view class='eh_BargainNum flex-wrp-row'>
+                      <view><image src='https://www.izhuangsha.com/api/images/kanjifen.png'></image></view>
+                      <view> 砍 <text class='bg_price'>{{items.Bargain_price}}</text>积分</view>
+                    </view>
+                </view> 
+          </view>
+          </view>
+          <view class='Load_more' wx:if="{{loading==true}}" hidden='{{isshow}}'>
+            <view class='load_name' catchtap='loadmore' >{{loadText}}</view>
+            <image src='https://www.izhuangsha.com/api/images/bot_bottom1.png' hidden='{{imgHIden}}'></image>
+          </view>
+          <view class='Load_more' wx:else="{{loading==false}}" >
+            <image src='https://www.izhuangsha.com/api/images/loading6.gif'></image>
+          </view>
+    </view>
+  </view> 
+  <!-- 固定按钮 -->
+    <view class='btn_fixed'>
+      <view class='home_btn' catchtap='goHome'>
+        <image src='https://www.izhuangsha.com/api/images/index_btn1.png'></image>
+        <text class='txt_home'>更多福利</text>
+      </view>
+      <view class='btn_exchange' catchtap='paymentBtn'>发起我的砍积分</view>
+      <view class='btn_CutInteg' catchtap='showModal'>
+        <button class="zanbtn shared" open-type="share" hover-class="none"> </button>
+        <image src='https://www.izhuangsha.com/api/images/share_btn1.png' class=""></image>
+        <text class='txt_CutInteg'>分 享</text>
+      </view>
+
+    
+    </view>
+</view>
+<view class="body-view">
+         <loading hidden="{{hidden}}">
+             加载中...
+         </loading> 
+</view>

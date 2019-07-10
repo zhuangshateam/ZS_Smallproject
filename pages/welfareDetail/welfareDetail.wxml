@@ -1,0 +1,85 @@
+<!--pages/welfareDetail/welfareDetail.wxml-->
+ <import src="../../wxParse/wxParse.wxml"/>
+ <view wx:if='{{isshare==0}}'>
+ <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">免费试用</view>
+</cu-custom>
+</view>
+<view wx:elif='{{isshare==1}}'>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+<view slot="backText" catchtap='backHome'>返回</view>
+<view slot="content">免费试用</view>
+</cu-custom>
+</view>
+
+<view class='main'>
+  <!-- <swiper class="main_swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000" >
+    <block wx:for="{{picList}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" bindtap='previewImg' data-previewurl='{{picList}}'
+        data-currenturl='{{item}}'/>
+      </swiper-item>   
+    </block>  
+  </swiper> -->
+  <block wx:for="{{picList}}" wx:key="index">
+        <image src="{{item}}" class="slide-image" bindtap='previewImg' data-previewurl='{{picList}}'
+        data-currenturl='{{item}}'/>
+    </block>  
+    <!-- <image class="i-img" src="{{imagesUrl}}"></image> -->
+   <block wx:for="{{dateilsList}}" wx:key="index" wx:for-item="items">
+  <view class='titleList'>
+    <view class='titleNmae'>{{items.Product_Name}}</view>
+    <view class='retail_content'>零售指导价:<text class='txt_Number'>￥{{items.Retail_Price}}</text> </view>
+    <!-- <view class='Number_visitors'><image src='https://www.izhuangsha.com/api/images/ClicksCount_product.png'></image><text class='txt_ClicksCountNum'>{{items.ClicksCount}}</text><view class='txtContent_view'>人看过</view></view> -->
+  </view>
+  <!-- 中间参数 -->
+  <view class='section_item'>
+      <!-- <view class='parameter_classification_one'>
+        <view class='classification'>分类</view><view class='classification_content'>眼部彩妆</view>
+      </view> -->
+      <view class='parameter_classification_two'>
+        <view  class='Specifications'>规格</view><view class='Specifications_content'>{{items.Product_Specifications}}</view>
+      </view>
+      <view class='parameter_classification_Three'>
+        <view class='Effect'>功效</view><view class='Effect_content'>{{items.Main_functions}}</view>
+      </view>
+  </view>  
+  <!-- 申请规则 -->
+   <view class='section_item_rules'>
+      <view class='parameter_app_rules'>
+        <view class='Effect_rules'>申请规则</view>
+        <text class='Effect_content'>{{items.app_rules}}</text>
+      </view>
+  </view>
+  <!-- 底部产品详情 -->
+  <view class='bottomDetails_List'>
+    <view class='bd_li'>
+    <view class='Details_Names'>
+      <view class='bolck_comm'></view>
+      <view class='DetailsTitle'><text>产品详情</text></view>
+    </view>
+    <view class='Details_content'>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+      <text class='txt_detailsContext' wx:if='{{items.openid==null}}'>{{items.Details_introduce}}</text>
+    </view>
+    <view class='Details_ImgArray' wx:for="{{imgLists}}" wx:for-item="img">
+      <image src='{{img.imagesUrl}}' mode='widthFix'></image>
+    </view> 
+  </view></view></block>  
+  <view class='add_btn' wx:if='{{copNumber > numOk}}'>
+    <button class='btn'  loading='{{loading}}' bindtap='getUserSubm'>
+        申请试用
+    </button>
+  </view>
+   <view class='add_btn' wx:else='{{copNumber===numOk}}'>
+    <button class='btn_end'>
+        已领完
+    </button>
+  </view>
+  <!-- <view class="body-view">
+         <loading hidden="{{hidden}}">
+             加载中...
+         </loading>
+     </view>  -->
+</view>

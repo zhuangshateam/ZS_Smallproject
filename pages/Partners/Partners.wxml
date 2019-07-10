@@ -1,0 +1,134 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText" bindtap='binReturn'>返回</view>
+  <view slot="content">品牌合作</view>
+</cu-custom>
+
+<!-- 企业名片 -->
+<view class='partners_card'>
+  <block wx:for="{{productList}}" wx:key="productList" wx:for-index="idx" wx:for-item="item">
+ 
+    <view class='card_top'>
+      <view class='tLeft'>
+        <view class='logo'>
+          <!-- <view class='noLogo'>公司logo</view> -->
+          <image class='beLogo' src='{{userInfo.avatarUrl}}'></image>
+        </view>
+        <view class='info'>
+          <view class='linkman' wx:if='{{item.UserNames == "" }}'>未填写联系人</view>
+          <view class='linkman' wx:else>{{item.UserNames}}</view>
+          <view class='company' wx:if='{{item.CorporateName == ""}}'>未填写公司信息</view>
+          <view class='company' wx:else>{{item.CorporateName}}</view>
+        </view>
+      </view>
+      <view class='trigth'>
+        <text wx:if='{{item.Toexamine==0}}'>审核中</text>
+        <text wx:elif='{{item.Toexamine==1}}'>审核通过</text>
+        <text wx:elif='{{item.Toexamine==2}}'>审核未通过</text>
+      </view>
+    </view>
+    <view class='card_middle'>
+      <text>一键发布产品试用，免费对接海量BA</text>
+    </view>
+    <view class='card_bottom'>
+      <view class='bLeft' wx:if='{{item.Toexamine==1}}'>
+        <text>{{item.CreateTime}}</text>
+      </view>
+      <view class='bRight'>
+          <view class='changeInfo' wx:if='{{isApply}}' catchtap='toApply'>
+            <image src='https://www.izhuangsha.com/api/images/cooperation_img/changeInfo_icon.png'></image>
+          </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+
+<!-- 合作说明 -->
+<block wx:for="{{productList}}" wx:key="productList" wx:for-index="idx" wx:for-item="item">
+  <view class='flow' wx:if='{{item.Toexamine == " "}}'>
+    <view class='title'>合作流程</view>
+    <view class='line_ms'></view>
+    <view class='flow_text'>
+      <text>1.点击完善信息</text>
+      <text>2.填写资料，提交审核</text>
+      <text>3.审核通过后即可发布产品</text>
+      <text>4.在福利区可以看到展示的产品</text>
+    </view>
+    <view class='btnWrap'>
+      <button class="cu-btn bg-red " role="button" aria-label="" aria-disabled="false" bindtap='toApply'>完善信息</button>
+    </view>
+  </view>
+</block>
+
+<!-- 我的产品 -->
+<!-- <block wx:for="{{productList}}" wx:key="productList" wx:for-index="idx" wx:for-item="item">
+ -->
+<view class='flow' wx:if='{{isApply}}'>
+  <view class='title'>我的产品</view>
+  <view class='line_ms'></view>
+  <view class='noProduct' wx:if='{{isProduct}}'>
+    <image src='https://www.izhuangsha.com/api/images/cooperation_img/no_product.png'></image>
+  </view>
+
+
+  <scroll-view scroll-y='true' height='720rpx'>
+    <view class="app-moduler" wx:for="{{ptList}}" wx:key="ptList" wx:for-index="idx" wx:for-item="item">
+      <navigator url="/pages/welfareUpdate/welfareUpdate?id={{item.id}}&guid={{item.guid}}" class="mod-item">
+        <view class="news-list" bindlongpress="deleteImage" data-index="{{item.id}}" data-guid='{{item.guid}}'>
+          <view class="itemP_top">
+            <view class='txt_nickname'>
+              <image src="{{item.imagesUrl}}" class='news_img'></image>
+            </view>
+            <view class="news-list-right">
+              <view class="news-title">
+                <text>{{item.Product_Name}}</text>
+              </view>
+              <view class="news_info" display:flex>当前申请人数：
+                <text style='color:red; font-size: 26rpx;'>{{item.appNumber}}</text>
+              </view>
+              <view class='list_grou item_i'>
+                <view class="news_info1" display:flex>已通过申请人数：
+                  <text style='color:red; font-size: 26rpx;'>{{item.NumOK}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='itemP_bottom'>
+            <view class='botLeft'>
+              <view class='news_comment' wx:if='{{item.isShow==0}}'>
+                <text class='txt_commentCount'>已展示</text>
+              </view>
+              <view class='news_comment' wx:else='{{item.isShow==1}}'>
+                <text class='txt_commentCount'>已屏蔽</text>
+              </view>
+            </view>
+            <view class='botRight'>
+              <view class='del'>
+                <image src="https://www.izhuangsha.com/api/images/anonymous/del.png"></image>
+              </view>
+              <view class='change'>
+                <image src="https://www.izhuangsha.com/api/images/cooperation_img/change_icon.png"></image>
+              </view>
+              <view class='isHidden'>
+                <image src="{{item.isShow == 1?'https://www.izhuangsha.com/api/images/cooperation_img/hiddden_icon.png':'https://www.izhuangsha.com/api/images/cooperation_img/show_icon.png'}}"></image>
+              </view>
+            </view>
+
+          </view>
+        </view>
+
+      </navigator>
+    </view>
+  </scroll-view>
+
+
+
+
+
+
+  <view class='btnWrap'>
+    <button class="cu-btn bg-red " role="button" aria-label="" aria-disabled="false" bindtap='toAddProducts'>发布产品</button>
+  </view>
+</view>
+<!-- 
+</block> -->

@@ -1,0 +1,38 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+<view class="appointment">
+  <view class="app-moduler" wx:for="{{trialList}}" wx:key="trialList" wx:for-index="idx" wx:for-item="item">
+    <navigator url="/pages/welfareDetail/welfareDetail?id={{item.Release_Product_us_ID}}&guid={{item.guid}}" class="mod-item">
+      <view class="news-list">
+          <view class='txt_nickname'>
+                <image src="{{item.imagesUrl}}" class='news_img'></image> 
+                <!-- <text class='txt_nickname_title'>{{item.Product_Name}}</text> -->
+              </view>
+              <view class="news-list-right">
+                  <text class="news-title">{{item.Product_Name}}</text>
+                  <view class='news_grou'>申请理由:<text style='color:#888; font-size: 26rpx;'>{{item.address_txt}}</text></view>
+                  <view class='list_grou item_i'>
+                    
+                    <!-- <view class="news_info" display:flex>申请人数：<text style='color:red; font-size: 26rpx;'>{{item.NumOk}}</text></view> -->
+                    <view class='news_comment' wx:if='{{item.Toexamine==0}}'>
+                      <text class='txt_commentCount' style='color:red;font-size: 22rpx;'>待审核</text>
+                    </view>
+                    <view class='news_comment' wx:elif='{{item.Toexamine==1}}'>
+                      <text class='txt_commentCount' style='color:red;font-size: 22rpx;'>已通过，注意收货！</text>
+                    </view>
+                    <view class='news_comment' wx:elif='{{item.Toexamine==2}}'>
+                      <text class='txt_commentCount' style='color:red;font-size: 22rpx;'>未通过原因：{{item.Toexa_Reason}}</text>
+                    </view>
+                  </view>
+              </view>
+       </view>
+    </navigator>
+
+   </view>
+</view>
+<view class='empty_img' wx:if="{{isCont==0}}">
+      <image src='/images/empty.png'></image>
+      <text>空空如也~</text>
+</view>

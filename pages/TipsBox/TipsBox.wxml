@@ -1,0 +1,18 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">妆啥</view>
+</cu-custom>
+<view class='Tips_main'>
+  <view class='tips_warp_title'>恭喜您获得该产品的免费体验</view>
+  <view class='tips_warp_Receipt'>请核对您的收件信息：</view>
+  <view class='tips_list'>
+    <view class='tips_Uname'>姓名：{{userName}}</view>
+    <view class='tips_phoneNum'>手机号：{{phoneNum}}</view>
+    <view class='tips_address'>地址：{{city}} {{province}} {{address}}</view>
+  </view>
+  <view class='tips_btn'>
+    <view class='warp_btn'><view class='tips_btnUpdate' bindtap='addressUpdate'> 修改</view></view>
+    <view class='warp_btn_ok'><view class='tips_btnConfirm' bindtap='determine'>确认</view></view>
+  </view>
+  <view class='tips_context'>请注意查收,并在体验后分享体验心得,你将优先获得下一次的免费的产品体验。</view>
+</view>

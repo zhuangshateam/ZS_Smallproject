@@ -18,7 +18,7 @@
 </template>
 
 <template name="wxParseImg">
-  <image class="{{item.classStr}} wxParse-{{item.tag}}" data-from="{{item.from}}" data-src="https://bml.sulei.site/{{item.attr.src}}" data-idx="{{item.imgIndex}}" src="https://bml.sulei.site/{{item.attr.src}}" mode="aspectFit" bindload="wxParseImgLoad" bindtap="wxParseImgTap" mode="widthFix" style="width:{{item.width}}px;"
+  <image class="{{item.classStr}} wxParse-{{item.tag}}" data-from="{{item.from}}" data-src="{{item.attr.src}}" data-idx="{{item.imgIndex}}" src="{{item.attr.src}}" mode="aspectFit" bindload="wxParseImgLoad" bindtap="wxParseImgTap" mode="widthFix" style="width:{{item.width}}px;"
   />
 </template>
 
@@ -27,7 +27,7 @@
     <block wx:for="{{item.textArray}}" wx:key="">
       <block class="{{item.text == '\\n' ? 'wxParse-hide':''}}" wx:if="{{item.node == 'text'}}">{{item.text}}</block>
       <block wx:elif="{{item.node == 'element'}}">
-        <image class="wxEmoji" src="https://bml.sulei.site/{{item.baseSrc}}{{item.text}}" />
+        <image class="wxEmoji" src="{{item.baseSrc}}{{item.text}}" />
       </block>
     </block>
   </view>
@@ -121,7 +121,7 @@
   </block>
 
   <!--判断是否是文本节点-->
-  <block wx:elif="{{item.node == 'text'&&item.text!='\r\t'&&item.text!='\r'}}">
+  <block wx:elif="{{item.node == 'text'}}">
     <!--如果是，直接进行-->
     <template is="WxEmojiView" data="{{item}}" />
   </block>
@@ -199,7 +199,7 @@
   </block>
 
   <!--判断是否是文本节点-->
-  <block wx:elif="{{item.node == 'text'&&item.text!='\r\t'&&item.text!='\r'}}">
+  <block wx:elif="{{item.node == 'text'}}">
     <!--如果是，直接进行-->
     <template is="WxEmojiView" data="{{item}}" />
   </block>
@@ -276,7 +276,7 @@
   </block>
 
   <!--判断是否是文本节点-->
-  <block wx:elif="{{item.node == 'text'&&item.text!='\r\t'&&item.text!='\r'}}">
+  <block wx:elif="{{item.node == 'text'}}">
     <!--如果是，直接进行-->
     <template is="WxEmojiView" data="{{item}}" />
   </block>
@@ -352,7 +352,7 @@
   </block>
 
   <!--判断是否是文本节点-->
-  <block wx:elif="{{item.node == 'text'&&item.text!='\r\t'&&item.text!='\r'}}">
+  <block wx:elif="{{item.node == 'text'}}">
     <!--如果是，直接进行-->
     <template is="WxEmojiView" data="{{item}}" />
   </block>
@@ -428,7 +428,7 @@
   </block>
 
   <!--判断是否是文本节点-->
-  <block wx:elif="{{item.node == 'text'&&item.text!='\r\t'&&item.text!='\r'}}">
+  <block wx:elif="{{item.node == 'text'}}">
     <!--如果是，直接进行-->
     <template is="WxEmojiView" data="{{item}}" />
   </block>
@@ -504,7 +504,7 @@
   </block>
 
   <!--判断是否是文本节点-->
-  <block wx:elif="{{item.node == 'text'&&item.text!='\r\t'&&item.text!='\r'}}">
+  <block wx:elif="{{item.node == 'text'}}">
     <!--如果是，直接进行-->
     <template is="WxEmojiView" data="{{item}}" />
   </block>
@@ -580,7 +580,7 @@
   </block>
 
   <!--判断是否是文本节点-->
-  <block wx:elif="{{item.node == 'text'&&item.text!='\r\t'&&item.text!='\r'}}">
+  <block wx:elif="{{item.node == 'text'}}">
     <!--如果是，直接进行-->
     <template is="WxEmojiView" data="{{item}}" />
   </block>
@@ -655,7 +655,7 @@
   </block>
 
   <!--判断是否是文本节点-->
-  <block wx:elif="{{item.node == 'text'&&item.text!='\r\t'&&item.text!='\r'}}">
+  <block wx:elif="{{item.node == 'text'}}">
     <!--如果是，直接进行-->
     <template is="WxEmojiView" data="{{item}}" />
   </block>
@@ -731,7 +731,7 @@
   </block>
 
   <!--判断是否是文本节点-->
-  <block wx:elif="{{item.node == 'text'&&item.text!='\r\t'&&item.text!='\r'}}">
+  <block wx:elif="{{item.node == 'text'}}">
     <!--如果是，直接进行-->
     <template is="WxEmojiView" data="{{item}}" />
   </block>
@@ -807,7 +807,7 @@
   </block>
 
   <!--判断是否是文本节点-->
-  <block wx:elif="{{item.node == 'text'&&item.text!='\r\t'&&item.text!='\r'}}">
+  <block wx:elif="{{item.node == 'text'}}">
     <!--如果是，直接进行-->
     <template is="WxEmojiView" data="{{item}}" />
   </block>
@@ -883,7 +883,7 @@
   </block>
 
   <!--判断是否是文本节点-->
-  <block wx:elif="{{item.node == 'text'&&item.text!='\r\t'&&item.text!='\r'}}">
+  <block wx:elif="{{item.node == 'text'}}">
     <!--如果是，直接进行-->
     <template is="WxEmojiView" data="{{item}}" />
   </block>
@@ -959,7 +959,7 @@
   </block>
 
   <!--判断是否是文本节点-->
-  <block wx:elif="{{item.node == 'text'&&item.text!='\r\t'&&item.text!='\r'}}">
+  <block wx:elif="{{item.node == 'text'}}">
     <!--如果是，直接进行-->
     <template is="WxEmojiView" data="{{item}}" />
   </block>

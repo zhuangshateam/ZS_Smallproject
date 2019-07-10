@@ -1,0 +1,85 @@
+<view wx:if='{{isshare==0}}'>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText" bindtap='binReturn'>返回</view>
+	<view slot="content">课程</view>
+</cu-custom>
+</view>
+<view wx:elif='{{isshare==1}}'>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+<view slot="backText" catchtap='backHome'>返回</view>
+<view slot="content">佣金任务</view>
+</cu-custom>
+</view>
+<view class='mian'>
+  <view class='curr_warp'>
+    <view class="photo_wrap_curr">
+      <view class='curr_left'><image src="{{img}}{{imgUrl}}" class="photo" mode="aspectFill"></image></view>
+      <view class='curr_right_item'>
+        <view class='titleName'>{{titleName}}</view>
+        <view class='content_curr'>{{brief}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="goods-tab-box">
+    <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">简介</view>
+        <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">课程</view>
+        <!-- <view class="goods-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">商品详情</view> -->
+        <view class="goods-content">
+            <view wx:if="{{curIndex === 0}}">
+              <view class='brief_curr'>
+                <view class='br_txt_item'><text> {{brief_content}}</text></view></view>
+            </view>
+            <view wx:if="{{curIndex === 1}}">
+               <view class='all_operation au_items'>
+                 <view class='allIn all_operation' bindtap='playAll' data-index='{{item.id}}'>
+                   <image src='https://www.izhuangsha.com/api/images/play66.png' class='icon-left' mode='aspectFit'></image>
+                   <text> 全部播放</text>
+                </view>
+                <view class='right_autoCurr all_operation'>共{{audioListCount}}集</view>
+              </view> 
+              <view class="person-line1"></view>
+              <view wx:for="{{audioList}}" wx:key="id" wx:for-index="idx" class='wx_audioList'>
+              <view class='audiosBox' bindtap="listenerButtonPlay" data-id='{{item.id}}'  wx:if="{{bindexs!=item.id}}">
+                  <view class='sort_num'>{{item.orderNumber}}</view>
+                  <view class='audio_Name'><text> {{item.PlayName}}</text></view>
+
+                  <view class="audioOpen" >
+                    <image class='image2' src="https://www.izhuangsha.com/api/images/suspend.png" />
+                  </view>
+                  <!-- <view class="audioOpen" bindtap="listenerButtonPause" wx:else="{{bindexs==item.id}}">
+                    <image src="https://www.izhuangsha.com/api/images/play.png" />
+                  </view> -->
+              </view>
+              <view class='audiosBox' bindtap="listenerButtonPause" wx:else="{{bindexs==item.id}}">
+                  <view class='sort_num'>{{item.orderNumber}}</view>
+                  <view class='audio_Name'><text> {{item.PlayName}}</text></view>
+
+                  <!-- <view class="audioOpen" bindtap="listenerButtonPlay" data-id='{{item.id}}'  wx:if="{{bindexs!=item.id}}">
+                    <image class='image2' src="https://www.izhuangsha.com/api/images/suspend.png" />
+                  </view> -->
+                  <view class="audioOpen" >
+                    <image src="https://www.izhuangsha.com/api/images/play.png" />
+                  </view>
+              </view>
+              <view class='slid slid_audio' hidden='{{bindexs!=item.id?true:false}}'>
+                    <slider bindchange="sliderChange"  block-size="12px" step="2" value="{{offset}}" max="{{max}}" selected-color="#4c9dee" />
+                     <view class='slid_times'>
+                        <!-- <text class='times'>{{starttime}}</text> 进度时长 -->
+                      
+                        <text class='times'>{{item.DurationTime}}</text>   <!-- 总时长 -->
+                      </view>
+                </view>
+                 <view class="person-line"></view>
+            </view>
+            </view>
+            
+    </view>
+  </view>
+  <view class='label_bottom'> 
+    <view class='lable_title_top'>标签</view>
+    <view class='lable_mian'>
+      <view class='lable_red_in_one'>{{label_one}}</view>
+      <view class='lable_red_in_two'>{{label_two}}</view>
+    </view>
+  </view>
+</view>
