@@ -188,7 +188,6 @@ border-bottom:35rpx solid #F4F4F4;
 .Details_ImgArray image{
   width: 100%;
 }
-
 .add_btn{
     width: 100%;
     position: fixed;
@@ -201,7 +200,6 @@ border-bottom:35rpx solid #F4F4F4;
     background: #D8497C;
     color: #fff;
 }
-
 .btn_end{
 
     border-radius: 0rpx;
